@@ -12,7 +12,7 @@
             color: #fff;
             margin: 0;
             padding: 0;
-            padding-bottom: 60px; /* Added padding to prevent footer overlap */
+            padding-bottom: 60px;
         }
         header {
             background-color: #2a2a2a;
@@ -56,20 +56,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .section p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .social-links a {
-            display: inline-block;
-            margin: 10px 20px;
-            color: #d32f2f;
-            text-decoration: none;
-            font-size: 22px;
-            font-family: 'Pirata One', cursive;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
         .button-container {
             text-align: center;
             margin: 20px 0;
@@ -87,10 +73,10 @@
         }
         .photo-container {
             text-align: center;
-            margin: 20px 0;
+            margin: 20px;
         }
         .photo-container img {
-            max-width: 200px; /* Adjust the size as needed */
+            max-width: 200px;
             height: auto;
             border: 5px solid #d32f2f;
             border-radius: 50%;
@@ -101,10 +87,45 @@
             text-align: center;
             padding: 20px;
         }
-        footer p {
-            font-size: 14px;
+        .crew-section {
+            display: none;
+            padding: 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+        .crew-section h2 {
+            color: #d32f2f;
+        }
+        .crew-member {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .crew-member img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #d32f2f;
+        }
+        .crew-member a {
+            color: #d32f2f;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
+    <script>
+        function toggleCrewSection() {
+            var crewSection = document.getElementById('crew-section');
+            if (crewSection.style.display === 'none' || crewSection.style.display === '') {
+                crewSection.style.display = 'block';
+            } else {
+                crewSection.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -117,16 +138,32 @@
     <div class="container">
         <div class="section" id="about">
             <h2>About Me</h2>
-            <p>Welcome to my official page! I'm SiegePirate, a dedicated YouTuber, TikToker, and Twitch Streamer. My passions include music, art, nature, history, warfare, and the US Navy. Join me on my adventures and get to know me! Who knows I tend to shock everyone.</p>
+            <p>Welcome to my official page! I'm SiegePirate AKA Thomas or T.J. for those close enough to call me that, but welcome one and all, feel free to stay aboard awhile. </p>
         </div>
         <div class="photo-container">
             <img src="Modern Siege by Ellow Mello.PNG" alt="SiegePirate Photo">
         </div>
         <div class="section" id="greeting">
-            <center><h2>It is my pleasure to greet you!</h2></center>
-            <p><center>Hello, I am your <em><strong>Captain</strong></em>.</center></p>
+            <h2>It is my pleasure to greet you!</h2>
+            <p>Hello, I am your <em><strong>Captain</strong></em>.</p>
             <div class="button-container">
                 <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
+                <button onclick="toggleCrewSection()">Meet My Crew</button>
+            </div>
+        </div>
+        <div id="crew-section" class="crew-section">
+            <h2>Meet The Crew</h2>
+            <div class="crew-member">
+                <img src="crew1.jpg" alt="First Mate">
+                <a href="https://twitch.tv/squidnuggette_gaming" target="_blank">Squidnuggette</a>
+            </div>
+            <div class="crew-member">
+                <img src="crew2.jpg" alt="Navigator">
+                <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
+            </div>
+            <div class="crew-member">
+                <img src="crew3.jpg" alt="Quartermaster">
+                <a href="https://example.com/quartermaster" target="_blank">Koris</a>
             </div>
         </div>
         <div class="section" id="social">
@@ -141,7 +178,8 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2024 SiegePirate. All rights reserved.</p>
+        <p>&copy; 2025 SiegePirate. All rights reserved.</p>
     </footer>
 </body>
 </html>
+
