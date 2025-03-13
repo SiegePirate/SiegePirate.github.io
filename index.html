@@ -96,21 +96,21 @@
         .crew-section h2, .teamxl-section h2 {
             color: #d32f2f;
         }
-        .crew-member, .teamxl-member {
+        .crew-member, .teamxl-links a {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 10px 0;
             font-size: 24px;
         }
-        .crew-member img, .teamxl-member img {
+        .crew-member img {
             width: 200px;
             height: auto;
             border-radius: 50%;
             margin-right: 20px;
             border: 2px solid #d32f2f;
         }
-        .crew-member a, .teamxl-member a {
+        .crew-member a, .teamxl-links a {
             color: #d32f2f;
             text-decoration: none;
             font-weight: bold;
@@ -144,20 +144,32 @@
         <div class="photo-container">
             <img src="Modern Siege by Ellow Mello.PNG" alt="SiegePirate Photo">
         </div>
+        <div class="section" id="greeting">
+            <h2>It is my pleasure to greet you!</h2>
+            <p><center>I'm The <em><strong>Captain</strong></em></center></p>
+            <div class="button-container">
+                <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
+                <button onclick="toggleCrewSection()">Meet The Crew</button>
+            </div>
+        </div>
+        <div id="crew-section" class="crew-section">
+            <h2>Meet The Crew</h2>
+            <div class="crew-member">
+                <img src="Squid.jpg" alt="First Mate">
+                <a href="https://twitch.tv/squidnuggette_gaming" target="_blank">Squidnuggette</a>
+            </div>
+            <div class="crew-member">
+                <img src="Pixxel1.jpg" alt="Navigator">
+                <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
+            </div>
+        </div>
         <div id="teamxl-section" class="teamxl-section">
             <h2>Team xL</h2>
-            <p>Welcome to the official Team xL section! Meet the members of our awesome team!</p>
-            <div class="teamxl-member">
-                <img src="Member1.jpg" alt="Team Member 1">
-                <a href="#">Member 1</a>
-            </div>
-            <div class="teamxl-member">
-                <img src="Member2.jpg" alt="Team Member 2">
-                <a href="#">Member 2</a>
-            </div>
-            <div class="teamxl-member">
-                <img src="Member3.jpg" alt="Team Member 3">
-                <a href="#">Member 3</a>
+            <p>Welcome to the official Team xL section! Here’s where you’ll find all things related to the crew and our projects.</p>
+            <div class="teamxl-links">
+                <a href="#">Team Roster</a>
+                <a href="#">Latest Projects</a>
+                <a href="#">Collab Streams</a>
             </div>
         </div>
     </div>
