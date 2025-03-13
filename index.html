@@ -87,30 +87,30 @@
             text-align: center;
             padding: 20px;
         }
-        .crew-section {
+        .crew-section, .teamxl-section {
             display: none;
             padding: 20px;
             background-color: #1a1a1a;
             text-align: center;
         }
-        .crew-section h2 {
+        .crew-section h2, .teamxl-section h2 {
             color: #d32f2f;
         }
-        .crew-member {
+        .crew-member, .teamxl-member {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 10px 0;
             font-size: 24px;
         }
-        .crew-member img {
+        .crew-member img, .teamxl-member img {
             width: 200px;
             height: auto;
             border-radius: 50%;
             margin-right: 20px;
             border: 2px solid #d32f2f;
         }
-        .crew-member a {
+        .crew-member a, .teamxl-member a {
             color: #d32f2f;
             text-decoration: none;
             font-weight: bold;
@@ -119,11 +119,11 @@
     <script>
         function toggleCrewSection() {
             var crewSection = document.getElementById('crew-section');
-            if (crewSection.style.display === 'none' || crewSection.style.display === '') {
-                crewSection.style.display = 'block';
-            } else {
-                crewSection.style.display = 'none';
-            }
+            crewSection.style.display = (crewSection.style.display === 'none' || crewSection.style.display === '') ? 'block' : 'none';
+        }
+        function toggleTeamXLSection() {
+            var teamXLSection = document.getElementById('teamxl-section');
+            teamXLSection.style.display = (teamXLSection.style.display === 'none' || teamXLSection.style.display === '') ? 'block' : 'none';
         }
     </script>
 </head>
@@ -134,6 +134,7 @@
     <nav>
         <a href="#about">About Me</a>
         <a href="#social">Social Media</a>
+        <a href="#" onclick="toggleTeamXLSection()">Team xL</a>
     </nav>
     <div class="container">
         <div class="section" id="about">
@@ -143,45 +144,20 @@
         <div class="photo-container">
             <img src="Modern Siege by Ellow Mello.PNG" alt="SiegePirate Photo">
         </div>
-        <div class="section" id="greeting">
-            <h2>It is my pleasure to greet you!</h2>
-            <p><center>I'm The <em><strong>Captain</strong></em></center></p>
-            <div class="button-container">
-                <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
-                <button onclick="toggleCrewSection()">Meet The Crew</button>
+        <div id="teamxl-section" class="teamxl-section">
+            <h2>Team xL</h2>
+            <p>Welcome to the official Team xL section! Meet the members of our awesome team!</p>
+            <div class="teamxl-member">
+                <img src="Member1.jpg" alt="Team Member 1">
+                <a href="#">Member 1</a>
             </div>
-        </div>
-        <div id="crew-section" class="crew-section">
-            <h2>Meet The Crew</h2>
-            <div class="crew-member">
-                <img src="Squid.jpg" alt="First Mate">
-                <a href="https://twitch.tv/squidnuggette_gaming" target="_blank">Squidnuggette</a>
+            <div class="teamxl-member">
+                <img src="Member2.jpg" alt="Team Member 2">
+                <a href="#">Member 2</a>
             </div>
-            <div class="crew-member">
-                <img src="Pixxel1.jpg" alt="Navigator">
-                <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
-            </div>
-            <div class="crew-member">
-                <img src="Korris1.jpg" alt="Quartermaster">
-                <a href="https://www.twitch.tv/korisowo" target="_blank">Koris</a>
-            </div>
-            <div class="crew-member">
-                <img src="Cubs.jpg" alt="Scallywag">
-                <a href="https://www.twitch.tv/highcubsttv_xl" target=_blank>Cubs</a>
-            </div>
-            <div class="crew-member">
-                <img src="Flowerchu.jpg" alt="Scallywag">
-                <a href="https://www.twitch.tv/flowerachu_xl" target=_blank>Flowerchu</a>
-            </div>
-        </div>
-        <div class="section" id="social">
-            <h2>Social Media</h2>
-            <div class="social-links">
-                <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
-                <a href="https://twitch.tv/SiegePirate" target="_blank">Twitch</a>
-                <a href="https://youtube.com/@SiegePirate" target="_blank">YouTube</a>
-                <a href="https://tiktok.com/@SiegePirate" target="_blank">TikTok</a>
-                <a href="https://patreon.com/SiegePirate" target="_blank">Patreon</a>
+            <div class="teamxl-member">
+                <img src="Member3.jpg" alt="Team Member 3">
+                <a href="#">Member 3</a>
             </div>
         </div>
     </div>
@@ -190,4 +166,3 @@
     </footer>
 </body>
 </html>
-
