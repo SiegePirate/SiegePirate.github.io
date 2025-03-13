@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiegePirate - Official Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Raleway', sans-serif;
@@ -57,26 +56,76 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .crew-member, .teamxl-member {
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .button-container button {
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            padding: 12px 12px;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: 'Pirata One', cursive;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .photo-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .photo-container img {
+            max-width: 200px;
+            height: auto;
+            border: 5px solid #d32f2f;
+            border-radius: 50%;
+        }
+        footer {
+            background-color: #2a2a2a;
+            color: #d32f2f;
+            text-align: center;
+            padding: 20px;
+        }
+        .crew-section, .teamXL-section {
+            display: none;
+            padding: 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+        .crew-section h2, .teamXL-section h2 {
+            color: #d32f2f;
+        }
+        .crew-member, .teamXL-member {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 10px 0;
             font-size: 24px;
         }
-        .crew-member img, .teamxl-member img {
+        .crew-member img, .teamXL-member img {
             width: 200px;
             height: auto;
             border-radius: 50%;
             margin-right: 20px;
             border: 2px solid #d32f2f;
         }
-        .crew-member a, .teamxl-member a {
+        .crew-member a, .teamXL-member a {
             color: #d32f2f;
             text-decoration: none;
             font-weight: bold;
         }
     </style>
+    <script>
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -84,20 +133,27 @@
     </header>
     <nav>
         <a href="#about">About Me</a>
-        <a href="#crew">Meet the Crew</a>
-        <a href="#teamxl">Team xL</a>
         <a href="#social">Social Media</a>
     </nav>
     <div class="container">
         <div class="section" id="about">
             <h2>About Me</h2>
-            <p>Welcome to my official page! I'm SiegePirate AKA Thomas or T.J. Feel free to stay aboard awhile.</p>
+            <p>Welcome to my official page! I'm SiegePirate AKA Thomas or T.J. for those close enough to call me that, but welcome one and all, feel free to stay aboard awhile. </p>
         </div>
         <div class="photo-container">
             <img src="Modern Siege by Ellow Mello.PNG" alt="SiegePirate Photo">
         </div>
-        <div class="section" id="crew">
-            <h2>Meet the Crew</h2>
+        <div class="section" id="greeting">
+            <h2>It is my pleasure to greet you!</h2>
+            <p><center>I'm The <em><strong>Captain</strong></em></center></p>
+            <div class="button-container">
+                <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
+                <button onclick="toggleSection('crew-section')">Meet The Crew</button>
+                <button onclick="toggleSection('teamXL-section')">Meet Team xL</button>
+            </div>
+        </div>
+        <div id="crew-section" class="crew-section">
+            <h2>Meet The Crew</h2>
             <div class="crew-member">
                 <img src="Squid.jpg" alt="First Mate">
                 <a href="https://twitch.tv/squidnuggette_gaming" target="_blank">Squidnuggette</a>
@@ -110,21 +166,26 @@
                 <img src="Korris1.jpg" alt="Quartermaster">
                 <a href="https://www.twitch.tv/korisowo" target="_blank">Koris</a>
             </div>
-        </div>
-        <div class="section" id="teamxl">
-            <h2>Team xL</h2>
-            <div class="teamxl-member">
-                <img src="Pixxel1.jpg" alt="Pixxelair">
-                <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
-            </div>
-            <div class="teamxl-member">
-                <img src="Cubs.jpg" alt="Cubs">
+            <div class="crew-member">
+                <img src="Cubs.jpg" alt="Scallywag">
                 <a href="https://www.twitch.tv/highcubsttv_xl" target="_blank">Cubs</a>
             </div>
-            <div class="teamxl-member">
-                <img src="Flowerchu.jpg" alt="Flowerchu">
+            <div class="crew-member">
+                <img src="Flowerchu.jpg" alt="Scallywag">
                 <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Flowerchu</a>
             </div>
+        </div>
+        <div id="teamXL-section" class="teamXL-section">
+            <h2>Meet Team xL</h2>
+            <div class="teamXL-member">
+                <img src="Member1.jpg" alt="Team Member 1">
+                <a href="https://link_to_team_member" target="_blank">Team Member 1</a>
+            </div>
+            <div class="teamXL-member">
+                <img src="Member2.jpg" alt="Team Member 2">
+                <a href="https://link_to_team_member" target="_blank">Team Member 2</a>
+            </div>
+            <!-- Add more members as necessary -->
         </div>
         <div class="section" id="social">
             <h2>Social Media</h2>
