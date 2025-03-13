@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiegePirate - Official Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Raleway', sans-serif;
@@ -56,76 +57,26 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .button-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .button-container button {
-            background-color: #d32f2f;
-            color: #fff;
-            border: none;
-            padding: 12px 12px;
-            font-size: 20px;
-            cursor: pointer;
-            font-family: 'Pirata One', cursive;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .photo-container {
-            text-align: center;
-            margin: 20px;
-        }
-        .photo-container img {
-            max-width: 200px;
-            height: auto;
-            border: 5px solid #d32f2f;
-            border-radius: 50%;
-        }
-        footer {
-            background-color: #2a2a2a;
-            color: #d32f2f;
-            text-align: center;
-            padding: 20px;
-        }
-        .crew-section, .teamxl-section {
-            display: none;
-            padding: 20px;
-            background-color: #1a1a1a;
-            text-align: center;
-        }
-        .crew-section h2, .teamxl-section h2 {
-            color: #d32f2f;
-        }
-        .crew-member, .teamxl-links a {
+        .crew-member, .teamxl-member {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 10px 0;
             font-size: 24px;
         }
-        .crew-member img {
+        .crew-member img, .teamxl-member img {
             width: 200px;
             height: auto;
             border-radius: 50%;
             margin-right: 20px;
             border: 2px solid #d32f2f;
         }
-        .crew-member a, .teamxl-links a {
+        .crew-member a, .teamxl-member a {
             color: #d32f2f;
             text-decoration: none;
             font-weight: bold;
         }
     </style>
-    <script>
-        function toggleCrewSection() {
-            var crewSection = document.getElementById('crew-section');
-            crewSection.style.display = (crewSection.style.display === 'none' || crewSection.style.display === '') ? 'block' : 'none';
-        }
-        function toggleTeamXLSection() {
-            var teamXLSection = document.getElementById('teamxl-section');
-            teamXLSection.style.display = (teamXLSection.style.display === 'none' || teamXLSection.style.display === '') ? 'block' : 'none';
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -133,27 +84,20 @@
     </header>
     <nav>
         <a href="#about">About Me</a>
+        <a href="#crew">Meet the Crew</a>
+        <a href="#teamxl">Team xL</a>
         <a href="#social">Social Media</a>
-        <a href="#" onclick="toggleTeamXLSection()">Team xL</a>
     </nav>
     <div class="container">
         <div class="section" id="about">
             <h2>About Me</h2>
-            <p>Welcome to my official page! I'm SiegePirate AKA Thomas or T.J. for those close enough to call me that, but welcome one and all, feel free to stay aboard awhile. </p>
+            <p>Welcome to my official page! I'm SiegePirate AKA Thomas or T.J. Feel free to stay aboard awhile.</p>
         </div>
         <div class="photo-container">
             <img src="Modern Siege by Ellow Mello.PNG" alt="SiegePirate Photo">
         </div>
-        <div class="section" id="greeting">
-            <h2>It is my pleasure to greet you!</h2>
-            <p><center>I'm The <em><strong>Captain</strong></em></center></p>
-            <div class="button-container">
-                <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
-                <button onclick="toggleCrewSection()">Meet The Crew</button>
-            </div>
-        </div>
-        <div id="crew-section" class="crew-section">
-            <h2>Meet The Crew</h2>
+        <div class="section" id="crew">
+            <h2>Meet the Crew</h2>
             <div class="crew-member">
                 <img src="Squid.jpg" alt="First Mate">
                 <a href="https://twitch.tv/squidnuggette_gaming" target="_blank">Squidnuggette</a>
@@ -162,14 +106,34 @@
                 <img src="Pixxel1.jpg" alt="Navigator">
                 <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
             </div>
+            <div class="crew-member">
+                <img src="Korris1.jpg" alt="Quartermaster">
+                <a href="https://www.twitch.tv/korisowo" target="_blank">Koris</a>
+            </div>
         </div>
-        <div id="teamxl-section" class="teamxl-section">
+        <div class="section" id="teamxl">
             <h2>Team xL</h2>
-            <p>Welcome to the official Team xL section! Here’s where you’ll find all things related to the crew and our projects.</p>
-            <div class="teamxl-links">
-                <a href="#">Team Roster</a>
-                <a href="#">Latest Projects</a>
-                <a href="#">Collab Streams</a>
+            <div class="teamxl-member">
+                <img src="Pixxel1.jpg" alt="Pixxelair">
+                <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
+            </div>
+            <div class="teamxl-member">
+                <img src="Cubs.jpg" alt="Cubs">
+                <a href="https://www.twitch.tv/highcubsttv_xl" target="_blank">Cubs</a>
+            </div>
+            <div class="teamxl-member">
+                <img src="Flowerchu.jpg" alt="Flowerchu">
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Flowerchu</a>
+            </div>
+        </div>
+        <div class="section" id="social">
+            <h2>Social Media</h2>
+            <div class="social-links">
+                <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
+                <a href="https://twitch.tv/SiegePirate" target="_blank">Twitch</a>
+                <a href="https://youtube.com/@SiegePirate" target="_blank">YouTube</a>
+                <a href="https://tiktok.com/@SiegePirate" target="_blank">TikTok</a>
+                <a href="https://patreon.com/SiegePirate" target="_blank">Patreon</a>
             </div>
         </div>
     </div>
