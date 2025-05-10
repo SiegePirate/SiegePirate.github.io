@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>United Seas - Home of SiegePirate</title>
+    <title>United Seas - Official Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Raleway', sans-serif;
-            background-color: #001f33;
-            color: #f4f4f4;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
             padding-bottom: 60px;
         }
         header {
-            background-color: #002b45;
+            background-color: #2a2a2a;
             padding: 20px;
             text-align: center;
         }
         header h1 {
             margin: 0;
-            color: #ffcc00;
+            color: #d32f2f;
             font-family: 'Pirata One', cursive;
             font-size: 48px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        header p {
-            margin: 5px 0 0;
-            font-size: 18px;
-        }
         nav {
             text-align: center;
-            background-color: #011826;
+            background-color: #1a1a1a;
             padding: 10px;
         }
         nav a {
-            color: #ffcc00;
+            color: #d32f2f;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
@@ -53,23 +49,22 @@
             margin-bottom: 40px;
         }
         .section h2 {
-            border-bottom: 2px solid #ffcc00;
+            border-bottom: 2px solid #d32f2f;
             padding-bottom: 10px;
             font-family: 'Pirata One', cursive;
             font-size: 32px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #ffcc00;
         }
         .button-container {
             text-align: center;
             margin: 20px 0;
         }
         .button-container button {
-            background-color: #ffcc00;
-            color: #001f33;
+            background-color: #d32f2f;
+            color: #fff;
             border: none;
-            padding: 12px 16px;
+            padding: 12px 12px;
             font-size: 20px;
             cursor: pointer;
             font-family: 'Pirata One', cursive;
@@ -83,19 +78,19 @@
         .photo-container img {
             max-width: 200px;
             height: auto;
-            border: 5px solid #ffcc00;
+            border: 5px solid #d32f2f;
             border-radius: 50%;
         }
         footer {
-            background-color: #002b45;
-            color: #ffcc00;
+            background-color: #2a2a2a;
+            color: #d32f2f;
             text-align: center;
             padding: 20px;
         }
         .crew-section, .teamXL-section {
             display: none;
             padding: 20px;
-            background-color: #011826;
+            background-color: #1a1a1a;
             text-align: center;
         }
         .crew-member, .teamXL-member {
@@ -110,76 +105,109 @@
             height: auto;
             border-radius: 50%;
             margin-right: 20px;
-            border: 2px solid #ffcc00;
+            border: 2px solid #d32f2f;
         }
         .crew-member a, .teamXL-member a {
-            color: #ffcc00;
+            color: #d32f2f;
             text-decoration: none;
             font-weight: bold;
-        }
-        .social-links {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: #ffcc00;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        html {
-            scroll-behavior: smooth;
         }
     </style>
     <script>
         function toggleSection(sectionId) {
-            const sections = ['crew-section', 'teamXL-section'];
-            sections.forEach(id => {
-                document.getElementById(id).style.display = (id === sectionId && document.getElementById(id).style.display !== 'block') ? 'block' : 'none';
-            });
+            var section = document.getElementById(sectionId);
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
         }
     </script>
 </head>
 <body>
     <header>
-        <h1>United Seas</h1>
-        <p>Flagship of Captain SiegePirate</p>
+        <h1>SiegePirate</h1>
     </header>
     <nav>
-        <a href="#about">The Captain</a>
-        <a href="#crew-section">The Crew</a>
-        <a href="#teamXL-section">Allies</a>
-        <a href="#social">Ports of Call</a>
+        <a href="#about">About Me</a>
+        <a href="#social">Social Media</a>
     </nav>
     <div class="container">
-        <div class="section" id="welcome">
-            <h2>Welcome Aboard!</h2>
-            <p style="text-align: center;">You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain SiegePirate</em>. Grab your gear and join the voyage!</p>
-        </div>
         <div class="section" id="about">
-            <h2>The Captain</h2>
-            <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and community builder. Welcome aboard the ship where everyone has a place in the fleet.</p>
+            <h2>About Me</h2>
+            <p>Welcome to my official page! I'm SiegePirate, but welcome one and all, feel free to stay aboard awhile. </p>
         </div>
         <div class="photo-container">
-            <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate">
+            <img src="Modern Siege by Ellow Mello.PNG" alt="SiegePirate Photo">
         </div>
-        <div class="button-container">
-            <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
-            <button onclick="toggleSection('crew-section')">Meet The Crew</button>
-            <button onclick="toggleSection('teamXL-section')">Meet Team xL</button>
+        <div class="section" id="greeting">
+            <h2>It is my pleasure to greet you!</h2>
+            <p><center>I'm The <em><strong>Captain</strong></em></center></p>
+            <div class="button-container">
+                <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
+                <button onclick="toggleSection('inner-circle-section')">Meet the Inner Circle</button>
+                <button onclick="toggleSection('allied-captains-section')">Meet the Allied Captains</button>
+            </div>
         </div>
-        <div id="crew-section" class="crew-section">
-            <h2>Meet The Crew</h2>
-            <!-- Crew members as previously structured -->
-            <!-- Keep your crew-member blocks here -->
+
+        <div id="inner-circle-section" class="crew-section">
+            <h2>🦜 Inner Circle</h2>
+            <div class="crew-member">
+                <img src="Squid1.jpg" alt="First Mate">
+                <a href="https://twitch.tv/squidnuggette_gaming" target="_blank">Squidnuggette</a> |
+                <a href="https://twitter.com/squidnuggette" target="_blank">Twitter(x)</a> |
+                <a href="https://www.instagram.com/squidnuggette" target="_blank">Instagram</a>
+            </div>
+            <div class="crew-member">
+                <img src="Pixxel1.jpg" alt="Navigator">
+                <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a> |
+                <a href="https://twitter.com/pixxelair" target="_blank">Twitter(x)</a> |
+                <a href="https://www.instagram.com/pixxelair" target="_blank">Instagram</a>
+            </div>
+            <div class="crew-member">
+                <img src="Korris1.jpg" alt="Quartermaster">
+                <a href="https://www.twitch.tv/korisowo" target="_blank">Koris</a> |
+                <a href="https://twitter.com/korisowo" target="_blank">Twitter(x)</a> |
+                <a href="https://www.instagram.com/korisowo" target="_blank">Instagram</a>
+            </div>
+            <div class="crew-member">
+                <img src="Titan.jpg" alt="Scallywag">
+                <a href="https://www.twitch.tv/nickthetrenchguy" target="_blank">Titan</a> |
+                <a href="https://twitter.com/" target="_blank">Twitter(x)</a> |
+                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            </div>
+            <div class="crew-member">
+                <img src="Flowerchu.jpg" alt="Scallywag">
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Flowerchu</a> |
+                <a href="https://twitter.com/flowerachu" target="_blank">Twitter(x)</a> |
+                <a href="https://www.instagram.com/flowerachu" target="_blank">Instagram</a>
+            </div>
+            <div class="crew-member">
+                <img src="Mo.jpg" alt="Second Mate">
+                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a> |
+                <a href="https://twitter.com/mo_xl" target="_blank">Twitter(x)</a> |
+                <a href="https://www.instagram.com/flowerachu" target="_blank">Instagram</a>
+            </div>
         </div>
-        <div id="teamXL-section" class="teamXL-section">
-            <h2>Meet Team xL</h2>
-            <!-- Team members as previously structured -->
-            <!-- Keep your teamXL-member blocks here -->
+
+        <div id="allied-captains-section" class="teamXL-section">
+            <h2>⚓ Allied Captains</h2>
+            <div class="teamXL-member">
+                <img src="Member1.jpg" alt="Captain One">
+                <a href="https://link_to_team_member1" target="_blank">Captain One</a> |
+                <a href="https://twitter.com/team_member1" target="_blank">Twitter</a> |
+                <a href="https://www.instagram.com/team_member1" target="_blank">Instagram</a>
+            </div>
+            <div class="teamXL-member">
+                <img src="Member2.jpg" alt="Captain Two">
+                <a href="https://link_to_team_member2" target="_blank">Captain Two</a> |
+                <a href="https://twitter.com/team_member2" target="_blank">Twitter</a> |
+                <a href="https://www.instagram.com/team_member2" target="_blank">Instagram</a>
+            </div>
         </div>
+
         <div class="section" id="social">
-            <h2>Ports of Call</h2>
+            <h2>Social Media</h2>
             <div class="social-links">
                 <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
                 <a href="https://twitch.tv/SiegePirate" target="_blank">Twitch</a>
@@ -190,7 +218,7 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 United Seas | Captained by SiegePirate. All rights reserved.</p>
+        <p>&copy; 2025 SiegePirate. All rights reserved.</p>
     </footer>
 </body>
 </html>
