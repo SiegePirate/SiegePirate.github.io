@@ -12,8 +12,7 @@
             background-color: #001f33;
             color: #f4f4f4;
             margin: 0;
-            padding: 0;
-            padding-bottom: 60px;
+            padding: 0 0 60px 0;
         }
         header {
             background-color: #002b45;
@@ -97,7 +96,7 @@
             text-align: center;
             padding: 20px;
         }
-        .crew-section, .teamXL-section {
+        .crew-section, .teamXL-section, .media-section {
             display: none;
             padding: 20px;
             background-color: #011826;
@@ -141,18 +140,21 @@
             margin: 20px auto;
         }
         .media-embed iframe, .media-embed video {
-            max-width: 100%;
-            height: auto;
+            width: 90%;
+            max-width: 900px;
+            height: 500px;
             border: 3px solid #ffcc00;
         }
     </style>
     <script>
         function toggleSection(sectionId) {
-            const sections = ['inner-circle', 'allied-captains'];
+            const sections = ['inner-circle', 'allied-captains', 'media'];
             sections.forEach(id => {
-                document.getElementById(id).style.display = (id === sectionId && document.getElementById(id).style.display !== 'block') ? 'block' : 'none';
+                const el = document.getElementById(id);
+                el.style.display = (id === sectionId && el.style.display !== 'block') ? 'block' : 'none';
             });
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('year').textContent = new Date().getFullYear();
         });
@@ -165,9 +167,9 @@
     </header>
     <nav>
         <a href="#about">The Captain</a>
-        <a href="#inner-circle">Inner Circle</a>
-        <a href="#allied-captains">Allied Captains</a>
-        <a href="#media">Ship Logs</a>
+        <a href="#" onclick="toggleSection('inner-circle')">Inner Circle</a>
+        <a href="#" onclick="toggleSection('allied-captains')">Allied Captains</a>
+        <a href="#" onclick="toggleSection('media')">Ship Logs</a>
         <a href="#social">Ports of Call</a>
     </nav>
     <div class="container">
@@ -184,34 +186,31 @@
         </div>
         <div class="button-container">
             <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
-            <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
-            <button onclick="toggleSection('allied-captains')">Meet Allied Captains</button>
         </div>
         <div id="inner-circle" class="crew-section">
             <h2>Inner Circle</h2>
-              <div class="crew-member">
-            <img src="Noisy.jpg" alt="First Mate">
-                <a href="https://twitch.tv/noisy_cloudz20xl" target="_blank">Noisy DaWifey</a> | <a href="https://twitter.com/" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            <div class="crew-member">
+                <img src="Noisy.jpg" alt="Portrait of Noisy DaWifey">
+                <a href="https://twitch.tv/noisy_cloudz20xl" target="_blank">Noisy DaWifey</a>
             </div>
             <div class="crew-member">
-            <img src="Squid1.jpg" alt="First Mate">
-                <a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a> | <a href="https://twitter.com/squidnuggette" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/squidnuggette_" target="_blank">Instagram</a>
+                <img src="Squid1.jpg" alt="Portrait of Squidnuggette">
+                <a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a>
             </div>
             <div class="crew-member">
-                <img src="Flowerchu.jpg" alt="Scallywag">
-                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a> | <a href="https://twitter.com/flowerachu" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/flowerachu" target="_blank">Instagram</a>
-            </div><div class="crew-member">
-                <img src="Mo.jpg" alt="Scallywag">
-                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a> | <a href="https://twitter.com/Mo_xl" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/Mo_xl" target="_blank">Instagram</a>
+                <img src="Flowerchu.jpg" alt="Portrait of Momma Flowerchu">
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
             </div>
-
-            <!-- Members go here -->
+            <div class="crew-member">
+                <img src="Mo.jpg" alt="Portrait of Mo">
+                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a>
+            </div>
         </div>
         <div id="allied-captains" class="teamXL-section">
             <h2>Allied Captains</h2>
             <!-- Allied Captains go here -->
         </div>
-        <div class="section" id="media">
+        <div id="media" class="media-section">
             <h2>Ship Logs</h2>
             <div class="media-embed">
                 <h3>Captain's Log - Video Entry</h3>
@@ -221,8 +220,16 @@
                 </video>
             </div>
             <div class="media-embed">
-                <h3>Live from the Deck - Twitch Stream</h3>
-                <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+                <h3>Live from the Deck - Latest Twitch Stream</h3>
+                <iframe
+                    src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false"
+                    allowfullscreen>
+                </iframe>
+                <iframe
+                    src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io"
+                    height="500"
+                    width="90%">
+                </iframe>
             </div>
         </div>
         <div class="section" id="social">
