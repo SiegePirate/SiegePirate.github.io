@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official website of Captain SiegePirate and the United Seas. Join the crew, explore streams, and meet the Inner Circle!">
     <title>United Seas - Home of SiegePirate</title>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -51,6 +52,7 @@
         }
         .section {
             margin-bottom: 40px;
+            scroll-margin-top: 80px;
         }
         .section h2 {
             border-bottom: 2px solid #ffcc00;
@@ -76,6 +78,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+        .button-container button:hover {
+            background-color: #e6b800;
+        }
         .photo-container {
             text-align: center;
             margin: 20px;
@@ -100,6 +105,7 @@
         }
         .crew-member, .teamXL-member {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             margin: 10px 0;
@@ -130,6 +136,15 @@
         html {
             scroll-behavior: smooth;
         }
+        .media-embed {
+            text-align: center;
+            margin: 20px auto;
+        }
+        .media-embed iframe, .media-embed video {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #ffcc00;
+        }
     </style>
     <script>
         function toggleSection(sectionId) {
@@ -138,6 +153,9 @@
                 document.getElementById(id).style.display = (id === sectionId && document.getElementById(id).style.display !== 'block') ? 'block' : 'none';
             });
         }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
     </script>
 </head>
 <body>
@@ -149,6 +167,7 @@
         <a href="#about">The Captain</a>
         <a href="#inner-circle">Inner Circle</a>
         <a href="#allied-captains">Allied Captains</a>
+        <a href="#media">Ship Logs</a>
         <a href="#social">Ports of Call</a>
     </nav>
     <div class="container">
@@ -161,7 +180,7 @@
             <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and community builder. Welcome aboard the ship where everyone has a place in the fleet.</p>
         </div>
         <div class="photo-container">
-            <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate">
+            <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate - Portrait">
         </div>
         <div class="button-container">
             <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
@@ -170,36 +189,25 @@
         </div>
         <div id="inner-circle" class="crew-section">
             <h2>Inner Circle</h2>
-            <div class="crew-member">
-            <img src="Squid1.jpg" alt="First Mate">
-                <a href="https://twitch.tv/squidnuggette_" target="_blank">Squidnuggette</a> | <a href="https://twitter.com/squidnuggette" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/squidnuggette_" target="_blank">Instagram</a>
-            </div>
-            <div class="crew-member">
-                <img src="Pixxel1.jpg" alt="Navigator">
-                <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a> | <a href="https://twitter.com/pixxelair" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/pixxelair" target="_blank">Instagram</a>
-            </div>
-            <div class="crew-member">
-                <img src="Korris1.jpg" alt="Quartermaster">
-                <a href="https://www.twitch.tv/korisowo" target="_blank">Koris</a> | <a href="https://twitter.com/korisowo" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/korisowo" target="_blank">Instagram</a>
-            </div>
-            <div class="crew-member">
-                <img src="Titan.jpg" alt="Scallywag">
-                <a href="https://www.twitch.tv/nickthetrenchguy" target="_blank">Titan</a> | <a href="https://twitter.com/" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-            </div>
-            <div class="crew-member">
-                <img src="Flowerchu.jpg" alt="Scallywag">
-                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Flowerchu</a> | <a href="https://twitter.com/flowerachu" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/flowerachu" target="_blank">Instagram</a>
-            </div>
-             <div class="crew-member">
-                <img src="Mo.jpg" alt="Second Mate">
-                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a> | <a href="https://twitter.com/mo_xl" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/flowerachu" target="_blank">Instagram</a>
-            </div>
-        </div>
-            <!-- Add Inner Circle members here -->
+            <!-- Members go here -->
         </div>
         <div id="allied-captains" class="teamXL-section">
             <h2>Allied Captains</h2>
-            <!-- Add Allied Captains members here -->
+            <!-- Allied Captains go here -->
+        </div>
+        <div class="section" id="media">
+            <h2>Ship Logs</h2>
+            <div class="media-embed">
+                <h3>Captain's Log - Video Entry</h3>
+                <video controls>
+                    <source src="video-entry.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="media-embed">
+                <h3>Live from the Deck - Twitch Stream</h3>
+                <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=yourdomain.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+            </div>
         </div>
         <div class="section" id="social">
             <h2>Ports of Call</h2>
@@ -213,7 +221,7 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 United Seas | Captained by SiegePirate. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
     </footer>
 </body>
 </html>
