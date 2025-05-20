@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official website of Captain SiegePirate and the United Seas. Join the crew, explore streams, and meet the Inner Circle!">
     <title>United Seas - Home of SiegePirate</title>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -52,7 +51,6 @@
         }
         .section {
             margin-bottom: 40px;
-            scroll-margin-top: 80px;
         }
         .section h2 {
             border-bottom: 2px solid #ffcc00;
@@ -78,18 +76,21 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .button-container button:hover {
-            background-color: #e6b800;
-        }
-        .photo-container {
+        .photo-container, .video-container, .twitch-container {
             text-align: center;
             margin: 20px;
         }
-        .photo-container img {
+        .photo-container img, .crew-member img, .teamXL-member img {
             max-width: 200px;
             height: auto;
             border: 5px solid #ffcc00;
             border-radius: 50%;
+        }
+        .video-container iframe, .twitch-container iframe {
+            width: 100%;
+            max-width: 720px;
+            height: 405px;
+            border: none;
         }
         footer {
             background-color: #002b45;
@@ -105,18 +106,10 @@
         }
         .crew-member, .teamXL-member {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             margin: 10px 0;
             font-size: 24px;
-        }
-        .crew-member img, .teamXL-member img {
-            width: 200px;
-            height: auto;
-            border-radius: 50%;
-            margin-right: 20px;
-            border: 2px solid #ffcc00;
         }
         .crew-member a, .teamXL-member a {
             color: #ffcc00;
@@ -136,15 +129,6 @@
         html {
             scroll-behavior: smooth;
         }
-        .media-embed {
-            text-align: center;
-            margin: 20px auto;
-        }
-        .media-embed iframe, .media-embed video {
-            max-width: 100%;
-            height: auto;
-            border: 3px solid #ffcc00;
-        }
     </style>
     <script>
         function toggleSection(sectionId) {
@@ -153,9 +137,6 @@
                 document.getElementById(id).style.display = (id === sectionId && document.getElementById(id).style.display !== 'block') ? 'block' : 'none';
             });
         }
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('year').textContent = new Date().getFullYear();
-        });
     </script>
 </head>
 <body>
@@ -167,7 +148,7 @@
         <a href="#about">The Captain</a>
         <a href="#inner-circle">Inner Circle</a>
         <a href="#allied-captains">Allied Captains</a>
-        <a href="#media">Ship Logs</a>
+        <a href="#media">Media Bay</a>
         <a href="#social">Ports of Call</a>
     </nav>
     <div class="container">
@@ -180,7 +161,7 @@
             <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and community builder. Welcome aboard the ship where everyone has a place in the fleet.</p>
         </div>
         <div class="photo-container">
-            <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate - Portrait">
+            <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate">
         </div>
         <div class="button-container">
             <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
@@ -189,24 +170,23 @@
         </div>
         <div id="inner-circle" class="crew-section">
             <h2>Inner Circle</h2>
-            <!-- Members go here -->
+            <!-- Crew members go here -->
         </div>
         <div id="allied-captains" class="teamXL-section">
             <h2>Allied Captains</h2>
-            <!-- Allied Captains go here -->
+            <!-- Allied captains go here -->
         </div>
         <div class="section" id="media">
-            <h2>Ship Logs</h2>
-            <div class="media-embed">
-                <h3>Captain's Log - Video Entry</h3>
-                <video controls>
-                    <source src="video-entry.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <h2>Media Bay</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
             </div>
-            <div class="media-embed">
-                <h3>Live from the Deck - Twitch Stream</h3>
-                <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=yourdomain.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+            <div class="twitch-container">
+                <iframe src="https://player.twitch.tv/?channel=siegepirate&parent=yourdomain.com" allowfullscreen></iframe>
+            </div>
+            <div class="photo-container">
+                <img src="gallery1.jpg" alt="Gallery Image">
+                <img src="gallery2.jpg" alt="Gallery Image">
             </div>
         </div>
         <div class="section" id="social">
@@ -221,7 +201,7 @@
         </div>
     </div>
     <footer>
-        <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
+        <p>&copy; 2025 United Seas | Captained by SiegePirate. All rights reserved.</p>
     </footer>
 </body>
 </html>
