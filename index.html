@@ -24,13 +24,13 @@
             margin: 0;
             color: #ffcc00;
             font-family: 'Pirata One', cursive;
-            font-size: 48px;
+            font-size: 56px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         header p {
             margin: 5px 0 0;
-            font-size: 18px;
+            font-size: 20px;
         }
         nav {
             text-align: center;
@@ -58,9 +58,9 @@
             border-bottom: 2px solid #ffcc00;
             padding-bottom: 10px;
             font-family: 'Pirata One', cursive;
-            font-size: 32px;
+            font-size: 36px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: #ffcc00;
         }
         .button-container {
@@ -150,10 +150,8 @@
     </style>
     <script>
         function toggleSection(sectionId) {
-            const sections = ['inner-circle', 'allied-captains', 'media-section'];
-            sections.forEach(id => {
-                document.getElementById(id).style.display = (id === sectionId && document.getElementById(id).style.display !== 'block') ? 'block' : 'none';
-            });
+            const section = document.getElementById(sectionId);
+            section.style.display = section.style.display === 'block' ? 'none' : 'block';
         }
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('year').textContent = new Date().getFullYear();
@@ -167,9 +165,9 @@
     </header>
     <nav>
         <a href="#about">The Captain</a>
-        <a href="#inner-circle">Inner Circle</a>
-        <a href="#allied-captains">Allied Captains</a>
-        <a href="#media-section">Ship Logs</a>
+        <a href="javascript:void(0);" onclick="toggleSection('inner-circle')">Inner Circle</a>
+        <a href="javascript:void(0);" onclick="toggleSection('allied-captains')">Allied Captains</a>
+        <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
         <a href="#social">Ports of Call</a>
     </nav>
     <div class="container">
@@ -185,10 +183,9 @@
             <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate - Portrait">
         </div>
         <div class="button-container">
-            <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
-            <button onclick="document.getElementById('inner-circle').scrollIntoView({ behavior: 'smooth' });">Meet The Inner Circle</button>
-            <button onclick="document.getElementById('allied-captains').scrollIntoView({ behavior: 'smooth' });">Meet Allied Captains</button>
-            <button onclick="document.getElementById('media-section').scrollIntoView({ behavior: 'smooth' });">View Ship Logs</button>
+            <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
+            <button onclick="toggleSection('allied-captains')">Meet Allied Captains</button>
+            <button onclick="toggleSection('media-section')">View Ship Logs</button>
         </div>
         <div id="inner-circle" class="crew-section section">
             <h2>Inner Circle</h2>
@@ -244,3 +241,4 @@
     </footer>
 </body>
 </html>
+
