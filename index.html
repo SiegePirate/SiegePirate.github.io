@@ -12,7 +12,8 @@
             background-color: #001f33;
             color: #f4f4f4;
             margin: 0;
-            padding: 0 0 60px 0;
+            padding: 0;
+            padding-bottom: 60px;
         }
         header {
             background-color: #002b45;
@@ -76,6 +77,7 @@
             font-family: 'Pirata One', cursive;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin: 5px;
         }
         .button-container button:hover {
             background-color: #e6b800;
@@ -96,7 +98,7 @@
             text-align: center;
             padding: 20px;
         }
-        .crew-section, .teamXL-section, .media-section {
+        .crew-section, .teamXL-section, #media-section {
             display: none;
             padding: 20px;
             background-color: #011826;
@@ -140,7 +142,7 @@
             margin: 20px auto;
         }
         .media-embed iframe, .media-embed video {
-            width: 90%;
+            width: 100%;
             max-width: 900px;
             height: 500px;
             border: 3px solid #ffcc00;
@@ -148,13 +150,11 @@
     </style>
     <script>
         function toggleSection(sectionId) {
-            const sections = ['inner-circle', 'allied-captains', 'media'];
+            const sections = ['inner-circle', 'allied-captains', 'media-section'];
             sections.forEach(id => {
-                const el = document.getElementById(id);
-                el.style.display = (id === sectionId && el.style.display !== 'block') ? 'block' : 'none';
+                document.getElementById(id).style.display = (id === sectionId && document.getElementById(id).style.display !== 'block') ? 'block' : 'none';
             });
         }
-
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('year').textContent = new Date().getFullYear();
         });
@@ -167,9 +167,9 @@
     </header>
     <nav>
         <a href="#about">The Captain</a>
-        <a href="#" onclick="toggleSection('inner-circle')">Inner Circle</a>
-        <a href="#" onclick="toggleSection('allied-captains')">Allied Captains</a>
-        <a href="#" onclick="toggleSection('media')">Ship Logs</a>
+        <a href="#inner-circle">Inner Circle</a>
+        <a href="#allied-captains">Allied Captains</a>
+        <a href="#media-section">Ship Logs</a>
         <a href="#social">Ports of Call</a>
     </nav>
     <div class="container">
@@ -186,31 +186,34 @@
         </div>
         <div class="button-container">
             <button onclick="document.location='https://www.youtube.com/@SiegePirate'">Begin The Siege!</button>
+            <button onclick="document.getElementById('inner-circle').scrollIntoView({ behavior: 'smooth' });">Meet The Inner Circle</button>
+            <button onclick="document.getElementById('allied-captains').scrollIntoView({ behavior: 'smooth' });">Meet Allied Captains</button>
+            <button onclick="document.getElementById('media-section').scrollIntoView({ behavior: 'smooth' });">View Ship Logs</button>
         </div>
-        <div id="inner-circle" class="crew-section">
+        <div id="inner-circle" class="crew-section section">
             <h2>Inner Circle</h2>
             <div class="crew-member">
-                <img src="noisy.jpg" alt="Portrait of Noisy DaWifey">
-                <a href="https://twitch.tv/noisy_cloudz20xl" target="_blank">Noisy DaWifey</a>
+                <img src="Noisy.jpg" alt="First Mate">
+                <a href="https://twitch.tv/noisy_cloudz20xl" target="_blank">Noisy DaWifey</a> | <a href="https://twitter.com/" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/" target="_blank">Instagram</a>
             </div>
             <div class="crew-member">
-                <img src="Squid1.jpg" alt="Portrait of Squidnuggette">
-                <a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a>
+                <img src="Squid1.jpg" alt="First Mate">
+                <a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a> | <a href="https://twitter.com/squidnuggette" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/squidnuggette_" target="_blank">Instagram</a>
             </div>
             <div class="crew-member">
-                <img src="Flowerchu.jpg" alt="Portrait of Momma Flowerchu">
-                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
+                <img src="Flowerchu.jpg" alt="Scallywag">
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a> | <a href="https://twitter.com/flowerachu" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/flowerachu" target="_blank">Instagram</a>
             </div>
             <div class="crew-member">
-                <img src="Mo.jpg" alt="Portrait of Mo">
-                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a>
+                <img src="Mo.jpg" alt="Scallywag">
+                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a> | <a href="https://twitter.com/Mo_xl" target="_blank">Twitter(x)</a> | <a href="https://www.instagram.com/Mo_xl" target="_blank">Instagram</a>
             </div>
         </div>
-        <div id="allied-captains" class="teamXL-section">
+        <div id="allied-captains" class="teamXL-section section">
             <h2>Allied Captains</h2>
             <!-- Allied Captains go here -->
         </div>
-        <div id="media" class="media-section">
+        <div id="media-section" class="section">
             <h2>Ship Logs</h2>
             <div class="media-embed">
                 <h3>Captain's Log - Video Entry</h3>
@@ -220,16 +223,9 @@
                 </video>
             </div>
             <div class="media-embed">
-                <h3>Live from the Deck - Latest Twitch Stream</h3>
-                <iframe
-                    src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false"
-                    allowfullscreen>
-                </iframe>
-                <iframe
-                    src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io"
-                    height="500"
-                    width="90%">
-                </iframe>
+                <h3>Live from the Deck - Twitch Stream</h3>
+                <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+                <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
             </div>
         </div>
         <div class="section" id="social">
