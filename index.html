@@ -23,12 +23,23 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 60px;
+    transition: background 0.5s, color 0.5s;
+}
+
+body.light-mode {
+    --bg-color: #f4f4f4;
+    --header-bg: #e6e6e6;
+    --nav-bg: #cccccc;
+    --gold-color: #ff9900;
+    --gold-hover: #cc7a00;
+    --text-color: #001a29;
 }
 
 header {
     background-color: var(--header-bg);
     padding: 20px;
     text-align: center;
+    transition: background 0.5s;
 }
 
 header h1 {
@@ -38,6 +49,7 @@ header h1 {
     font-size: 56px;
     text-transform: uppercase;
     letter-spacing: 3px;
+    transition: color 0.5s;
 }
 
 header p {
@@ -49,6 +61,7 @@ nav {
     text-align: center;
     background-color: var(--nav-bg);
     padding: 10px;
+    transition: background 0.5s;
 }
 
 nav a {
@@ -124,6 +137,12 @@ nav a:hover {
     object-position: top center;
     border: 5px solid var(--gold-color);
     border-radius: 15px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.photo-container img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 footer {
@@ -131,6 +150,7 @@ footer {
     color: var(--gold-color);
     text-align: center;
     padding: 20px;
+    transition: background 0.5s, color 0.5s;
 }
 
 .crew-section, .unity-section, #media-section, #discord-section {
@@ -138,6 +158,7 @@ footer {
     padding: 20px;
     background-color: var(--nav-bg);
     text-align: center;
+    transition: background 0.5s;
 }
 
 .crew-grid, .unity-grid {
@@ -152,6 +173,7 @@ footer {
 .crew-member, .unity-member {
     text-align: center;
     font-size: 20px;
+    position: relative;
 }
 
 .crew-member img, .unity-member img {
@@ -161,6 +183,35 @@ footer {
     border-radius: 50%;
     border: 2px solid var(--gold-color);
     margin-bottom: 10px;
+    transition: transform 0.3s, filter 0.3s;
+    cursor: pointer;
+}
+
+.crew-member:hover img, .unity-member:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Tooltip */
+.crew-member a::after, .unity-member a::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--nav-bg);
+    color: var(--gold-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+
+.crew-member:hover a::after, .unity-member:hover a::after {
+    opacity: 1;
 }
 
 .crew-member a, .unity-member a {
@@ -169,6 +220,11 @@ footer {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.crew-member a:hover, .unity-member a:hover {
+    color: var(--gold-hover);
 }
 
 .social-links {
@@ -224,6 +280,27 @@ html {
     color: var(--bg-color);
 }
 
+#theme-toggle, #music-toggle {
+    position: fixed;
+    z-index: 1000;
+    padding: 8px 10px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-color);
+    background-color: var(--nav-bg);
+    color: var(--gold-color);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover, #music-toggle:hover {
+    background-color: var(--gold-hover);
+    color: var(--bg-color);
+}
+
+#theme-toggle { top: 20px; right: 20px; }
+#music-toggle { top: 70px; right: 20px; }
+
 @media (max-width: 768px) {
     header h1 { font-size: 36px; }
     nav a { display: block; margin: 10px 0; }
@@ -231,18 +308,6 @@ html {
     .photo-container img { width: 200px; height: 300px; }
 }
 </style>
-<script>
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    const isVisible = section.style.display === 'block';
-    section.style.display = isVisible ? 'none' : 'block';
-    section.setAttribute('aria-hidden', isVisible);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('year').textContent = new Date().getFullYear();
-});
-</script>
 </head>
 <body>
 
@@ -288,19 +353,19 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="crew-grid">
             <div class="crew-member">
                 <img src="Squid1.jpg" alt="Squidnuggette Portrait" loading="lazy">
-                <a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a>
+                <a href="https://twitch.tv/squidnuggette_xl" target="_blank" title="Vice Captain of the United Seas">Squidnuggette</a>
             </div>
             <div class="crew-member">
                 <img src="Flowerchu.jpg" alt="Flowerchu Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank" title="Momma Flowerchu, Crew Support">Momma Flowerchu</a>
             </div>
             <div class="crew-member">
                 <img src="Mo.jpg" alt="Mo Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a>
+                <a href="https://www.twitch.tv/mo_xl" target="_blank" title="Core Crew Member">Mo</a>
             </div>
             <div class="crew-member">
                 <img src="Pixxel.jpg" alt="Pixxelair Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
+                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank" title="Core Crew Member">Pixxelair</a>
             </div>
         </div>
     </div>
@@ -311,23 +376,23 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="unity-grid">
             <div class="unity-member">
                 <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy">
-                <a href="https://twitch.tv/SiegePirate" target="_blank">Captain SiegePirate</a>
+                <a href="https://twitch.tv/SiegePirate" target="_blank" title="Founder & Captain">Captain SiegePirate</a>
             </div>
             <div class="unity-member">
                 <img src="Squid1.jpg" alt="Squidnuggette Portrait" loading="lazy">
-                <a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a>
+                <a href="https://twitch.tv/squidnuggette_xl" target="_blank" title="Vice Captain">Squidnuggette</a>
             </div>
             <div class="unity-member">
                 <img src="Flowerchu.jpg" alt="Flowerchu Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank" title="Momma Flowerchu">Momma Flowerchu</a>
             </div>
             <div class="unity-member">
                 <img src="Mo.jpg" alt="Mo Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a>
+                <a href="https://www.twitch.tv/mo_xl" target="_blank" title="Crew Member">Mo</a>
             </div>
             <div class="unity-member">
                 <img src="Pixxel.jpg" alt="Pixxelair Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
+                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank" title="Crew Member">Pixxelair</a>
             </div>
         </div>
     </div>
@@ -376,9 +441,47 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- Scroll to top -->
 <a href="#top" id="scrollTopAnchor">⚓</a>
 
+<!-- Dark Mode & Music Toggles -->
+<button id="theme-toggle" title="Toggle Dark/Light Mode">🌙</button>
+<button id="music-toggle" title="Mute/Unmute Music">🎵</button>
+
+<!-- Background Music Playlist -->
+<div id="bg-music" style="display:none;">
+    <iframe 
+        src="https://www.youtube.com/embed/videoseries?list=PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS&autoplay=1&loop=1&playlist=PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS&controls=0&mute=0&rel=0" 
+        frameborder="0" allow="autoplay" allowfullscreen>
+    </iframe>
+</div>
+
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
+
+<script>
+function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const isVisible = section.style.display === 'block';
+    section.style.display = isVisible ? 'none' : 'block';
+}
+
+// Set current year
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('year').textContent = new Date().getFullYear();
+});
+
+// Dark / Light Mode
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+});
+
+// Mute / Unmute Music
+let musicMuted = false;
+document.getElementById('music-toggle').addEventListener('click', () => {
+    const iframe = document.querySelector('#bg-music iframe');
+    musicMuted = !musicMuted;
+    iframe.src = iframe.src.replace(/&mute=\d/, `&mute=${musicMuted ? '1' : '0'}`);
+});
+</script>
 
 </body>
 </html>
