@@ -16,43 +16,29 @@
         --text-color: #f4f4f4;
     }
 
+    /* Subtle wave background */
     body {
         font-family: 'Raleway', sans-serif;
-        background-color: var(--bg-color);
+        background: linear-gradient(to bottom, #001a29 0%, #002233 100%);
+        background-size: 100% 200%;
+        animation: waveAnimation 15s ease-in-out infinite;
         color: var(--text-color);
         margin: 0;
         padding: 0;
         padding-bottom: 60px;
         position: relative;
-        overflow-x: hidden;
     }
 
-    /* Subtle horizontal wave background */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 200%;
-        height: 200%;
-        background: url('https://i.imgur.com/6kQJ2pA.png'); /* light wave texture, repeat */
-        background-size: cover;
-        opacity: 0.05; /* very subtle */
-        animation: gentleWave 60s linear infinite;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    @keyframes gentleWave {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50px); }
+    @keyframes waveAnimation {
+        0% { background-position: 0 0; }
+        50% { background-position: 0 100%; }
+        100% { background-position: 0 0; }
     }
 
     header {
         background-color: var(--header-bg);
         padding: 20px;
         text-align: center;
-        position: relative;
-        z-index: 1;
     }
 
     header h1 {
@@ -73,8 +59,6 @@
         text-align: center;
         background-color: var(--nav-bg);
         padding: 10px;
-        position: relative;
-        z-index: 1;
     }
 
     nav a {
@@ -96,8 +80,6 @@
         padding: 20px;
         max-width: 1200px;
         margin: 0 auto;
-        position: relative;
-        z-index: 1;
     }
 
     .section {
@@ -105,24 +87,15 @@
         scroll-margin-top: 80px;
     }
 
-    /* Section headings shimmer */
-    h2 {
-        background: linear-gradient(90deg, #ffb700, #ffd700, #ffb700);
-        background-size: 200% 100%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shine 2s linear infinite;
-        text-align: center;
+    .section h2 {
+        border-bottom: 2px solid var(--gold-color);
+        padding-bottom: 10px;
         font-family: 'Pirata One', cursive;
         font-size: 36px;
         text-transform: uppercase;
         letter-spacing: 2px;
-        margin-bottom: 20px;
-    }
-
-    @keyframes shine {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
+        color: var(--gold-color);
+        text-align: center;
     }
 
     .button-container {
@@ -141,13 +114,26 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         margin: 5px;
-        transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        transition: background 0.3s;
+        position: relative;
+        overflow: hidden;
     }
 
-    .button-container button:hover {
-        background-color: var(--gold-hover);
-        transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(255,183,0,0.5);
+    .button-container button::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: rgba(255,255,255,0.1);
+        transform: rotate(25deg);
+        transition: all 0.5s;
+    }
+
+    .button-container button:hover::after {
+        top: 0;
+        left: 0;
     }
 
     .photo-container {
@@ -169,33 +155,18 @@
         color: var(--gold-color);
         text-align: center;
         padding: 20px;
-        position: relative;
-        z-index: 1;
     }
 
-    /* Toggleable sections */
     .crew-section, .unity-section, #media-section {
         display: none;
-        opacity: 0;
-        transition: opacity 0.7s ease;
         padding: 20px;
         background-color: var(--nav-bg);
         text-align: center;
     }
 
-    .crew-section.show, .unity-section.show, #media-section.show {
-        display: block;
-        opacity: 1;
-        animation: fadeIn 0.7s forwards;
-    }
-
-    @keyframes fadeIn {
-        to { opacity: 1; }
-    }
-
     .crew-grid, .unity-grid, .clips-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
         justify-items: center;
         align-items: start;
@@ -214,11 +185,6 @@
         border-radius: 50%;
         border: 2px solid var(--gold-color);
         margin-bottom: 10px;
-        transition: transform 0.3s ease;
-    }
-
-    .crew-member img:hover, .unity-member img:hover {
-        transform: scale(1.05);
     }
 
     .crew-member a, .unity-member a {
@@ -241,88 +207,46 @@
         font-weight: bold;
     }
 
-    html {
-        scroll-behavior: smooth;
-    }
-
-    /* Separator lines */
-    .section-separator {
-        width: 80%;
-        height: 2px;
-        margin: 40px auto;
-        background: linear-gradient(to right, var(--gold-color), transparent, var(--gold-color));
-        border: none;
-    }
-
-    /* Clips hover shimmer */
-    .clip-item iframe {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 8px;
-        border: 3px solid var(--gold-color);
-    }
-
-    .clip-item iframe:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px var(--gold-color);
-    }
-
-    /* Live stream + chat */
-    .live-stream-chat {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 30px;
-        position: relative;
-    }
-
-    .live-stream-chat iframe {
-        flex: 1 1 500px;
-        max-width: 700px;
+    .media-embed iframe {
+        width: 100%;
+        max-width: 900px;
         height: 500px;
         border: 3px solid var(--gold-color);
         border-radius: 8px;
     }
 
-    /* LIVE indicator */
-    .live-indicator {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 14px;
-        height: 14px;
-        background: red;
-        border-radius: 50%;
-        box-shadow: 0 0 8px red;
-        animation: pulse 1.5s infinite;
-        z-index: 100;
+    .live-stream-chat iframe {
+        width: 100%;
+        max-width: 900px;
+        height: 500px;
+        border: 3px solid var(--gold-color);
+        border-radius: 8px;
+        margin-top: 10px;
     }
 
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.3); opacity: 0.7; }
+    html {
+        scroll-behavior: smooth;
     }
 
-    /* Scroll to Top Anchor */
+    /* Scroll to top anchor */
     #scrollTopAnchor {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background-color: var(--gold-color);
-        color: var(--bg-color);
-        padding: 10px 14px;
-        font-size: 26px;
-        font-family: 'Pirata One', cursive;
+        font-size: 32px;
+        color: var(--gold-color);
+        background-color: var(--nav-bg);
+        padding: 10px 12px;
         border-radius: 50%;
         text-decoration: none;
-        text-align: center;
+        border: 2px solid var(--gold-color);
         z-index: 1000;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: background 0.3s;
     }
 
     #scrollTopAnchor:hover {
-        transform: scale(1.2);
-        box-shadow: 0 0 15px var(--gold-color);
+        background-color: var(--gold-hover);
+        color: var(--bg-color);
     }
 
     @media (max-width: 768px) {
@@ -330,14 +254,15 @@
         nav a { display: block; margin: 10px 0; }
         .crew-member img, .unity-member img { width: 150px; height: 150px; }
         .photo-container img { width: 200px; height: 300px; }
-        .live-stream-chat iframe { flex: 1 1 100%; height: 300px; }
-        .clips-grid iframe { height: 180px; }
+        .clips-grid { grid-template-columns: 1fr; }
     }
 </style>
 <script>
     function toggleSection(sectionId) {
         const section = document.getElementById(sectionId);
-        section.classList.toggle('show');
+        const isVisible = section.style.display === 'block';
+        section.style.display = isVisible ? 'none' : 'block';
+        section.setAttribute('aria-hidden', isVisible);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -345,9 +270,8 @@
     });
 </script>
 </head>
-<body id="top">
-
-<header>
+<body>
+<header id="top">
     <h1>United Seas</h1>
     <p>Flagship of Captain SiegePirate</p>
 </header>
@@ -358,6 +282,7 @@
     <a href="javascript:void(0);" onclick="toggleSection('unity-project')">Explore the Unity Project</a>
     <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
     <a href="#social">Ports of Call</a>
+    <a href="#discord">Join Discord</a>
 </nav>
 
 <div class="container">
@@ -366,7 +291,7 @@
         <p style="text-align:center;">You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain SiegePirate and Vice Captain Squidnuggette</em>. Grab your gear and join the voyage!</p>
     </div>
 
-    <hr class="section-separator">
+    <hr style="border: 1px solid var(--gold-color); margin: 40px 0;">
 
     <div class="section" id="about">
         <h2>The Captain</h2>
@@ -452,7 +377,6 @@
 
         <!-- Live Stream + Chat -->
         <div class="live-stream-chat">
-            <div class="live-indicator"></div>
             <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen scrolling="no"></iframe>
             <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no"></iframe>
         </div>
@@ -469,6 +393,21 @@
             <a href="https://patreon.com/SiegePirate" target="_blank">Patreon</a>
         </div>
     </div>
+
+    <!-- Discord Section -->
+    <div class="section" id="discord">
+        <h2>United Seas Discord</h2>
+        <div style="text-align: center; margin-top: 20px;">
+            <iframe 
+                src="https://discord.com/widget?id=1213490244922511451&theme=dark" 
+                width="350" 
+                height="500" 
+                allowtransparency="true" 
+                frameborder="0" 
+                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+            </iframe>
+        </div>
+    </div>
 </div>
 
 <!-- Scroll-to-top anchor -->
@@ -479,6 +418,13 @@
 </footer>
 
 <script>
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const isVisible = section.style.display === 'block';
+        section.style.display = isVisible ? 'none' : 'block';
+        section.setAttribute('aria-hidden', isVisible);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('year').textContent = new Date().getFullYear();
     });
