@@ -14,6 +14,7 @@
     --gold-color: #ffb700;
     --gold-hover: #e6a500;
     --text-color: #f4f4f4;
+    --lore-bg: #0a1a2b;
 }
 
 /* Base styles */
@@ -22,7 +23,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    padding: 0 0 60px;
+    padding: 0 0 60px 0;
 }
 
 header {
@@ -94,7 +95,7 @@ nav a:hover {
 }
 
 .button-container button {
-    background-color: var(--gold-color);
+    background: linear-gradient(145deg, #ffb700, #e6a500);
     color: var(--bg-color);
     border: none;
     padding: 12px 16px;
@@ -104,11 +105,14 @@ nav a:hover {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 5px;
-    transition: background 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background 0.3s;
 }
 
 .button-container button:hover {
     background-color: var(--gold-hover);
+    transform: scale(1.05);
 }
 
 .photo-container {
@@ -123,7 +127,6 @@ nav a:hover {
     object-position: top center;
     border: 5px solid var(--gold-color);
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 footer {
@@ -133,8 +136,7 @@ footer {
     padding: 20px;
 }
 
-/* Toggle sections */
-.crew-section, .unity-section, #media-section {
+.crew-section, .unity-section, #media-section, #discord-section, #lore-section {
     display: none;
     padding: 20px;
     background-color: var(--nav-bg);
@@ -162,6 +164,12 @@ footer {
     border-radius: 50%;
     border: 2px solid var(--gold-color);
     margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.crew-member img:hover, .unity-member img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 183, 0, 0.7);
 }
 
 .crew-member a, .unity-member a {
@@ -198,7 +206,57 @@ html {
     max-width: 900px;
     height: 500px;
     border: 3px solid var(--gold-color);
+}
+
+#discord-section iframe {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    border: 3px solid var(--gold-color);
+    border-radius: 8px;
+}
+
+#scrollTopAnchor {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 32px;
+    color: var(--gold-color);
+    background-color: var(--nav-bg);
+    padding: 10px 12px;
+    border-radius: 50%;
+    text-decoration: none;
+    border: 2px solid var(--gold-color);
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+#scrollTopAnchor:hover {
+    background-color: var(--gold-hover);
+    color: var(--bg-color);
+}
+
+#lore-section {
+    background-color: var(--lore-bg);
+    padding: 20px;
     border-radius: 10px;
+}
+
+#lore-section h3 {
+    color: var(--gold-color);
+}
+
+#lore-editor {
+    width: 100%;
+    max-width: 900px;
+    height: 300px;
+    background-color: #02131f;
+    color: var(--text-color);
+    border: 2px solid var(--gold-color);
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    resize: vertical;
 }
 
 @media (max-width: 768px) {
@@ -213,7 +271,8 @@ function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
     const isVisible = section.style.display === 'block';
     section.style.display = isVisible ? 'none' : 'block';
-    section.setAttribute('aria-hidden', isVisible ? 'true' : 'false');
+    section.setAttribute('aria-hidden', isVisible);
+    if (!isVisible) section.scrollIntoView({behavior: "smooth"});
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -233,6 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <a href="javascript:void(0);" onclick="toggleSection('unity-project')">Explore the Unity Project</a>
     <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
     <a href="#social">Ports of Call</a>
+    <a href="javascript:void(0);" onclick="toggleSection('discord-section')">Discord</a>
+    <a href="javascript:void(0);" onclick="toggleSection('lore-section')">Lore</a>
 </nav>
 
 <div class="container">
@@ -254,6 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
         <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
         <button onclick="toggleSection('media-section')">View Ship Logs</button>
+        <button onclick="toggleSection('discord-section')">Show Discord</button>
+        <button onclick="toggleSection('lore-section')">Lore</button>
     </div>
 
     <!-- Inner Circle -->
@@ -323,6 +386,22 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 
+    <!-- Discord Section -->
+    <div id="discord-section" class="section">
+        <h2>United Seas Discord</h2>
+        <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <p style="margin-top:10px;">
+            <a href="https://discord.gg/YourServerInviteHere" target="_blank" class="button-container button">Join the Crew</a>
+        </p>
+    </div>
+
+    <!-- Lore Section -->
+    <div id="lore-section" class="section">
+        <h2>Lore of the United Seas</h2>
+        <h3>Write or Edit Lore:</h3>
+        <textarea id="lore-editor" placeholder="Share your tales of the seas here..."></textarea>
+    </div>
+
     <!-- Social Links -->
     <div class="section" id="social">
         <h2>Ports of Call</h2>
@@ -335,6 +414,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 </div>
+
+<a id="scrollTopAnchor" href="#welcome">⚓</a>
 
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
