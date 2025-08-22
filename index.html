@@ -23,12 +23,33 @@
         margin: 0;
         padding: 0;
         padding-bottom: 60px;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    /* Subtle animated background */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        animation: drift 20s linear infinite;
+        z-index: 0;
+    }
+    @keyframes drift {
+        0% { background-position: 0 0; }
+        100% { background-position: 200px 200px; }
     }
 
     header {
         background-color: var(--header-bg);
         padding: 20px;
         text-align: center;
+        position: relative;
+        z-index: 1;
     }
 
     header h1 {
@@ -49,6 +70,8 @@
         text-align: center;
         background-color: var(--nav-bg);
         padding: 10px;
+        position: relative;
+        z-index: 1;
     }
 
     nav a {
@@ -70,6 +93,8 @@
         padding: 20px;
         max-width: 1200px;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
     }
 
     .section {
@@ -129,7 +154,7 @@
         width: 300px;
         height: 400px;
         object-fit: cover;
-        object-position: top center; 
+        object-position: top center;
         border: 5px solid var(--gold-color);
         border-radius: 15px;
     }
@@ -139,8 +164,11 @@
         color: var(--gold-color);
         text-align: center;
         padding: 20px;
+        position: relative;
+        z-index: 1;
     }
 
+    /* Toggleable sections */
     .crew-section, .unity-section, #media-section {
         display: none;
         opacity: 0;
@@ -207,16 +235,55 @@
         scroll-behavior: smooth;
     }
 
-    .clips-grid iframe, .live-stream iframe, .chat-embed iframe {
-        width: 100%;
-        max-width: 400px;
-        height: 225px;
+    /* Clips hover shimmer */
+    .clip-item iframe {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        border: 3px solid var(--gold-color);
+    }
+
+    .clip-item iframe:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px var(--gold-color);
+    }
+
+    /* Live stream + chat */
+    .live-stream-chat {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .live-stream-chat iframe {
+        flex: 1 1 500px;
+        max-width: 700px;
+        height: 500px;
         border: 3px solid var(--gold-color);
         border-radius: 8px;
     }
 
-    .live-stream, .chat-embed {
-        margin: 20px auto;
+    /* Scroll to Top Button */
+    #scrollTopAnchor {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--gold-color);
+        color: var(--bg-color);
+        padding: 10px 14px;
+        font-size: 22px;
+        font-family: 'Pirata One', cursive;
+        border-radius: 50%;
+        text-decoration: none;
+        text-align: center;
+        z-index: 1000;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #scrollTopAnchor:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 15px var(--gold-color);
     }
 
     @media (max-width: 768px) {
@@ -224,7 +291,8 @@
         nav a { display: block; margin: 10px 0; }
         .crew-member img, .unity-member img { width: 150px; height: 150px; }
         .photo-container img { width: 200px; height: 300px; }
-        .clips-grid iframe, .live-stream iframe, .chat-embed iframe { max-width: 100%; height: 200px; }
+        .live-stream-chat iframe { flex: 1 1 100%; height: 300px; }
+        .clips-grid iframe { height: 180px; }
     }
 </style>
 <script>
@@ -238,7 +306,7 @@
     });
 </script>
 </head>
-<body>
+<body id="top">
 <header>
     <h1>United Seas</h1>
     <p>Flagship of Captain SiegePirate</p>
@@ -327,14 +395,14 @@
         </div>
     </div>
 
-    <!-- Ship Logs Section -->
+    <!-- Media Section -->
     <div id="media-section" class="section">
         <h2>Ship Logs</h2>
 
         <!-- Clips Grid -->
         <div class="clips-grid">
             <div class="clip-item">
-                <iframe src="https://clips.twitch.tv/embed?clip=CogentPoorBananaPeteZarollTie-YsKVw_-14R1wJbl6&parent=siegepirate.github.io" allowfullscreen></iframe>
+                <iframe src="https://clips.twitch.tv/embed?clip=ClipID1&parent=siegepirate.github.io" allowfullscreen></iframe>
             </div>
             <div class="clip-item">
                 <iframe src="https://clips.twitch.tv/embed?clip=ClipID2&parent=siegepirate.github.io" allowfullscreen></iframe>
@@ -344,19 +412,10 @@
             </div>
         </div>
 
-        <!-- Live Stream -->
-        <div class="live-stream">
-            <h3>Live from the Deck</h3>
-            <iframe
-                src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false"
-                frameborder="0" allowfullscreen scrolling="no"></iframe>
-        </div>
-
-        <!-- Chat Embed -->
-        <div class="chat-embed">
-            <iframe
-                src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io"
-                frameborder="0" scrolling="no"></iframe>
+        <!-- Live Stream + Chat -->
+        <div class="live-stream-chat">
+            <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen scrolling="no"></iframe>
+            <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
 
@@ -373,12 +432,11 @@
     </div>
 </div>
 
+<!-- Scroll to Top Anchor -->
+<a href="#top" id="scrollTopAnchor">↑</a>
+
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
-
-<!-- Scroll to top button -->
-<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'});">↑</button>
-
 </body>
 </html>
