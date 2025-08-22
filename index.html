@@ -51,18 +51,16 @@ nav a:hover { color: var(--gold-hover); }
 .button-container button:hover { background-color: var(--gold-hover); }
 
 .photo-container { text-align: center; margin: 20px 0; }
-.photo-container img { width: 300px; height: 400px; object-fit: cover; object-position: top center; border: 5px solid var(--gold-color); border-radius: 15px; transition: transform 0.3s, filter 0.3s; }
-.photo-container img:hover { transform: scale(1.05); filter: brightness(1.2); }
+.photo-container img { width: 300px; height: 400px; object-fit: cover; object-position: top center; border: 5px solid var(--gold-color); border-radius: 15px; }
+.photo-container img:hover { transform: none; filter: none; }
 
 footer { background-color: var(--header-bg); color: var(--gold-color); text-align: center; padding: 20px; transition: background 0.5s, color 0.5s; }
 
 .crew-section, .unity-section, #media-section, #discord-section { display: none; padding: 20px; background-color: var(--nav-bg); text-align: center; transition: background 0.5s; }
 .crew-grid, .unity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-items: center; align-items: start; margin-top: 20px; }
 .crew-member, .unity-member { text-align: center; font-size: 20px; position: relative; }
-.crew-member img, .unity-member img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 2px solid var(--gold-color); margin-bottom: 10px; transition: transform 0.3s, filter 0.3s; cursor: pointer; }
-.crew-member:hover img, .unity-member:hover img { transform: scale(1.1); filter: brightness(1.2); }
+.crew-member img, .unity-member img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 2px solid var(--gold-color); margin-bottom: 10px; }
 
-/* Tooltip */
 .crew-member a::after, .unity-member a::after {
     content: attr(title);
     position: absolute;
@@ -267,7 +265,6 @@ html { scroll-behavior: smooth; }
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
 
-<!-- Scripts -->
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
 function toggleSection(sectionId) {
@@ -304,7 +301,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    event.target.setVolume(25);
+    event.target.setVolume(5);
     event.target.playVideo();
 }
 
@@ -318,7 +315,7 @@ musicBtn.addEventListener('click', () => {
     if (!player) return;
     muted = !muted;
     if (muted) { player.mute(); musicBtn.textContent = '🎵'; }
-    else { player.unMute(); player.setVolume(25); musicBtn.textContent = '🔊'; }
+    else { player.unMute(); player.setVolume(5); musicBtn.textContent = '🔊'; }
 });
 
 miniBtn.addEventListener('click', () => {
@@ -327,5 +324,6 @@ miniBtn.addEventListener('click', () => {
     else { player.playVideo(); miniBtn.textContent='⏸'; playing=true; }
 });
 </script>
+
 </body>
 </html>
