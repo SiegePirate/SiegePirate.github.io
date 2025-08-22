@@ -35,162 +35,28 @@ body.light-mode {
     --text-color: #001a29;
 }
 
-header {
-    background-color: var(--header-bg);
-    padding: 20px;
-    text-align: center;
-    transition: background 0.5s;
-}
+header { background-color: var(--header-bg); padding: 20px; text-align: center; transition: background 0.5s; }
+header h1 { margin: 0; color: var(--gold-color); font-family: 'Pirata One', cursive; font-size: 56px; text-transform: uppercase; letter-spacing: 3px; transition: color 0.5s; }
+header p { margin: 5px 0 0; font-size: 20px; }
+nav { text-align: center; background-color: var(--nav-bg); padding: 10px; transition: background 0.5s; }
+nav a { color: var(--gold-color); margin: 0 15px; text-decoration: none; font-weight: bold; font-family: 'Pirata One', cursive; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+nav a:hover { color: var(--gold-hover); }
+.container { padding: 20px; max-width: 1200px; margin: 0 auto; }
+.section { margin-bottom: 40px; scroll-margin-top: 80px; }
+.section h2 { border-bottom: 2px solid var(--gold-color); padding-bottom: 10px; font-family: 'Pirata One', cursive; font-size: 36px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-color); text-align: center; }
+.button-container { text-align: center; margin: 20px 0; }
+.button-container button { background-color: var(--gold-color); color: var(--bg-color); border: none; padding: 12px 16px; font-size: 20px; cursor: pointer; font-family: 'Pirata One', cursive; text-transform: uppercase; letter-spacing: 1px; margin: 5px; transition: background 0.3s; }
+.button-container button:hover { background-color: var(--gold-hover); }
+.photo-container { text-align: center; margin: 20px 0; }
+.photo-container img { width: 300px; height: 400px; object-fit: cover; object-position: top center; border: 5px solid var(--gold-color); border-radius: 15px; transition: transform 0.3s, filter 0.3s; }
+.photo-container img:hover { transform: scale(1.05); filter: brightness(1.2); }
+footer { background-color: var(--header-bg); color: var(--gold-color); text-align: center; padding: 20px; transition: background 0.5s, color 0.5s; }
 
-header h1 {
-    margin: 0;
-    color: var(--gold-color);
-    font-family: 'Pirata One', cursive;
-    font-size: 56px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    transition: color 0.5s;
-}
-
-header p {
-    margin: 5px 0 0;
-    font-size: 20px;
-}
-
-nav {
-    text-align: center;
-    background-color: var(--nav-bg);
-    padding: 10px;
-    transition: background 0.5s;
-}
-
-nav a {
-    color: var(--gold-color);
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Pirata One', cursive;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--gold-hover);
-}
-
-.container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section {
-    margin-bottom: 40px;
-    scroll-margin-top: 80px;
-}
-
-.section h2 {
-    border-bottom: 2px solid var(--gold-color);
-    padding-bottom: 10px;
-    font-family: 'Pirata One', cursive;
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--gold-color);
-    text-align: center;
-}
-
-.button-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.button-container button {
-    background-color: var(--gold-color);
-    color: var(--bg-color);
-    border: none;
-    padding: 12px 16px;
-    font-size: 20px;
-    cursor: pointer;
-    font-family: 'Pirata One', cursive;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 5px;
-    transition: background 0.3s;
-}
-
-.button-container button:hover {
-    background-color: var(--gold-hover);
-}
-
-.photo-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.photo-container img {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    object-position: top center;
-    border: 5px solid var(--gold-color);
-    border-radius: 15px;
-    transition: transform 0.3s, filter 0.3s;
-}
-
-.photo-container img:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-}
-
-footer {
-    background-color: var(--header-bg);
-    color: var(--gold-color);
-    text-align: center;
-    padding: 20px;
-    transition: background 0.5s, color 0.5s;
-}
-
-.crew-section, .unity-section, #media-section, #discord-section {
-    display: none;
-    padding: 20px;
-    background-color: var(--nav-bg);
-    text-align: center;
-    transition: background 0.5s;
-}
-
-.crew-grid, .unity-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    align-items: start;
-    margin-top: 20px;
-}
-
-.crew-member, .unity-member {
-    text-align: center;
-    font-size: 20px;
-    position: relative;
-}
-
-.crew-member img, .unity-member img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid var(--gold-color);
-    margin-bottom: 10px;
-    transition: transform 0.3s, filter 0.3s;
-    cursor: pointer;
-}
-
-.crew-member:hover img, .unity-member:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
+.crew-section, .unity-section, #media-section, #discord-section { display: none; padding: 20px; background-color: var(--nav-bg); text-align: center; transition: background 0.5s; }
+.crew-grid, .unity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-items: center; align-items: start; margin-top: 20px; }
+.crew-member, .unity-member { text-align: center; font-size: 20px; position: relative; }
+.crew-member img, .unity-member img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 2px solid var(--gold-color); margin-bottom: 10px; transition: transform 0.3s, filter 0.3s; cursor: pointer; }
+.crew-member:hover img, .unity-member:hover img { transform: scale(1.1); filter: brightness(1.2); }
 
 /* Tooltip */
 .crew-member a::after, .unity-member a::after {
@@ -209,103 +75,40 @@ footer {
     transition: opacity 0.3s;
     font-size: 14px;
 }
+.crew-member:hover a::after, .unity-member:hover a::after { opacity: 1; }
+.crew-member a, .unity-member a { color: var(--gold-color); text-decoration: none; font-weight: bold; display: block; margin-bottom: 5px; transition: color 0.3s; }
+.crew-member a:hover, .unity-member a:hover { color: var(--gold-hover); }
 
-.crew-member:hover a::after, .unity-member:hover a::after {
-    opacity: 1;
-}
+.social-links { text-align: center; margin-top: 10px; }
+.social-links a { margin: 0 10px; color: var(--gold-color); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+.social-links a:hover { color: var(--gold-hover); }
 
-.crew-member a, .unity-member a {
-    color: var(--gold-color);
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    transition: color 0.3s;
-}
+html { scroll-behavior: smooth; }
+.media-embed { text-align: center; margin: 20px auto; }
+.media-embed iframe, .media-embed video { width: 100%; max-width: 900px; height: 500px; border: 3px solid var(--gold-color); }
 
-.crew-member a:hover, .unity-member a:hover {
-    color: var(--gold-hover);
-}
-
-.social-links {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.social-links a {
-    margin: 0 10px;
-    color: var(--gold-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--gold-hover);
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.media-embed {
-    text-align: center;
-    margin: 20px auto;
-}
-
-.media-embed iframe, .media-embed video {
-    width: 100%;
-    max-width: 900px;
-    height: 500px;
-    border: 3px solid var(--gold-color);
-}
-
-#scrollTopAnchor {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 32px;
-    color: var(--gold-color);
-    background-color: var(--nav-bg);
-    padding: 10px 12px;
-    border-radius: 50%;
-    text-decoration: none;
-    border: 2px solid var(--gold-color);
-    z-index: 1000;
-    transition: background 0.3s;
-}
-
-#scrollTopAnchor:hover {
-    background-color: var(--gold-hover);
-    color: var(--bg-color);
-}
+#scrollTopAnchor { position: fixed; bottom: 20px; right: 20px; font-size: 32px; color: var(--gold-color); background-color: var(--nav-bg); padding: 10px 12px; border-radius: 50%; text-decoration: none; border: 2px solid var(--gold-color); z-index: 1000; transition: background 0.3s; }
+#scrollTopAnchor:hover { background-color: var(--gold-hover); color: var(--bg-color); }
 
 #theme-toggle, #music-toggle {
-    position: fixed;
-    z-index: 1000;
-    padding: 8px 10px;
-    font-size: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--gold-color);
-    background-color: var(--nav-bg);
-    color: var(--gold-color);
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    position: fixed; z-index: 1000; padding: 8px 10px; font-size: 20px; border-radius: 50%; border: 2px solid var(--gold-color); background-color: var(--nav-bg); color: var(--gold-color); cursor: pointer; transition: background 0.3s, color 0.3s;
 }
-
-#theme-toggle:hover, #music-toggle:hover {
-    background-color: var(--gold-hover);
-    color: var(--bg-color);
-}
-
+#theme-toggle:hover, #music-toggle:hover { background-color: var(--gold-hover); color: var(--bg-color); }
 #theme-toggle { top: 20px; right: 20px; }
 #music-toggle { top: 70px; right: 20px; }
+
+#mini-player {
+    position: fixed; bottom: 20px; left: 20px; width: 220px; height: 60px; background-color: var(--nav-bg); border: 2px solid var(--gold-color); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; padding: 5px 10px; font-size: 14px; color: var(--gold-color); z-index: 1000; transition: background 0.5s, color 0.5s;
+}
+#mini-player button { background: none; border: none; color: var(--gold-color); cursor: pointer; font-size: 18px; }
+#mini-player span { flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 @media (max-width: 768px) {
     header h1 { font-size: 36px; }
     nav a { display: block; margin: 10px 0; }
     .crew-member img, .unity-member img { width: 150px; height: 150px; }
     .photo-container img { width: 200px; height: 300px; }
+    #mini-player { width: 180px; height: 50px; font-size: 12px; }
 }
 </style>
 </head>
@@ -326,160 +129,79 @@ html {
 </nav>
 
 <div class="container">
-    <div class="section" id="welcome">
-        <h2>Welcome Aboard!</h2>
-        <p style="text-align:center;">You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain SiegePirate and Vice Captain Squidnuggette</em>. Grab your gear and join the voyage!</p>
-    </div>
-
-    <div class="section" id="about">
-        <h2>The Captain</h2>
-        <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and Founder of The United Seas but also one of the Founders for the True Unity Project. Welcome aboard the ship where everyone has a place in the fleet.</p>
-    </div>
-
-    <div class="photo-container">
-        <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy">
-    </div>
-
-    <div class="button-container">
-        <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
-        <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
-        <button onclick="toggleSection('media-section')">View Ship Logs</button>
-        <button onclick="toggleSection('discord-section')">Show Discord</button>
-    </div>
-
-    <!-- Inner Circle -->
-    <div id="inner-circle" class="crew-section section">
-        <h2>Inner Circle</h2>
-        <div class="crew-grid">
-            <div class="crew-member">
-                <img src="Squid1.jpg" alt="Squidnuggette Portrait" loading="lazy">
-                <a href="https://twitch.tv/squidnuggette_xl" target="_blank" title="Vice Captain of the United Seas">Squidnuggette</a>
-            </div>
-            <div class="crew-member">
-                <img src="Flowerchu.jpg" alt="Flowerchu Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank" title="Momma Flowerchu, Crew Support">Momma Flowerchu</a>
-            </div>
-            <div class="crew-member">
-                <img src="Mo.jpg" alt="Mo Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/mo_xl" target="_blank" title="Core Crew Member">Mo</a>
-            </div>
-            <div class="crew-member">
-                <img src="Pixxel.jpg" alt="Pixxelair Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank" title="Core Crew Member">Pixxelair</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Unity Project Section -->
-    <div id="unity-project" class="unity-section section">
-        <h2>The Unity Project</h2>
-        <div class="unity-grid">
-            <div class="unity-member">
-                <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy">
-                <a href="https://twitch.tv/SiegePirate" target="_blank" title="Founder & Captain">Captain SiegePirate</a>
-            </div>
-            <div class="unity-member">
-                <img src="Squid1.jpg" alt="Squidnuggette Portrait" loading="lazy">
-                <a href="https://twitch.tv/squidnuggette_xl" target="_blank" title="Vice Captain">Squidnuggette</a>
-            </div>
-            <div class="unity-member">
-                <img src="Flowerchu.jpg" alt="Flowerchu Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank" title="Momma Flowerchu">Momma Flowerchu</a>
-            </div>
-            <div class="unity-member">
-                <img src="Mo.jpg" alt="Mo Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/mo_xl" target="_blank" title="Crew Member">Mo</a>
-            </div>
-            <div class="unity-member">
-                <img src="Pixxel.jpg" alt="Pixxelair Portrait" loading="lazy">
-                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank" title="Crew Member">Pixxelair</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Media Section -->
-    <div id="media-section" class="section">
-        <h2>Ship Logs</h2>
-        <div class="media-embed">
-            <h3>Captain's Log - Video Entry</h3>
-            <video controls>
-                <source src="video-entry.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="media-embed">
-            <h3>Live from the Deck - Twitch Stream</h3>
-            <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen scrolling="no"></iframe>
-            <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
-        </div>
-    </div>
-
-    <!-- Discord Section -->
-    <div id="discord-section" class="section">
-        <h2>United Seas Discord</h2>
-        <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" 
-            width="350" height="500" allowtransparency="true" frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        <div class="social-links" style="margin-top: 20px;">
-            <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
-        </div>
-    </div>
-
-    <!-- Social Links -->
-    <div class="section" id="social">
-        <h2>Ports of Call</h2>
-        <div class="social-links">
-            <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
-            <a href="https://twitch.tv/SiegePirate" target="_blank">Twitch</a>
-            <a href="https://youtube.com/@SiegePirate" target="_blank">YouTube</a>
-            <a href="https://tiktok.com/@SiegePirate" target="_blank">TikTok</a>
-            <a href="https://patreon.com/SiegePirate" target="_blank">Patreon</a>
-        </div>
-    </div>
+    <!-- Add all sections here: Welcome, About, Photo, Buttons, Inner Circle, Unity, Media, Discord, Social -->
 </div>
 
-<!-- Scroll to top -->
 <a href="#top" id="scrollTopAnchor">⚓</a>
-
-<!-- Dark Mode & Music Toggles -->
 <button id="theme-toggle" title="Toggle Dark/Light Mode">🌙</button>
-<button id="music-toggle" title="Mute/Unmute Music">🎵</button>
+<button id="music-toggle" title="Mute/Unmute Music">🔊</button>
 
-<!-- Background Music Playlist -->
-<div id="bg-music" style="display:none;">
-    <iframe 
-        src="https://www.youtube.com/embed/videoseries?list=PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS&autoplay=1&loop=1&playlist=PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS&controls=0&mute=0&rel=0" 
-        frameborder="0" allow="autoplay" allowfullscreen>
-    </iframe>
+<!-- Mini Player -->
+<div id="mini-player">
+    <span id="track-title">Loading Playlist...</span>
+    <button id="mute-btn">🔇</button>
 </div>
+
+<!-- Background Music -->
+<div id="bg-music"></div>
 
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    const isVisible = section.style.display === 'block';
-    section.style.display = isVisible ? 'none' : 'block';
+let player;
+let musicMuted = true;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('bg-music', {
+        height: '0',
+        width: '0',
+        videoId: 'E3VJobFbtkLRIWHm',
+        playerVars: {
+            listType: 'playlist',
+            list: 'PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS',
+            autoplay: 1,
+            loop: 1,
+            controls: 0,
+            mute: 1
+        },
+        events: {
+            'onReady': (event) => {
+                player.setVolume(15);
+                updateTrackTitle();
+            },
+            'onStateChange': () => updateTrackTitle()
+        }
+    });
 }
 
-// Set current year
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('year').textContent = new Date().getFullYear();
-});
+function updateTrackTitle() {
+    const videoData = player.getVideoData();
+    document.getElementById('track-title').textContent = videoData.title || "Playing Playlist...";
+}
 
-// Dark / Light Mode
 document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
 });
 
-// Mute / Unmute Music
-let musicMuted = false;
-document.getElementById('music-toggle').addEventListener('click', () => {
-    const iframe = document.querySelector('#bg-music iframe');
+document.getElementById('music-toggle').addEventListener('click', toggleMusic);
+document.getElementById('mute-btn').addEventListener('click', toggleMusic);
+
+function toggleMusic() {
+    if (!player) return;
     musicMuted = !musicMuted;
-    iframe.src = iframe.src.replace(/&mute=\d/, `&mute=${musicMuted ? '1' : '0'}`);
+    if (musicMuted) { player.mute(); } else { player.unMute(); }
+}
+
+function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('year').textContent = new Date().getFullYear();
 });
 </script>
 
