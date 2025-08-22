@@ -133,24 +133,20 @@ html { scroll-behavior: smooth; }
 </nav>
 
 <div class="container">
-    <!-- Welcome Section -->
     <div class="section" id="welcome">
         <h2>Welcome Aboard!</h2>
         <p style="text-align:center;">You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain SiegePirate and Vice Captain Squidnuggette</em>. Grab your gear and join the voyage!</p>
     </div>
 
-    <!-- About -->
     <div class="section" id="about">
         <h2>The Captain</h2>
         <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and Founder of The United Seas but also one of the Founders for the True Unity Project. Welcome aboard the ship where everyone has a place in the fleet.</p>
     </div>
 
-    <!-- Photo -->
     <div class="photo-container">
         <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy">
     </div>
 
-    <!-- Buttons -->
     <div class="button-container">
         <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
         <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
@@ -262,13 +258,17 @@ html { scroll-behavior: smooth; }
     <button id="mini-play">⏯</button>
 </div>
 
+<!-- YouTube Player -->
+<div style="display:none;">
+    <div id="yt-player"></div>
+</div>
+
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
 
-<!-- YouTube Music Embed (hidden autoplay) -->
-<iframe id="yt-music" width="0" height="0" src="https://www.youtube.com/embed/videoseries?list=PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS&autoplay=1&loop=1&mute=1&controls=0&enablejsapi=1" frameborder="0" allow="autoplay"></iframe>
-
+<!-- Scripts -->
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
@@ -283,26 +283,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Dark mode toggle
 const themeBtn = document.getElementById('theme-toggle');
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-});
+themeBtn.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
 
-// Music toggle
+// YouTube Music Player
+let player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+        height: '0', width: '0',
+        playerVars: {
+            listType:'playlist',
+            list:'PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS',
+            autoplay:1,
+            loop:1,
+            controls:0,
+            modestbranding:1,
+            disablekb:1
+        },
+        events: {'onReady': onPlayerReady}
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.setVolume(25);
+    event.target.playVideo();
+}
+
+// Mini player buttons
 const musicBtn = document.getElementById('music-toggle');
-const ytMusic = document.getElementById('yt-music');
-let muted = true;
+const miniBtn = document.getElementById('mini-play');
+let muted = false;
+let playing = true;
+
 musicBtn.addEventListener('click', () => {
+    if (!player) return;
     muted = !muted;
-    ytMusic.contentWindow.postMessage('{"event":"command","func":"setVolume","args":[' + (muted ? 0 : 50) + ']}', '*');
-    musicBtn.textContent = muted ? '🎵' : '🔊';
+    if (muted) { player.mute(); musicBtn.textContent = '🎵'; }
+    else { player.unMute(); player.setVolume(25); musicBtn.textContent = '🔊'; }
 });
 
-// Play/pause mini player
-const miniBtn = document.getElementById('mini-play');
 miniBtn.addEventListener('click', () => {
-    ytMusic.contentWindow.postMessage('{"event":"command","func":"playVideo","args":[]}','*');
+    if (!player) return;
+    if (playing) { player.pauseVideo(); miniBtn.textContent='▶'; playing=false; }
+    else { player.playVideo(); miniBtn.textContent='⏸'; playing=true; }
 });
 </script>
-
 </body>
 </html>
