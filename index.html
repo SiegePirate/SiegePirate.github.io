@@ -60,6 +60,7 @@ nav a {
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
@@ -93,8 +94,7 @@ nav a:hover {
     margin: 20px 0;
 }
 
-.button-container button,
-.button-container a {
+.button-container button {
     background-color: var(--gold-color);
     color: var(--bg-color);
     border: none;
@@ -105,13 +105,10 @@ nav a:hover {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 5px;
-    text-decoration: none;
-    display: inline-block;
     transition: background 0.3s;
 }
 
-.button-container button:hover,
-.button-container a:hover {
+.button-container button:hover {
     background-color: var(--gold-hover);
 }
 
@@ -136,7 +133,7 @@ footer {
     padding: 20px;
 }
 
-.crew-section, .unity-section, #media-section {
+.crew-section, .unity-section, #media-section, #discord-section {
     display: none;
     padding: 20px;
     background-color: var(--nav-bg);
@@ -184,6 +181,11 @@ footer {
     color: var(--gold-color);
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--gold-hover);
 }
 
 html {
@@ -200,13 +202,6 @@ html {
     max-width: 900px;
     height: 500px;
     border: 3px solid var(--gold-color);
-}
-
-#discord-section {
-    display: block;
-    padding: 20px;
-    background-color: var(--nav-bg);
-    text-align: center;
 }
 
 #scrollTopAnchor {
@@ -250,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </head>
 <body>
+
 <header>
     <h1>United Seas</h1>
     <p>Flagship of Captain SiegePirate</p>
@@ -260,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <a href="javascript:void(0);" onclick="toggleSection('inner-circle')">Inner Circle</a>
     <a href="javascript:void(0);" onclick="toggleSection('unity-project')">Explore the Unity Project</a>
     <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
-    <a href="#discord-section">Discord</a>
+    <a href="javascript:void(0);" onclick="toggleSection('discord-section')">Discord</a>
     <a href="#social">Ports of Call</a>
 </nav>
 
@@ -283,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
         <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
         <button onclick="toggleSection('media-section')">View Ship Logs</button>
+        <button onclick="toggleSection('discord-section')">Show Discord</button>
     </div>
 
     <!-- Inner Circle -->
@@ -358,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" 
             width="350" height="500" allowtransparency="true" frameborder="0"
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        <div class="button-container" style="margin-top: 20px;">
+        <div class="social-links" style="margin-top: 20px;">
             <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
         </div>
     </div>
@@ -382,5 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
