@@ -77,7 +77,6 @@
         scroll-margin-top: 80px;
     }
 
-    /* Shimmer effect for headings */
     h2 {
         background: linear-gradient(90deg, #ffb700, #ffd700, #ffb700);
         background-size: 200% 100%;
@@ -208,13 +207,7 @@
         scroll-behavior: smooth;
     }
 
-    .media-embed {
-        text-align: center;
-        margin: 20px auto;
-        width: 100%;
-    }
-
-    .clips-grid iframe {
+    .clips-grid iframe, .live-stream iframe, .chat-embed iframe {
         width: 100%;
         max-width: 400px;
         height: 225px;
@@ -222,17 +215,8 @@
         border-radius: 8px;
     }
 
-    #scrollTop {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 10px 15px;
-        background: var(--gold-color);
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 24px;
-        z-index: 1000;
+    .live-stream, .chat-embed {
+        margin: 20px auto;
     }
 
     @media (max-width: 768px) {
@@ -240,7 +224,7 @@
         nav a { display: block; margin: 10px 0; }
         .crew-member img, .unity-member img { width: 150px; height: 150px; }
         .photo-container img { width: 200px; height: 300px; }
-        .clips-grid iframe { max-width: 100%; height: 200px; }
+        .clips-grid iframe, .live-stream iframe, .chat-embed iframe { max-width: 100%; height: 200px; }
     }
 </style>
 <script>
@@ -343,13 +327,14 @@
         </div>
     </div>
 
-    <!-- Media Section (Ship Logs with Twitch Clips Grid) -->
+    <!-- Ship Logs Section -->
     <div id="media-section" class="section">
         <h2>Ship Logs</h2>
+
+        <!-- Clips Grid -->
         <div class="clips-grid">
-            <!-- Replace ClipIDx with your Twitch clip IDs -->
             <div class="clip-item">
-                <iframe src="https://clips.twitch.tv/embed?clip=ClipID1&parent=siegepirate.github.io" allowfullscreen></iframe>
+                <iframe src="https://clips.twitch.tv/embed?clip=CogentPoorBananaPeteZarollTie-YsKVw_-14R1wJbl6&parent=siegepirate.github.io" allowfullscreen></iframe>
             </div>
             <div class="clip-item">
                 <iframe src="https://clips.twitch.tv/embed?clip=ClipID2&parent=siegepirate.github.io" allowfullscreen></iframe>
@@ -357,9 +342,21 @@
             <div class="clip-item">
                 <iframe src="https://clips.twitch.tv/embed?clip=ClipID3&parent=siegepirate.github.io" allowfullscreen></iframe>
             </div>
-            <div class="clip-item">
-                <iframe src="https://clips.twitch.tv/embed?clip=ClipID4&parent=siegepirate.github.io" allowfullscreen></iframe>
-            </div>
+        </div>
+
+        <!-- Live Stream -->
+        <div class="live-stream">
+            <h3>Live from the Deck</h3>
+            <iframe
+                src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false"
+                frameborder="0" allowfullscreen scrolling="no"></iframe>
+        </div>
+
+        <!-- Chat Embed -->
+        <div class="chat-embed">
+            <iframe
+                src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io"
+                frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
 
