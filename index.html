@@ -38,18 +38,22 @@ body.light-mode {
 header { background-color: var(--header-bg); padding: 20px; text-align: center; transition: background 0.5s; }
 header h1 { margin: 0; color: var(--gold-color); font-family: 'Pirata One', cursive; font-size: 56px; text-transform: uppercase; letter-spacing: 3px; transition: color 0.5s; }
 header p { margin: 5px 0 0; font-size: 20px; }
+
 nav { text-align: center; background-color: var(--nav-bg); padding: 10px; transition: background 0.5s; }
 nav a { color: var(--gold-color); margin: 0 15px; text-decoration: none; font-weight: bold; font-family: 'Pirata One', cursive; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
 nav a:hover { color: var(--gold-hover); }
+
 .container { padding: 20px; max-width: 1200px; margin: 0 auto; }
 .section { margin-bottom: 40px; scroll-margin-top: 80px; }
 .section h2 { border-bottom: 2px solid var(--gold-color); padding-bottom: 10px; font-family: 'Pirata One', cursive; font-size: 36px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-color); text-align: center; }
 .button-container { text-align: center; margin: 20px 0; }
 .button-container button { background-color: var(--gold-color); color: var(--bg-color); border: none; padding: 12px 16px; font-size: 20px; cursor: pointer; font-family: 'Pirata One', cursive; text-transform: uppercase; letter-spacing: 1px; margin: 5px; transition: background 0.3s; }
 .button-container button:hover { background-color: var(--gold-hover); }
+
 .photo-container { text-align: center; margin: 20px 0; }
 .photo-container img { width: 300px; height: 400px; object-fit: cover; object-position: top center; border: 5px solid var(--gold-color); border-radius: 15px; transition: transform 0.3s, filter 0.3s; }
 .photo-container img:hover { transform: scale(1.05); filter: brightness(1.2); }
+
 footer { background-color: var(--header-bg); color: var(--gold-color); text-align: center; padding: 20px; transition: background 0.5s, color 0.5s; }
 
 .crew-section, .unity-section, #media-section, #discord-section { display: none; padding: 20px; background-color: var(--nav-bg); text-align: center; transition: background 0.5s; }
@@ -129,79 +133,174 @@ html { scroll-behavior: smooth; }
 </nav>
 
 <div class="container">
-    <!-- Add all sections here: Welcome, About, Photo, Buttons, Inner Circle, Unity, Media, Discord, Social -->
+    <!-- Welcome Section -->
+    <div class="section" id="welcome">
+        <h2>Welcome Aboard!</h2>
+        <p style="text-align:center;">You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain SiegePirate and Vice Captain Squidnuggette</em>. Grab your gear and join the voyage!</p>
+    </div>
+
+    <!-- About -->
+    <div class="section" id="about">
+        <h2>The Captain</h2>
+        <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and Founder of The United Seas but also one of the Founders for the True Unity Project. Welcome aboard the ship where everyone has a place in the fleet.</p>
+    </div>
+
+    <!-- Photo -->
+    <div class="photo-container">
+        <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy">
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-container">
+        <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
+        <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
+        <button onclick="toggleSection('media-section')">View Ship Logs</button>
+        <button onclick="toggleSection('discord-section')">Show Discord</button>
+    </div>
+
+    <!-- Inner Circle -->
+    <div id="inner-circle" class="crew-section section">
+        <h2>Inner Circle</h2>
+        <div class="crew-grid">
+            <div class="crew-member">
+                <img src="Squid1.jpg" alt="Squidnuggette Portrait" loading="lazy">
+                <a href="https://twitch.tv/squidnuggette_xl" target="_blank" title="Vice Captain & First Mate">Squidnuggette</a>
+            </div>
+            <div class="crew-member">
+                <img src="Flowerchu.jpg" alt="Flowerchu Portrait" loading="lazy">
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank" title="Momma Flowerchu">Momma Flowerchu</a>
+            </div>
+            <div class="crew-member">
+                <img src="Mo.jpg" alt="Mo Portrait" loading="lazy">
+                <a href="https://www.twitch.tv/mo_xl" target="_blank" title="Trusted Crew">Mo</a>
+            </div>
+            <div class="crew-member">
+                <img src="Pixxel.jpg" alt="Pixxelair Portrait" loading="lazy">
+                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank" title="Creative Strategist">Pixxelair</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unity Project -->
+    <div id="unity-project" class="unity-section section">
+        <h2>The Unity Project</h2>
+        <div class="unity-grid">
+            <div class="unity-member">
+                <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy">
+                <a href="https://twitch.tv/SiegePirate" target="_blank" title="Project Founder">Captain SiegePirate</a>
+            </div>
+            <div class="unity-member">
+                <img src="Squid1.jpg" alt="Squidnuggette Portrait" loading="lazy">
+                <a href="https://twitch.tv/squidnuggette_xl" target="_blank" title="Vice Captain">Squidnuggette</a>
+            </div>
+            <div class="unity-member">
+                <img src="Flowerchu.jpg" alt="Flowerchu Portrait" loading="lazy">
+                <a href="https://www.twitch.tv/flowerachu_xl" target="_blank" title="Momma Flowerchu">Momma Flowerchu</a>
+            </div>
+            <div class="unity-member">
+                <img src="Mo.jpg" alt="Mo Portrait" loading="lazy">
+                <a href="https://www.twitch.tv/mo_xl" target="_blank" title="Trusted Crew">Mo</a>
+            </div>
+            <div class="unity-member">
+                <img src="Pixxel.jpg" alt="Pixxelair Portrait" loading="lazy">
+                <a href="https://www.twitch.tv/pixxelair_xl" target="_blank" title="Creative Strategist">Pixxelair</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Section -->
+    <div id="media-section" class="section">
+        <h2>Ship Logs</h2>
+        <div class="media-embed">
+            <h3>Captain's Log - Video Entry</h3>
+            <video controls>
+                <source src="video-entry.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="media-embed">
+            <h3>Live from the Deck - Twitch Stream</h3>
+            <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen scrolling="no"></iframe>
+            <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
+        </div>
+    </div>
+
+    <!-- Discord Section -->
+    <div id="discord-section" class="section">
+        <h2>United Seas Discord</h2>
+        <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" 
+            width="350" height="500" allowtransparency="true" frameborder="0"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <div class="social-links" style="margin-top: 20px;">
+            <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
+        </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="section" id="social">
+        <h2>Ports of Call</h2>
+        <div class="social-links">
+            <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
+            <a href="https://twitch.tv/SiegePirate" target="_blank">Twitch</a>
+            <a href="https://youtube.com/@SiegePirate" target="_blank">YouTube</a>
+            <a href="https://tiktok.com/@SiegePirate" target="_blank">TikTok</a>
+            <a href="https://patreon.com/SiegePirate" target="_blank">Patreon</a>
+        </div>
+    </div>
 </div>
 
+<!-- Scroll to top -->
 <a href="#top" id="scrollTopAnchor">⚓</a>
-<button id="theme-toggle" title="Toggle Dark/Light Mode">🌙</button>
-<button id="music-toggle" title="Mute/Unmute Music">🔊</button>
+
+<!-- Dark mode and music buttons -->
+<button id="theme-toggle" title="Toggle Dark/Light Mode">🌗</button>
+<button id="music-toggle" title="Mute/Unmute Music">🎵</button>
 
 <!-- Mini Player -->
 <div id="mini-player">
-    <span id="track-title">Loading Playlist...</span>
-    <button id="mute-btn">🔇</button>
+    <span id="track-name">United Seas Playlist</span>
+    <button id="mini-play">⏯</button>
 </div>
-
-<!-- Background Music -->
-<div id="bg-music"></div>
 
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
 
-<script src="https://www.youtube.com/iframe_api"></script>
+<!-- YouTube Music Embed (hidden autoplay) -->
+<iframe id="yt-music" width="0" height="0" src="https://www.youtube.com/embed/videoseries?list=PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS&autoplay=1&loop=1&mute=1&controls=0&enablejsapi=1" frameborder="0" allow="autoplay"></iframe>
+
 <script>
-let player;
-let musicMuted = true;
-
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('bg-music', {
-        height: '0',
-        width: '0',
-        videoId: 'E3VJobFbtkLRIWHm',
-        playerVars: {
-            listType: 'playlist',
-            list: 'PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS',
-            autoplay: 1,
-            loop: 1,
-            controls: 0,
-            mute: 1
-        },
-        events: {
-            'onReady': (event) => {
-                player.setVolume(15);
-                updateTrackTitle();
-            },
-            'onStateChange': () => updateTrackTitle()
-        }
-    });
-}
-
-function updateTrackTitle() {
-    const videoData = player.getVideoData();
-    document.getElementById('track-title').textContent = videoData.title || "Playing Playlist...";
-}
-
-document.getElementById('theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-});
-
-document.getElementById('music-toggle').addEventListener('click', toggleMusic);
-document.getElementById('mute-btn').addEventListener('click', toggleMusic);
-
-function toggleMusic() {
-    if (!player) return;
-    musicMuted = !musicMuted;
-    if (musicMuted) { player.mute(); } else { player.unMute(); }
-}
-
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
-    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    const isVisible = section.style.display === 'block';
+    section.style.display = isVisible ? 'none' : 'block';
+    section.setAttribute('aria-hidden', isVisible);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
+});
+
+// Dark mode toggle
+const themeBtn = document.getElementById('theme-toggle');
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+});
+
+// Music toggle
+const musicBtn = document.getElementById('music-toggle');
+const ytMusic = document.getElementById('yt-music');
+let muted = true;
+musicBtn.addEventListener('click', () => {
+    muted = !muted;
+    ytMusic.contentWindow.postMessage('{"event":"command","func":"setVolume","args":[' + (muted ? 0 : 50) + ']}', '*');
+    musicBtn.textContent = muted ? '🎵' : '🔊';
+});
+
+// Play/pause mini player
+const miniBtn = document.getElementById('mini-play');
+miniBtn.addEventListener('click', () => {
+    ytMusic.contentWindow.postMessage('{"event":"command","func":"playVideo","args":[]}','*');
 });
 </script>
 
