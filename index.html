@@ -7,277 +7,255 @@
 <title>United Seas</title>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root {
-    --bg-color: #001a29;
-    --header-bg: #002233;
-    --nav-bg: #011622;
-    --gold-color: #ffb700;
-    --gold-hover: #e6a500;
-    --text-color: #f4f4f4;
-    --lore-bg: #0a1a2b;
-}
+    :root {
+        --bg-color: #001a29;
+        --header-bg: #002233;
+        --nav-bg: #011622;
+        --gold-color: #ffb700;
+        --gold-hover: #e6a500;
+        --text-color: #f4f4f4;
+    }
 
-/* Base styles */
-body {
-    font-family: 'Raleway', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0 0 60px 0;
-}
+    body {
+        font-family: 'Raleway', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+        padding-bottom: 60px;
+    }
 
-header {
-    background-color: var(--header-bg);
-    padding: 20px;
-    text-align: center;
-}
+    header {
+        background-color: var(--header-bg);
+        padding: 20px;
+        text-align: center;
+    }
 
-header h1 {
-    margin: 0;
-    color: var(--gold-color);
-    font-family: 'Pirata One', cursive;
-    font-size: 56px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
+    header h1 {
+        margin: 0;
+        color: var(--gold-color);
+        font-family: 'Pirata One', cursive;
+        font-size: 56px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
 
-header p {
-    margin: 5px 0 0;
-    font-size: 20px;
-}
+    header p {
+        margin: 5px 0 0;
+        font-size: 20px;
+    }
 
-nav {
-    text-align: center;
-    background-color: var(--nav-bg);
-    padding: 10px;
-}
+    nav {
+        text-align: center;
+        background-color: var(--nav-bg);
+        padding: 10px;
+    }
 
-nav a {
-    color: var(--gold-color);
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Pirata One', cursive;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+    nav a {
+        color: var(--gold-color);
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: 'Pirata One', cursive;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
-nav a:hover {
-    color: var(--gold-hover);
-}
+    nav a:hover {
+        color: var(--gold-hover);
+    }
 
-.container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-.section {
-    margin-bottom: 40px;
-    scroll-margin-top: 80px;
-}
+    .section {
+        margin-bottom: 40px;
+        scroll-margin-top: 80px;
+    }
 
-.section h2 {
-    border-bottom: 2px solid var(--gold-color);
-    padding-bottom: 10px;
-    font-family: 'Pirata One', cursive;
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--gold-color);
-    text-align: center;
-}
+    .section h2 {
+        border-bottom: 2px solid var(--gold-color);
+        padding-bottom: 10px;
+        font-family: 'Pirata One', cursive;
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--gold-color);
+        text-align: center;
+    }
 
-.button-container {
-    text-align: center;
-    margin: 20px 0;
-}
+    .button-container {
+        text-align: center;
+        margin: 20px 0;
+    }
 
-.button-container button {
-    background: linear-gradient(145deg, #ffb700, #e6a500);
-    color: var(--bg-color);
-    border: none;
-    padding: 12px 16px;
-    font-size: 20px;
-    cursor: pointer;
-    font-family: 'Pirata One', cursive;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 5px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s, background 0.3s;
-}
+    .button-container button {
+        background-color: var(--gold-color);
+        color: var(--bg-color);
+        border: none;
+        padding: 12px 16px;
+        font-size: 20px;
+        cursor: pointer;
+        font-family: 'Pirata One', cursive;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 5px;
+        transition: background 0.3s;
+    }
 
-.button-container button:hover {
-    background-color: var(--gold-hover);
-    transform: scale(1.05);
-}
+    .button-container button:hover {
+        background-color: var(--gold-hover);
+    }
 
-.photo-container {
-    text-align: center;
-    margin: 20px 0;
-}
+    .photo-container {
+        text-align: center;
+        margin: 20px 0;
+    }
 
-.photo-container img {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    object-position: top center;
-    border: 5px solid var(--gold-color);
-    border-radius: 15px;
-}
+    .photo-container img {
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+        object-position: top center;
+        border: 5px solid var(--gold-color);
+        border-radius: 15px;
+    }
 
-footer {
-    background-color: var(--header-bg);
-    color: var(--gold-color);
-    text-align: center;
-    padding: 20px;
-}
+    footer {
+        background-color: var(--header-bg);
+        color: var(--gold-color);
+        text-align: center;
+        padding: 20px;
+    }
 
-.crew-section, .unity-section, #media-section, #discord-section, #lore-section {
-    display: none;
-    padding: 20px;
-    background-color: var(--nav-bg);
-    text-align: center;
-}
+    .crew-section, .unity-section, #media-section, #discord-section {
+        display: none;
+        padding: 20px;
+        background-color: var(--nav-bg);
+        text-align: center;
+    }
 
-.crew-grid, .unity-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    align-items: start;
-    margin-top: 20px;
-}
+    .crew-grid, .unity-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        align-items: start;
+        margin-top: 20px;
+    }
 
-.crew-member, .unity-member {
-    text-align: center;
-    font-size: 20px;
-}
+    .crew-member, .unity-member {
+        text-align: center;
+        font-size: 20px;
+    }
 
-.crew-member img, .unity-member img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid var(--gold-color);
-    margin-bottom: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+    .crew-member img, .unity-member img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid var(--gold-color);
+        margin-bottom: 10px;
+    }
 
-.crew-member img:hover, .unity-member img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(255, 183, 0, 0.7);
-}
+    .crew-member a, .unity-member a {
+        color: var(--gold-color);
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
 
-.crew-member a, .unity-member a {
-    color: var(--gold-color);
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
+    .social-links {
+        text-align: center;
+        margin-top: 10px;
+    }
 
-.social-links {
-    text-align: center;
-    margin-top: 10px;
-}
+    .social-links a {
+        margin: 0 10px;
+        color: var(--gold-color);
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-.social-links a {
-    margin: 0 10px;
-    color: var(--gold-color);
-    text-decoration: none;
-    font-weight: bold;
-}
+    html {
+        scroll-behavior: smooth;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
+    .media-embed {
+        text-align: center;
+        margin: 20px auto;
+    }
 
-.media-embed {
-    text-align: center;
-    margin: 20px auto;
-}
+    .media-embed iframe, .media-embed video {
+        width: 100%;
+        max-width: 900px;
+        height: 500px;
+        border: 3px solid var(--gold-color);
+    }
 
-.media-embed iframe, .media-embed video {
-    width: 100%;
-    max-width: 900px;
-    height: 500px;
-    border: 3px solid var(--gold-color);
-}
+    /* Discord Join Button */
+    #discord-section .button-container a {
+        background-color: var(--gold-color);
+        color: var(--bg-color);
+        padding: 12px 20px;
+        font-family: 'Pirata One', cursive;
+        text-transform: uppercase;
+        font-size: 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+    }
 
-#discord-section iframe {
-    width: 100%;
-    max-width: 400px;
-    height: 500px;
-    border: 3px solid var(--gold-color);
-    border-radius: 8px;
-}
+    #discord-section .button-container a:hover {
+        background-color: var(--gold-hover);
+        transform: scale(1.05);
+    }
 
-#scrollTopAnchor {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 32px;
-    color: var(--gold-color);
-    background-color: var(--nav-bg);
-    padding: 10px 12px;
-    border-radius: 50%;
-    text-decoration: none;
-    border: 2px solid var(--gold-color);
-    z-index: 1000;
-    transition: background 0.3s;
-}
+    /* Scroll to top anchor */
+    #scrollTopAnchor {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        font-size: 32px;
+        color: var(--gold-color);
+        background-color: var(--nav-bg);
+        padding: 10px 12px;
+        border-radius: 50%;
+        text-decoration: none;
+        border: 2px solid var(--gold-color);
+        z-index: 1000;
+        transition: background 0.3s;
+    }
 
-#scrollTopAnchor:hover {
-    background-color: var(--gold-hover);
-    color: var(--bg-color);
-}
+    #scrollTopAnchor:hover {
+        background-color: var(--gold-hover);
+        color: var(--bg-color);
+    }
 
-#lore-section {
-    background-color: var(--lore-bg);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#lore-section h3 {
-    color: var(--gold-color);
-}
-
-#lore-editor {
-    width: 100%;
-    max-width: 900px;
-    height: 300px;
-    background-color: #02131f;
-    color: var(--text-color);
-    border: 2px solid var(--gold-color);
-    border-radius: 8px;
-    padding: 10px;
-    font-family: 'Raleway', sans-serif;
-    resize: vertical;
-}
-
-@media (max-width: 768px) {
-    header h1 { font-size: 36px; }
-    nav a { display: block; margin: 10px 0; }
-    .crew-member img, .unity-member img { width: 150px; height: 150px; }
-    .photo-container img { width: 200px; height: 300px; }
-}
+    @media (max-width: 768px) {
+        header h1 { font-size: 36px; }
+        nav a { display: block; margin: 10px 0; }
+        .crew-member img, .unity-member img { width: 150px; height: 150px; }
+        .photo-container img { width: 200px; height: 300px; }
+    }
 </style>
 <script>
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    const isVisible = section.style.display === 'block';
-    section.style.display = isVisible ? 'none' : 'block';
-    section.setAttribute('aria-hidden', isVisible);
-    if (!isVisible) section.scrollIntoView({behavior: "smooth"});
-}
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const isVisible = section.style.display === 'block';
+        section.style.display = isVisible ? 'none' : 'block';
+        section.setAttribute('aria-hidden', isVisible);
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('year').textContent = new Date().getFullYear();
-});
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('year').textContent = new Date().getFullYear();
+    });
 </script>
 </head>
 <body>
@@ -291,9 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <a href="javascript:void(0);" onclick="toggleSection('inner-circle')">Inner Circle</a>
     <a href="javascript:void(0);" onclick="toggleSection('unity-project')">Explore the Unity Project</a>
     <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
+    <a href="#discord-section">Discord</a>
     <a href="#social">Ports of Call</a>
-    <a href="javascript:void(0);" onclick="toggleSection('discord-section')">Discord</a>
-    <a href="javascript:void(0);" onclick="toggleSection('lore-section')">Lore</a>
 </nav>
 
 <div class="container">
@@ -315,8 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
         <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
         <button onclick="toggleSection('media-section')">View Ship Logs</button>
-        <button onclick="toggleSection('discord-section')">Show Discord</button>
-        <button onclick="toggleSection('lore-section')">Lore</button>
     </div>
 
     <!-- Inner Circle -->
@@ -366,6 +341,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="Pixxel.jpg" alt="Pixxelair Portrait" loading="lazy">
                 <a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
             </div>
+            <!-- Placeholder for additional members -->
+            <div class="unity-member">
+                <img src="placeholder.jpg" alt="Unity Project Member" loading="lazy">
+                <a href="#" target="_blank">Member Name</a>
+            </div>
         </div>
     </div>
 
@@ -389,17 +369,12 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Discord Section -->
     <div id="discord-section" class="section">
         <h2>United Seas Discord</h2>
-        <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        <p style="margin-top:10px;">
-            <a href="https://discord.gg/YourServerInviteHere" target="_blank" class="button-container button">Join the Crew</a>
-        </p>
-    </div>
-
-    <!-- Lore Section -->
-    <div id="lore-section" class="section">
-        <h2>Lore of the United Seas</h2>
-        <h3>Write or Edit Lore:</h3>
-        <textarea id="lore-editor" placeholder="Share your tales of the seas here..."></textarea>
+        <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" 
+            width="350" height="500" allowtransparency="true" frameborder="0"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <div class="button-container" style="margin-top: 20px;">
+            <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
+        </div>
     </div>
 
     <!-- Social Links -->
@@ -415,6 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 </div>
 
+<!-- Scroll to top -->
 <a id="scrollTopAnchor" href="#welcome">⚓</a>
 
 <footer>
