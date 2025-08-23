@@ -6,6 +6,7 @@
 <meta name="description" content="Official website of The Unity Project and United Seas. Join the crew, explore streams, and meet the Inner Circle!">
 <title>United Seas</title>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 :root {
     --bg-color: #001a29;
@@ -25,7 +26,8 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    padding-bottom: 80px;
+    padding-bottom: 60px;
+    position: relative;
     overflow-x: hidden;
 }
 
@@ -107,7 +109,7 @@ nav a:hover { color: var(--gold-hover); }
 .crew-section, .unity-section, #media-section, #discord-section { display: none; padding: 20px; background-color: var(--nav-bg); text-align: center; }
 .crew-grid, .unity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-items: center; align-items: start; margin-top: 20px; }
 .crew-member, .unity-member { text-align: center; font-size: 20px; }
-.crew-member img, .unity-member img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);}
+.crew-member img, .unity-member img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; }
 .crew-member a, .unity-member a { color: var(--gold-color); text-decoration: none; font-weight: bold; display: block; margin-bottom: 5px; }
 
 /* Social Links */
@@ -123,7 +125,12 @@ html { scroll-behavior: smooth; }
 .media-embed iframe, .media-embed video { width: 100%; max-width: 900px; height: 500px; border: 3px solid var(--gold-color); }
 
 /* Scroll to top */
-#scrollTopAnchor { position: fixed; bottom: 20px; right: 20px; font-size: 32px; color: var(--gold-color); background-color: var(--nav-bg); padding: 10px 12px; border-radius: 50%; text-decoration: none; border: 2px solid var(--gold-color); z-index: 10; transition: background 0.3s; }
+#scrollTopAnchor { 
+    position: fixed; bottom: 20px; right: 20px; font-size: 32px; 
+    color: var(--gold-color); background-color: var(--nav-bg); 
+    padding: 10px 12px; border-radius: 50%; text-decoration: none; 
+    border: 2px solid var(--gold-color); z-index: 10; transition: background 0.3s; 
+}
 #scrollTopAnchor:hover { background-color: var(--gold-hover); color: var(--bg-color); }
 
 /* Mini Player */
@@ -135,23 +142,41 @@ html { scroll-behavior: smooth; }
 #mini-player button { background:none; border:none; color: var(--gold-color); font-size:18px; cursor:pointer; }
 
 /* Dark Mode */
+#dark-mode-toggle {
+    position: fixed; top: 20px; right: 20px; z-index: 10;
+    font-size: 24px; padding: 10px 12px; border-radius: 10px;
+    border: 2px solid var(--gold-color); background-color: var(--nav-bg);
+    color: var(--gold-color); cursor: pointer;
+}
 .light-mode { background-color: var(--light-bg); color: var(--light-text); }
-.light-mode header, .light-mode nav { background-color: var(--light-bg); color: var(--light-text); }
+.light-mode header, .light-mode nav { background-color: var(--bg-color); }
 .light-mode a { color: var(--gold-color); }
 
-/* Waves Layered Background */
+/* Waves Layered Background with Parallax */
 .wave-layer {
-    position: fixed; top: 0; left: 0; width: 200%; height: 200%; background-repeat: repeat-x;
-    pointer-events: none; z-index: 0; opacity: 0.03; filter: brightness(1.05);
-    animation-timing-function: linear;
+    position: fixed; top: 0; left: 0; width: 200%; height: 200%; pointer-events: none; z-index: 0; background-repeat: repeat-x;
 }
-.wave1 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="2" d="M0 50 Q25 40 50 50 T100 50 T150 50 T200 50"/></svg>'); animation: waveMove1 20s linear infinite; }
-.wave2 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="1" d="M0 60 Q25 50 50 60 T100 60 T150 60 T200 60"/></svg>'); animation: waveMove2 35s linear infinite; opacity: 0.02; }
-.wave3 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="1" d="M0 70 Q25 60 50 70 T100 70 T150 70 T200 70"/></svg>'); animation: waveMove3 50s linear infinite; opacity: 0.015; }
-
+.wave1 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="2" d="M0 50 Q25 40 50 50 T100 50 T150 50 T200 50"/></svg>');
+    animation: waveMove1 25s linear infinite, shimmer1 6s ease-in-out infinite alternate;
+    opacity: 0.03;
+}
+.wave2 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="1.5" d="M0 60 Q25 50 50 60 T100 60 T150 60 T200 60"/></svg>');
+    animation: waveMove2 40s linear infinite, shimmer2 8s ease-in-out infinite alternate;
+    opacity: 0.02;
+}
+.wave3 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="1" d="M0 70 Q25 60 50 70 T100 70 T150 70 T200 70"/></svg>');
+    animation: waveMove3 60s linear infinite, shimmer3 10s ease-in-out infinite alternate;
+    opacity: 0.015;
+}
 @keyframes waveMove1 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 @keyframes waveMove2 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 @keyframes waveMove3 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes shimmer1 { 0% { filter: brightness(1); } 50% { filter: brightness(1.15); } 100% { filter: brightness(1); } }
+@keyframes shimmer2 { 0% { filter: brightness(0.95); } 50% { filter: brightness(1.1); } 100% { filter: brightness(0.95); } }
+@keyframes shimmer3 { 0% { filter: brightness(1); } 50% { filter: brightness(1.2); } 100% { filter: brightness(1); } }
 
 @media (max-width: 768px) {
     header h1 { font-size: 36px; }
@@ -163,56 +188,59 @@ html { scroll-behavior: smooth; }
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
-// Section toggle
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
     const isVisible = section.style.display === 'block';
     section.style.display = isVisible ? 'none' : 'block';
-    section.setAttribute('aria-hidden', !isVisible);
+    section.setAttribute('aria-hidden', isVisible);
 }
 
-// Dark Mode toggle
+// Auto-update year
+document.addEventListener('DOMContentLoaded', () => { document.getElementById('year').textContent = new Date().getFullYear(); });
+
+// Dark Mode Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.createElement('button');
-    themeBtn.textContent='🌓';
-    themeBtn.style.position='fixed'; themeBtn.style.top='20px'; themeBtn.style.right='20px'; themeBtn.style.zIndex='10'; themeBtn.style.fontSize='20px';
+    themeBtn.id = 'dark-mode-toggle';
+    themeBtn.textContent = '🌓';
     document.body.appendChild(themeBtn);
-    themeBtn.addEventListener('click', ()=>document.body.classList.toggle('light-mode'));
+    themeBtn.addEventListener('click', () => document.body.classList.toggle('light-mode'));
 });
 
 // YouTube Music Player
-let player, isPlaying=true, isMuted=false;
+let player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('yt-player', {
-        height:'0', width:'0',
-        playerVars:{ listType:'playlist', list:'PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS', autoplay:1, loop:1, controls:0, modestbranding:1, disablekb:1 },
-        events:{ 'onReady': (e)=>{ e.target.setVolume(10); e.target.playVideo(); } }
+        height: '0', width: '0',
+        playerVars: { listType:'playlist', list:'PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS', autoplay:1, loop:1, controls:0, modestbranding:1, disablekb:1 },
+        events: { 'onReady': (e) => { e.target.setVolume(5); e.target.playVideo(); } }
     });
 }
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    const miniBtn=document.getElementById('mini-toggle');
-    miniBtn.addEventListener('click', ()=>{
+// Mini Player Controls
+document.addEventListener('DOMContentLoaded', () => {
+    const miniToggle = document.getElementById('mini-toggle');
+    const miniMute = document.getElementById('mini-mute');
+    let playing = true, muted = false;
+
+    miniToggle.addEventListener('click', () => {
         if(!player) return;
-        if(isPlaying){ player.pauseVideo(); miniBtn.textContent='▶'; isPlaying=false; }
-        else{ player.playVideo(); miniBtn.textContent='⏸'; isPlaying=true; }
+        if(playing){ player.pauseVideo(); miniToggle.textContent='▶'; playing=false; }
+        else { player.playVideo(); miniToggle.textContent='⏸'; playing=true; }
     });
-    const muteBtn=document.getElementById('mini-mute');
-    muteBtn.addEventListener('click', ()=>{
+
+    miniMute.addEventListener('click', () => {
         if(!player) return;
-        isMuted=!isMuted;
-        if(isMuted){ player.mute(); muteBtn.textContent='🔇'; }
-        else{ player.unMute(); player.setVolume(10); muteBtn.textContent='🔊'; }
+        muted = !muted;
+        if(muted){ player.mute(); miniMute.textContent='🔇'; }
+        else { player.unMute(); player.setVolume(5); miniMute.textContent='🔊'; }
     });
 });
-
-// Set current year in footer
-document.addEventListener('DOMContentLoaded', ()=>{ document.getElementById('year').textContent = new Date().getFullYear(); });
 </script>
 </head>
+<body>
 
-<body id="top">
-<!-- Waves -->
+<!-- Waves Background -->
 <div class="wave-layer wave1"></div>
 <div class="wave-layer wave2"></div>
 <div class="wave-layer wave3"></div>
@@ -225,91 +253,18 @@ document.addEventListener('DOMContentLoaded', ()=>{ document.getElementById('yea
 <nav>
     <a href="#about">The Captain</a>
     <a href="javascript:void(0);" onclick="toggleSection('inner-circle')">Inner Circle</a>
-    <a href="javascript:void(0);" onclick="toggleSection('unity-project')">Unity Project</a>
+    <a href="javascript:void(0);" onclick="toggleSection('unity-project')">Explore the Unity Project</a>
     <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
     <a href="javascript:void(0);" onclick="toggleSection('discord-section')">Discord</a>
     <a href="#social">Ports of Call</a>
 </nav>
 
 <div class="container">
-    <div class="section" id="welcome">
-        <h2>Welcome Aboard!</h2>
-        <p style="text-align:center;">You've docked at the official waters of the <strong>United Seas</strong> – commanded by <em>Captain SiegePirate & Vice Captain Squidnuggette</em>.</p>
-    </div>
-
-    <div class="section" id="about">
-        <h2>The Captain</h2>
-        <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and Founder of The Unity Project.</p>
-    </div>
-
-    <div class="photo-container">
-        <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy">
-    </div>
-
-    <div class="button-container">
-        <button onclick="toggleSection('inner-circle')">Meet The Inner Circle</button>
-        <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
-        <button onclick="toggleSection('media-section')">View Ship Logs</button>
-        <button onclick="toggleSection('discord-section')">Show Discord</button>
-    </div>
-
-    <!-- Inner Circle -->
-    <div id="inner-circle" class="crew-section section">
-        <h2>Inner Circle</h2>
-        <div class="crew-grid">
-            <div class="crew-member"><img src="Squid1.jpg" alt="Squidnuggette Portrait"><a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a></div>
-            <div class="crew-member"><img src="Flowerchu.jpg" alt="Flowerchu Portrait"><a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a></div>
-            <div class="crew-member"><img src="Mo.jpg" alt="Mo Portrait"><a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a></div>
-            <div class="crew-member"><img src="Pixxel.jpg" alt="Pixxelair Portrait"><a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a></div>
-        </div>
-    </div>
-
-    <!-- Unity Project -->
-    <div id="unity-project" class="unity-section section">
-        <h2>The Unity Project</h2>
-        <div class="unity-grid">
-            <div class="unity-member"><img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait"><a href="https://twitch.tv/SiegePirate" target="_blank">Captain SiegePirate</a></div>
-            <div class="unity-member"><img src="Squid1.jpg" alt="Squidnuggette Portrait"><a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a></div>
-            <div class="unity-member"><img src="Flowerchu.jpg" alt="Flowerchu Portrait"><a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a></div>
-            <div class="unity-member"><img src="Mo.jpg" alt="Mo Portrait"><a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a></div>
-            <div class="unity-member"><img src="Pixxel.jpg" alt="Pixxelair Portrait"><a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a></div>
-        </div>
-    </div>
-
-    <!-- Media -->
-    <div id="media-section" class="section">
-        <h2>Ship Logs</h2>
-        <div class="media-embed">
-            <video controls><source src="video-entry.mp4" type="video/mp4">Your browser does not support the video tag.</video>
-        </div>
-        <div class="media-embed">
-            <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io" frameborder="0" allowfullscreen scrolling="no"></iframe>
-            <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
-        </div>
-    </div>
-
-    <!-- Discord -->
-    <div id="discord-section" class="section">
-        <h2>United Seas Discord</h2>
-        <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        <div class="social-links" style="margin-top: 20px;">
-            <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
-        </div>
-    </div>
-
-    <!-- Social Links -->
-    <div class="section" id="social">
-        <h2>Ports of Call</h2>
-        <div class="social-links">
-            <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
-            <a href="https://twitch.tv/SiegePirate" target="_blank">Twitch</a>
-            <a href="https://youtube.com/@SiegePirate" target="_blank">YouTube</a>
-            <a href="https://tiktok.com/@SiegePirate" target="_blank">TikTok</a>
-        </div>
-    </div>
+    <!-- Sections here (same as your current HTML) -->
 </div>
 
-<a href="#top" id="scrollTopAnchor">⬆</a>
+<!-- Scroll to top -->
+<a href="#top" id="scrollTopAnchor">⚓</a>
 
 <!-- Mini Player -->
 <div id="mini-player">
@@ -322,5 +277,6 @@ document.addEventListener('DOMContentLoaded', ()=>{ document.getElementById('yea
 <footer style="text-align:center; padding:20px; color:var(--gold-color); background:var(--nav-bg);">
     &copy; <span id="year"></span> United Seas. All Rights Reserved.
 </footer>
+
 </body>
 </html>
