@@ -52,7 +52,18 @@ nav a:hover { color: var(--gold-hover); }
 
 .photo-container { text-align: center; margin: 20px 0; }
 .photo-container img { width: 300px; height: 400px; object-fit: cover; object-position: top center; border: 5px solid var(--gold-color); border-radius: 15px; }
-.photo-container img:hover { transform: none; filter: none; }
+
+/* Remove all hover effects on images */
+img, .crew-member img, .unity-member img, .photo-container img {
+    transition: none !important;
+    filter: none !important;
+    transform: none !important;
+}
+
+img:hover, .crew-member img:hover, .unity-member img:hover, .photo-container img:hover {
+    filter: none !important;
+    transform: none !important;
+}
 
 footer { background-color: var(--header-bg); color: var(--gold-color); text-align: center; padding: 20px; transition: background 0.5s, color 0.5s; }
 
@@ -138,7 +149,7 @@ html { scroll-behavior: smooth; }
 
     <div class="section" id="about">
         <h2>The Captain</h2>
-        <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and Founder of The United Seas but also one of the Founders for the True Unity Project. Welcome aboard the ship where everyone has a place in the fleet.</p>
+        <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and Founder of The Unity Project. Welcome aboard the ship where everyone has a place in the fleet.</p>
     </div>
 
     <div class="photo-container">
