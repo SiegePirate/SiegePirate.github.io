@@ -24,6 +24,8 @@ body {
     padding: 0;
     padding-bottom: 60px;
     transition: background 0.5s, color 0.5s;
+    position: relative;
+    overflow-x: hidden;
 }
 
 body.light-mode {
@@ -35,15 +37,40 @@ body.light-mode {
     --text-color: #001a29;
 }
 
-header { background-color: var(--header-bg); padding: 20px; text-align: center; transition: background 0.5s; }
+/* Waves background */
+body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 200%; height: 200%;
+    background-repeat: repeat-x;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="2" d="M0 50 Q25 40 50 50 T100 50 T150 50 T200 50"/></svg>');
+    animation: waveMove 20s linear infinite;
+}
+
+body::after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="1" d="M0 60 Q25 50 50 60 T100 60 T150 60 T200 60"/></svg>');
+    opacity: 0.02;
+    animation: waveMove 35s linear infinite;
+}
+
+@keyframes waveMove { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+header { background-color: var(--header-bg); padding: 20px; text-align: center; transition: background 0.5s; z-index: 1; position: relative; }
 header h1 { margin: 0; color: var(--gold-color); font-family: 'Pirata One', cursive; font-size: 56px; text-transform: uppercase; letter-spacing: 3px; transition: color 0.5s; }
 header p { margin: 5px 0 0; font-size: 20px; }
 
-nav { text-align: center; background-color: var(--nav-bg); padding: 10px; transition: background 0.5s; }
+nav { text-align: center; background-color: var(--nav-bg); padding: 10px; transition: background 0.5s; position: relative; z-index: 1; }
 nav a { color: var(--gold-color); margin: 0 15px; text-decoration: none; font-weight: bold; font-family: 'Pirata One', cursive; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
 nav a:hover { color: var(--gold-hover); }
 
-.container { padding: 20px; max-width: 1200px; margin: 0 auto; }
+.container { padding: 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 .section { margin-bottom: 40px; scroll-margin-top: 80px; }
 .section h2 { border-bottom: 2px solid var(--gold-color); padding-bottom: 10px; font-family: 'Pirata One', cursive; font-size: 36px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-color); text-align: center; }
 .button-container { text-align: center; margin: 20px 0; }
@@ -53,19 +80,11 @@ nav a:hover { color: var(--gold-hover); }
 .photo-container { text-align: center; margin: 20px 0; }
 .photo-container img { width: 300px; height: 400px; object-fit: cover; object-position: top center; border: 5px solid var(--gold-color); border-radius: 15px; }
 
-/* Remove all hover effects on images */
-img, .crew-member img, .unity-member img, .photo-container img {
-    transition: none !important;
-    filter: none !important;
-    transform: none !important;
-}
+/* Remove all hover/glow effects */
+img, .crew-member img, .unity-member img, .photo-container img { transition: none !important; filter: none !important; transform: none !important; }
+img:hover, .crew-member img:hover, .unity-member img:hover, .photo-container img:hover { filter: none !important; transform: none !important; }
 
-img:hover, .crew-member img:hover, .unity-member img:hover, .photo-container img:hover {
-    filter: none !important;
-    transform: none !important;
-}
-
-footer { background-color: var(--header-bg); color: var(--gold-color); text-align: center; padding: 20px; transition: background 0.5s, color 0.5s; }
+footer { background-color: var(--header-bg); color: var(--gold-color); text-align: center; padding: 20px; transition: background 0.5s, color 0.5s; position: relative; z-index: 1; }
 
 .crew-section, .unity-section, #media-section, #discord-section { display: none; padding: 20px; background-color: var(--nav-bg); text-align: center; transition: background 0.5s; }
 .crew-grid, .unity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-items: center; align-items: start; margin-top: 20px; }
@@ -103,16 +122,12 @@ html { scroll-behavior: smooth; }
 #scrollTopAnchor { position: fixed; bottom: 20px; right: 20px; font-size: 32px; color: var(--gold-color); background-color: var(--nav-bg); padding: 10px 12px; border-radius: 50%; text-decoration: none; border: 2px solid var(--gold-color); z-index: 1000; transition: background 0.3s; }
 #scrollTopAnchor:hover { background-color: var(--gold-hover); color: var(--bg-color); }
 
-#theme-toggle, #music-toggle {
-    position: fixed; z-index: 1000; padding: 8px 10px; font-size: 20px; border-radius: 50%; border: 2px solid var(--gold-color); background-color: var(--nav-bg); color: var(--gold-color); cursor: pointer; transition: background 0.3s, color 0.3s;
-}
+#theme-toggle, #music-toggle { position: fixed; z-index: 1000; padding: 8px 10px; font-size: 20px; border-radius: 50%; border: 2px solid var(--gold-color); background-color: var(--nav-bg); color: var(--gold-color); cursor: pointer; transition: background 0.3s, color 0.3s; }
 #theme-toggle:hover, #music-toggle:hover { background-color: var(--gold-hover); color: var(--bg-color); }
 #theme-toggle { top: 20px; right: 20px; }
 #music-toggle { top: 70px; right: 20px; }
 
-#mini-player {
-    position: fixed; bottom: 20px; left: 20px; width: 220px; height: 60px; background-color: var(--nav-bg); border: 2px solid var(--gold-color); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; padding: 5px 10px; font-size: 14px; color: var(--gold-color); z-index: 1000; transition: background 0.5s, color 0.5s;
-}
+#mini-player { position: fixed; bottom: 20px; left: 20px; width: 220px; height: 60px; background-color: var(--nav-bg); border: 2px solid var(--gold-color); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; padding: 5px 10px; font-size: 14px; color: var(--gold-color); z-index: 1000; transition: background 0.5s, color 0.5s; }
 #mini-player button { background: none; border: none; color: var(--gold-color); cursor: pointer; font-size: 18px; }
 #mini-player span { flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
@@ -121,9 +136,51 @@ html { scroll-behavior: smooth; }
     nav a { display: block; margin: 10px 0; }
     .crew-member img, .unity-member img { width: 150px; height: 150px; }
     .photo-container img { width: 200px; height: 300px; }
-    #mini-player { width: 180px; height: 50px; font-size: 12px; }
 }
 </style>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const isVisible = section.style.display === 'block';
+    section.style.display = isVisible ? 'none' : 'block';
+    section.setAttribute('aria-hidden', isVisible);
+}
+
+document.addEventListener('DOMContentLoaded', () => { document.getElementById('year').textContent = new Date().getFullYear(); });
+
+// Dark Mode
+const themeBtn = document.getElementById('theme-toggle');
+themeBtn.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
+
+// YouTube Music
+let player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+        height: '0', width: '0',
+        playerVars: { listType:'playlist', list:'PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS', autoplay:1, loop:1, controls:0, modestbranding:1, disablekb:1 },
+        events: {'onReady': (e) => { e.target.setVolume(5); e.target.playVideo(); } }
+    });
+}
+
+// Music Controls
+const musicBtn = document.getElementById('music-toggle');
+const miniBtn = document.getElementById('mini-play');
+let muted=false, playing=true;
+
+musicBtn.addEventListener('click', () => {
+    if(!player) return;
+    muted = !muted;
+    if(muted){ player.mute(); musicBtn.textContent='🎵'; }
+    else { player.unMute(); player.setVolume(5); musicBtn.textContent='🔊'; }
+});
+
+miniBtn?.addEventListener('click', () => {
+    if(!player) return;
+    if(playing){ player.pauseVideo(); miniBtn.textContent='▶'; playing=false; }
+    else { player.playVideo(); miniBtn.textContent='⏸'; playing=true; }
+});
+</script>
 </head>
 <body>
 
@@ -257,17 +314,13 @@ html { scroll-behavior: smooth; }
 <!-- Scroll to top -->
 <a href="#top" id="scrollTopAnchor">⚓</a>
 
-<!-- Dark mode and music buttons -->
-<button id="theme-toggle" title="Toggle Dark/Light Mode">🌗</button>
-<button id="music-toggle" title="Mute/Unmute Music">🎵</button>
-
 <!-- Mini Player -->
 <div id="mini-player">
     <span id="track-name">United Seas Playlist</span>
-    <button id="mini-play">⏯</button>
+    <button id="mini-play">⏸</button>
 </div>
 
-<!-- YouTube Player -->
+<!-- Hidden YouTube Player -->
 <div style="display:none;">
     <div id="yt-player"></div>
 </div>
@@ -275,66 +328,5 @@ html { scroll-behavior: smooth; }
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
-
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    const isVisible = section.style.display === 'block';
-    section.style.display = isVisible ? 'none' : 'block';
-    section.setAttribute('aria-hidden', isVisible);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('year').textContent = new Date().getFullYear();
-});
-
-// Dark mode toggle
-const themeBtn = document.getElementById('theme-toggle');
-themeBtn.addEventListener('click', () => { document.body.classList.toggle('light-mode'); });
-
-// YouTube Music Player
-let player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player', {
-        height: '0', width: '0',
-        playerVars: {
-            listType:'playlist',
-            list:'PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS',
-            autoplay:1,
-            loop:1,
-            controls:0,
-            modestbranding:1,
-            disablekb:1
-        },
-        events: {'onReady': onPlayerReady}
-    });
-}
-
-function onPlayerReady(event) {
-    event.target.setVolume(5);
-    event.target.playVideo();
-}
-
-// Mini player buttons
-const musicBtn = document.getElementById('music-toggle');
-const miniBtn = document.getElementById('mini-play');
-let muted = false;
-let playing = true;
-
-musicBtn.addEventListener('click', () => {
-    if (!player) return;
-    muted = !muted;
-    if (muted) { player.mute(); musicBtn.textContent = '🎵'; }
-    else { player.unMute(); player.setVolume(5); musicBtn.textContent = '🔊'; }
-});
-
-miniBtn.addEventListener('click', () => {
-    if (!player) return;
-    if (playing) { player.pauseVideo(); miniBtn.textContent='▶'; playing=false; }
-    else { player.playVideo(); miniBtn.textContent='⏸'; playing=true; }
-});
-</script>
-
 </body>
 </html>
