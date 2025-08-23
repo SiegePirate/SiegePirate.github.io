@@ -139,7 +139,7 @@ html { scroll-behavior: smooth; }
     color: var(--gold-color); padding: 10px 12px; border-radius: 10px;
     font-family: 'Pirata One', cursive; z-index: 10; display: flex; align-items: center; gap: 10px;
 }
-#mini-player button { background:none; border:none; color: var(--gold-color); font-size:18px; cursor:pointer; }
+#mini-player span { cursor:pointer; font-size:18px; }
 
 /* Dark Mode */
 #dark-mode-toggle {
@@ -152,23 +152,23 @@ html { scroll-behavior: smooth; }
 .light-mode header, .light-mode nav { background-color: var(--bg-color); }
 .light-mode a { color: var(--gold-color); }
 
-/* Waves Layered Background with Parallax */
+/* Waves Layered Background with Parallax + vertical roll */
 .wave-layer {
     position: fixed; top: 0; left: 0; width: 200%; height: 200%; pointer-events: none; z-index: 0; background-repeat: repeat-x;
 }
 .wave1 {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="2" d="M0 50 Q25 40 50 50 T100 50 T150 50 T200 50"/></svg>');
-    animation: waveMove1 25s linear infinite, shimmer1 6s ease-in-out infinite alternate;
+    animation: waveMove1 25s linear infinite, shimmer1 6s ease-in-out infinite alternate, waveRoll1 12s ease-in-out infinite alternate;
     opacity: 0.03;
 }
 .wave2 {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="1.5" d="M0 60 Q25 50 50 60 T100 60 T150 60 T200 60"/></svg>');
-    animation: waveMove2 40s linear infinite, shimmer2 8s ease-in-out infinite alternate;
+    animation: waveMove2 40s linear infinite, shimmer2 8s ease-in-out infinite alternate, waveRoll2 18s ease-in-out infinite alternate;
     opacity: 0.02;
 }
 .wave3 {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path fill="none" stroke="%23ffffff" stroke-width="1" d="M0 70 Q25 60 50 70 T100 70 T150 70 T200 70"/></svg>');
-    animation: waveMove3 60s linear infinite, shimmer3 10s ease-in-out infinite alternate;
+    animation: waveMove3 60s linear infinite, shimmer3 10s ease-in-out infinite alternate, waveRoll3 25s ease-in-out infinite alternate;
     opacity: 0.015;
 }
 @keyframes waveMove1 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -177,6 +177,9 @@ html { scroll-behavior: smooth; }
 @keyframes shimmer1 { 0% { filter: brightness(1); } 50% { filter: brightness(1.15); } 100% { filter: brightness(1); } }
 @keyframes shimmer2 { 0% { filter: brightness(0.95); } 50% { filter: brightness(1.1); } 100% { filter: brightness(0.95); } }
 @keyframes shimmer3 { 0% { filter: brightness(1); } 50% { filter: brightness(1.2); } 100% { filter: brightness(1); } }
+@keyframes waveRoll1 { 0% { transform: translateX(0) translateY(0); } 100% { transform: translateX(0) translateY(5px); } }
+@keyframes waveRoll2 { 0% { transform: translateX(0) translateY(0); } 100% { transform: translateX(0) translateY(7px); } }
+@keyframes waveRoll3 { 0% { transform: translateX(0) translateY(0); } 100% { transform: translateX(0) translateY(10px); } }
 
 @media (max-width: 768px) {
     header h1 { font-size: 36px; }
@@ -260,7 +263,67 @@ document.addEventListener('DOMContentLoaded', () => {
 </nav>
 
 <div class="container">
-    <!-- Sections here (same as your current HTML) -->
+    <!-- Welcome -->
+    <section id="welcome" class="section">
+        <h2>Welcome Aboard</h2>
+        <p>Ahoy! Join the United Seas crew and explore our world.</p>
+    </section>
+
+    <!-- About / Captain -->
+    <section id="about" class="section">
+        <h2>The Captain</h2>
+        <p>Captain SiegePirate: deranged, chaotic, probably illegal in 17 countries, and occasionally truthful.</p>
+    </section>
+
+    <!-- Photos -->
+    <section id="photos" class="section">
+        <h2>Photo Gallery</h2>
+        <div class="photo-container">
+            <img src="https://via.placeholder.com/300x400" alt="Crew Photo 1">
+            <img src="https://via.placeholder.com/300x400" alt="Crew Photo 2">
+        </div>
+    </section>
+
+    <!-- Inner Circle -->
+    <section id="inner-circle" class="crew-section section">
+        <h2>Inner Circle</h2>
+        <div class="crew-grid">
+            <div class="crew-member"><img src="https://via.placeholder.com/200" alt="Member 1"><a href="#">Squidnuggette</a></div>
+            <div class="crew-member"><img src="https://via.placeholder.com/200" alt="Member 2"><a href="#">Flowerachu</a></div>
+            <div class="crew-member"><img src="https://via.placeholder.com/200" alt="Member 3"><a href="#">Pixxelair</a></div>
+        </div>
+    </section>
+
+    <!-- Unity Project -->
+    <section id="unity-project" class="unity-section section">
+        <h2>The Unity Project</h2>
+        <div class="unity-grid">
+            <div class="unity-member"><img src="https://via.placeholder.com/200" alt="Project 1"><a href="#">Project Alpha</a></div>
+            <div class="unity-member"><img src="https://via.placeholder.com/200" alt="Project 2"><a href="#">Project Beta</a></div>
+        </div>
+    </section>
+
+    <!-- Media / Ship Logs -->
+    <section id="media-section" class="section media-embed">
+        <h2>Ship Logs</h2>
+        <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLd0E1Sq036ozclj8pRYUdrgE7I3--OBtS" title="YouTube Playlist" allowfullscreen></iframe>
+    </section>
+
+    <!-- Discord -->
+    <section id="discord-section" class="section">
+        <h2>Discord</h2>
+        <p>Join our Discord: <a href="#">United Seas Server</a></p>
+    </section>
+
+    <!-- Social Links -->
+    <section id="social" class="section">
+        <h2>Ports of Call</h2>
+        <div class="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
+            <a href="#">Twitch</a>
+        </div>
+    </section>
 </div>
 
 <!-- Scroll to top -->
