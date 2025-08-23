@@ -14,6 +14,13 @@
     --gold-color: #ffb700;
     --gold-hover: #e6a500;
     --text-color: #f4f4f4;
+
+    /* Light theme variables */
+    --light-bg: #f4f4f4;
+    --light-header: #ffffff;
+    --light-nav: #eaeaea;
+    --light-text: #001a29;
+    --light-gold: #cc9900;
 }
 
 body {
@@ -23,12 +30,14 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 60px;
+    transition: background 0.3s, color 0.3s;
 }
 
 header {
     background-color: var(--header-bg);
     padding: 20px;
     text-align: center;
+    transition: background 0.3s, color 0.3s;
 }
 
 header h1 {
@@ -49,6 +58,7 @@ nav {
     text-align: center;
     background-color: var(--nav-bg);
     padding: 10px;
+    transition: background 0.3s;
 }
 
 nav a {
@@ -105,7 +115,7 @@ nav a:hover {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 5px;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .button-container button:hover {
@@ -124,6 +134,7 @@ nav a:hover {
     object-position: top center;
     border: 5px solid var(--gold-color);
     border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 footer {
@@ -131,6 +142,7 @@ footer {
     color: var(--gold-color);
     text-align: center;
     padding: 20px;
+    transition: background 0.3s, color 0.3s;
 }
 
 .crew-section, .unity-section, #media-section, #discord-section {
@@ -138,6 +150,7 @@ footer {
     padding: 20px;
     background-color: var(--nav-bg);
     text-align: center;
+    transition: background 0.3s;
 }
 
 .crew-grid, .unity-grid {
@@ -216,12 +229,41 @@ html {
     text-decoration: none;
     border: 2px solid var(--gold-color);
     z-index: 1000;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 #scrollTopAnchor:hover {
     background-color: var(--gold-hover);
     color: var(--bg-color);
+}
+
+body.light-mode {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+body.light-mode header {
+    background-color: var(--light-header);
+    color: var(--light-gold);
+}
+
+body.light-mode nav {
+    background-color: var(--light-nav);
+}
+
+body.light-mode nav a, body.light-mode .crew-member a, body.light-mode .unity-member a, body.light-mode .social-links a {
+    color: var(--light-gold);
+}
+
+body.light-mode #scrollTopAnchor {
+    background-color: var(--light-nav);
+    color: var(--light-gold);
+    border-color: var(--light-gold);
+}
+
+body.light-mode #scrollTopAnchor:hover {
+    background-color: var(--light-gold);
+    color: var(--light-bg);
 }
 
 @media (max-width: 768px) {
@@ -231,20 +273,45 @@ html {
     .photo-container img { width: 200px; height: 300px; }
 }
 </style>
+
 <script>
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
     const isVisible = section.style.display === 'block';
     section.style.display = isVisible ? 'none' : 'block';
-    section.setAttribute('aria-hidden', isVisible);
+    section.setAttribute('aria-hidden', !isVisible);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
+    generateQuote(); // Initialize pirate quote
 });
+
+// Pirate Quotes Array
+const pirateQuotes = [
+    "A smooth sea never made a skilled pirate.",
+    "Dead men tell no tales, but they inspire legends.",
+    "Keep your powder dry and your rum closer.",
+    "Not all treasure is silver and gold, matey.",
+    "He who fights and runs away lives to plunder another day.",
+    "The sea is as merciless as a pirate with no rum."
+];
+
+// Generate Random Quote
+function generateQuote() {
+    const randomIndex = Math.floor(Math.random() * pirateQuotes.length);
+    document.getElementById('quote').textContent = pirateQuotes[randomIndex];
+}
+
+// Dark/Light Mode Toggle
+function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+}
 </script>
 </head>
 <body>
+
+<div id="top"></div>
 
 <header>
     <h1>United Seas</h1>
@@ -258,12 +325,21 @@ document.addEventListener('DOMContentLoaded', () => {
     <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
     <a href="javascript:void(0);" onclick="toggleSection('discord-section')">Discord</a>
     <a href="#social">Ports of Call</a>
+    <button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
 </nav>
 
 <div class="container">
     <div class="section" id="welcome">
         <h2>Welcome Aboard!</h2>
         <p style="text-align:center;">You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain SiegePirate and Vice Captain Squidnuggette</em>. Grab your gear and join the voyage!</p>
+    </div>
+
+    <div class="section" id="pirate-quotes">
+        <h2>Pirate Wisdom</h2>
+        <p id="quote" style="font-style:italic; font-size:22px; text-align:center;"></p>
+        <div class="button-container">
+            <button onclick="generateQuote()">Give me a Quote!</button>
+        </div>
     </div>
 
     <div class="section" id="about">
@@ -344,8 +420,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="media-embed">
             <h3>Live from the Deck - Twitch Stream</h3>
-            <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen scrolling="no"></iframe>
-            <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
+            <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0" scrolling="no" height="500" width="100%" loading="lazy"></iframe>
         </div>
     </div>
 
@@ -354,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2>United Seas Discord</h2>
         <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" 
             width="350" height="500" allowtransparency="true" frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" loading="lazy"></iframe>
         <div class="social-links" style="margin-top: 20px;">
             <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
         </div>
