@@ -65,7 +65,7 @@ nav a, .dropbtn {
 }
 nav a:hover, .dropbtn:hover { color: var(--gold-hover); }
 
-/* Dropdown integrated in nav */
+/* Dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -75,21 +75,20 @@ nav a:hover, .dropbtn:hover { color: var(--gold-hover); }
     position: absolute;
     top: 100%;
     left: 0;
-    width: 220px;
     background-color: var(--nav-bg);
     border: 2px solid var(--gold-color);
     border-radius: 10px;
-    padding: 10px 0;
+    padding: 5px 0;
+    min-width: 180px;
     z-index: 1000;
 }
 .dropdown-content a, .dropdown-content button {
     display: block;
-    padding: 10px 20px;
+    padding: 5px 15px;
     font-size: 16px;
-    text-decoration: none;
-    color: var(--gold-color);
     background: none;
     border: none;
+    color: var(--gold-color);
     text-align: left;
     cursor: pointer;
 }
@@ -122,7 +121,7 @@ nav a:hover, .dropbtn:hover { color: var(--gold-hover); }
     nav a, .dropbtn { margin: 10px 0; }
     .crew-member img, .unity-member img { width: 150px; height: 150px; }
     .photo-container img { width: 200px; height: 300px; }
-    .dropdown-content { position: static; margin-top: 5px; width: 100%; }
+    .dropdown-content { position: static; width: 100%; margin-top: 5px; border-radius: 10px; }
 }
 </style>
 <script>
@@ -157,8 +156,8 @@ function toggleDropdown() {
     document.querySelector('.dropdown').classList.toggle('active');
 }
 
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
+// close dropdown when clicking outside
+document.addEventListener('click', function(e){
     const dropdown = document.querySelector('.dropdown');
     if (!dropdown.contains(e.target)) {
         dropdown.classList.remove('active');
@@ -314,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 </div>
 
-<a href="#" id="scrollTopAnchor">⚓</a>
+<a href="#top" id="scrollTopAnchor">⚓</a>
 
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
