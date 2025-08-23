@@ -15,259 +15,182 @@
     --gold-hover: #e6a500;
     --text-color: #f4f4f4;
 }
-
 body {
     font-family: 'Raleway', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    padding: 0;
     padding-bottom: 60px;
+    transition: background 0.3s, color 0.3s;
 }
-
-body.dark-mode {
-    --bg-color: #f4f4f4;
-    --header-bg: #e6e6e6;
-    --nav-bg: #cccccc;
-    --text-color: #001a29;
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #001a29;
 }
-
-header, footer, nav {
-    background-color: var(--header-bg);
-}
-
 header {
+    background-color: var(--header-bg);
     padding: 20px;
     text-align: center;
+    position: relative;
 }
-
-header h1 {
-    margin: 0;
-    color: var(--gold-color);
-    font-family: 'Pirata One', cursive;
-    font-size: 56px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    display: inline-block;
+header h1 { 
+    margin: 0; 
+    color: var(--gold-color); 
+    font-family: 'Pirata One', cursive; 
+    font-size: 56px; 
+    text-transform: uppercase; 
 }
-
-header p {
-    margin: 5px 0 0;
-    font-size: 20px;
+header p { 
+    margin:5px 0 0; 
+    font-size: 20px; 
 }
-
-#darkModeToggle {
-    font-size:24px;
-    cursor:pointer;
-    background:none;
-    border:none;
-    color:var(--gold-color);
-    margin-left:15px;
-}
-
 nav {
     text-align: center;
     background-color: var(--nav-bg);
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
 }
-
-nav a {
+nav a, .dropbtn {
     color: var(--gold-color);
-    margin: 0 15px;
     text-decoration: none;
-    font-weight: bold;
     font-family: 'Pirata One', cursive;
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--gold-hover);
-}
-
-.container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section {
-    margin-bottom: 40px;
-    scroll-margin-top: 80px;
-}
-
-.section h2 {
-    border-bottom: 2px solid var(--gold-color);
-    padding-bottom: 10px;
-    font-family: 'Pirata One', cursive;
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--gold-color);
-    text-align: center;
-}
-
-.button-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.button-container button {
-    background-color: var(--gold-color);
-    color: var(--bg-color);
-    border: none;
-    padding: 12px 16px;
-    font-size: 20px;
+    padding: 5px 10px;
     cursor: pointer;
-    font-family: 'Pirata One', cursive;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 5px;
-    transition: background 0.3s;
 }
+nav a:hover, .dropbtn:hover { color: var(--gold-hover); }
 
-.button-container button:hover {
-    background-color: var(--gold-hover);
+/* Dropdown integrated in nav */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
-
-.photo-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.photo-container img {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    object-position: top center;
-    border: 5px solid var(--gold-color);
-    border-radius: 15px;
-}
-
-footer {
-    background-color: var(--header-bg);
-    color: var(--gold-color);
-    text-align: center;
-    padding: 20px;
-}
-
-.crew-section, .unity-section, #media-section, #discord-section, #pirate-quote-section {
+.dropdown-content {
     display: none;
-    padding: 20px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 220px;
     background-color: var(--nav-bg);
-    text-align: center;
-}
-
-.crew-grid, .unity-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    align-items: start;
-    margin-top: 20px;
-}
-
-.crew-member, .unity-member {
-    text-align: center;
-    font-size: 20px;
-}
-
-.crew-member img, .unity-member img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
     border: 2px solid var(--gold-color);
-    margin-bottom: 10px;
-}
-
-.crew-member a, .unity-member a {
-    color: var(--gold-color);
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.social-links {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.social-links a {
-    margin: 0 10px;
-    color: var(--gold-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--gold-hover);
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.media-embed {
-    text-align: center;
-    margin: 20px auto;
-}
-
-.media-embed iframe, .media-embed video {
-    width: 100%;
-    max-width: 900px;
-    height: 500px;
-    border: 3px solid var(--gold-color);
-}
-
-#scrollTopAnchor {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 32px;
-    color: var(--gold-color);
-    background-color: var(--nav-bg);
-    padding: 10px 12px;
-    border-radius: 50%;
-    text-decoration: none;
-    border: 2px solid var(--gold-color);
+    border-radius: 10px;
+    padding: 10px 0;
     z-index: 1000;
-    transition: background 0.3s;
 }
-
-#scrollTopAnchor:hover {
-    background-color: var(--gold-hover);
-    color: var(--bg-color);
+.dropdown-content a, .dropdown-content button {
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--gold-color);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
 }
+.dropdown-content a:hover, .dropdown-content button:hover { color: var(--gold-hover); }
+.dropdown.active .dropdown-content { display: block; }
 
+/* Dark mode button top-left */
+#darkModeBtn { position: absolute; top: 10px; left: 20px; font-size: 28px; cursor: pointer; }
+
+/* Sections */
+.section { display: none; padding: 20px; background-color: var(--nav-bg); text-align: center; }
+.photo-container { text-align: center; margin: 20px 0; }
+.photo-container img { width: 300px; height: 400px; object-fit: cover; object-position: top center; border: 5px solid var(--gold-color); border-radius: 15px; }
+.crew-grid, .unity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-items: center; margin-top: 20px; }
+.crew-member, .unity-member { text-align: center; font-size: 20px; }
+.crew-member img, .unity-member img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 2px solid var(--gold-color); margin-bottom: 10px; }
+.crew-member a, .unity-member a { color: var(--gold-color); text-decoration: none; font-weight: bold; display: block; margin-bottom: 5px; }
+.social-links { text-align: center; margin-top: 10px; }
+.social-links a { margin: 0 10px; color: var(--gold-color); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+.social-links a:hover { color: var(--gold-hover); }
+.media-embed { text-align: center; margin: 20px auto; }
+.media-embed iframe, .media-embed video { width: 100%; max-width: 900px; height: 500px; border: 3px solid var(--gold-color); }
+#scrollTopAnchor { position: fixed; bottom: 20px; right: 20px; font-size: 32px; color: var(--gold-color); background-color: var(--nav-bg); padding: 10px 12px; border-radius: 50%; text-decoration: none; border: 2px solid var(--gold-color); z-index: 1000; }
+#scrollTopAnchor:hover { background-color: var(--gold-hover); color: var(--bg-color); }
+
+/* Mobile */
 @media (max-width: 768px) {
-    header h1 { font-size: 36px; display:block; }
-    nav a { display: block; margin: 10px 0; }
+    header h1 { font-size: 36px; }
+    nav { flex-direction: column; align-items: center; }
+    nav a, .dropbtn { margin: 10px 0; }
     .crew-member img, .unity-member img { width: 150px; height: 150px; }
     .photo-container img { width: 200px; height: 300px; }
-    #darkModeToggle { margin-top:10px; }
+    .dropdown-content { position: static; margin-top: 5px; width: 100%; }
 }
 </style>
+<script>
+// Section toggle
+function toggleSection(id) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(sec => { if(sec.id !== id) sec.style.display = 'none'; });
+    const section = document.getElementById(id);
+    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+}
+
+// Dark mode toggle
+function toggleTheme() { document.body.classList.toggle('light-mode'); }
+
+// Pirate quotes
+const pirateQuotes = [
+    "A smooth sea never made a skilled pirate.",
+    "Dead men tell no tales, but we do.",
+    "Drink up, me hearties, yo ho!",
+    "Not all treasure is silver and gold, mate.",
+    "Raise the anchor or face the plank!",
+    "The wind is a cruel mistress to the timid sailor."
+];
+let currentQuote = 0;
+function nextQuote() {
+    currentQuote = (currentQuote + 1) % pirateQuotes.length;
+    document.getElementById('quote').textContent = pirateQuotes[currentQuote];
+}
+
+// Dropdown toggle
+function toggleDropdown() {
+    document.querySelector('.dropdown').classList.toggle('active');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    const dropdown = document.querySelector('.dropdown');
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('year').textContent = new Date().getFullYear();
+});
+</script>
 </head>
 <body>
 
 <header>
+    <span id="darkModeBtn" onclick="toggleTheme()">🌙</span>
     <h1>United Seas</h1>
-    <button id="darkModeToggle">🌙</button>
     <p>Flagship of Captain SiegePirate</p>
 </header>
 
 <nav>
-    <a href="#about">The Captain</a>
+    <a href="javascript:void(0);" onclick="toggleSection('about')">The Captain</a>
     <a href="javascript:void(0);" onclick="toggleSection('inner-circle')">Inner Circle</a>
     <a href="javascript:void(0);" onclick="toggleSection('unity-project')">Explore the Unity Project</a>
     <a href="javascript:void(0);" onclick="toggleSection('media-section')">Ship Logs</a>
-    <a href="javascript:void(0);" onclick="toggleSection('discord-section')">Discord</a>
-    <a href="#social">Ports of Call</a>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown()">☠️ More</button>
+        <div class="dropdown-content">
+            <a href="javascript:void(0);" onclick="toggleSection('discord-section')">Discord</a>
+            <button onclick="toggleSection('pirate-quotes')">Pirate Quotes</button>
+            <a href="#social">Ports of Call</a>
+        </div>
+    </div>
 </nav>
 
 <div class="container">
@@ -276,9 +199,9 @@ html {
         <p style="text-align:center;">You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain SiegePirate and Vice Captain Squidnuggette</em>. Grab your gear and join the voyage!</p>
     </div>
 
-    <div class="section" id="about">
+    <div id="about" class="section">
         <h2>The Captain</h2>
-        <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and Founder of The United Seas but also one of the Founders for the True Unity Project. Welcome aboard the ship where everyone has a place in the fleet.</p>
+        <p>Ahoy! I'm SiegePirate — Captain of the United Seas, streamer, entertainer, and founder of The United Seas and True Unity Project. Welcome aboard!</p>
     </div>
 
     <div class="photo-container">
@@ -290,6 +213,7 @@ html {
         <button onclick="toggleSection('unity-project')">Explore the Unity Project</button>
         <button onclick="toggleSection('media-section')">View Ship Logs</button>
         <button onclick="toggleSection('discord-section')">Show Discord</button>
+        <button onclick="toggleSection('pirate-quotes')">Pirate Quotes</button>
     </div>
 
     <!-- Inner Circle -->
@@ -371,21 +295,10 @@ html {
     </div>
 
     <!-- Pirate Quotes Section -->
-    <div id="pirate-quote-section" class="section">
-        <h2>Pirate Quote</h2>
-        <p id="pirateQuote" style="font-size:22px; margin-bottom:10px;">Click the button to get your quote!</p>
-        <button onclick="newPirateQuote()">💀 Generate Quote</button>
-    </div>
-
-    <!-- Dropdown Navigation -->
-    <div class="section" style="text-align:center; margin-bottom:40px;">
-        <h2>Navigation Chest</h2>
-        <select id="pirateDropdown" style="font-family:'Pirata One', cursive; font-size:20px; padding:8px 12px; background-color:var(--nav-bg); color:var(--gold-color); border:2px solid var(--gold-color); border-radius:8px; cursor:pointer;">
-            <option value="">⚓ Choose your port ⚓</option>
-            <option value="discord-section">🛡️ Discord</option>
-            <option value="pirate-quote-section">☠️ Pirate Quotes</option>
-            <option value="social">🏴‍☠️ Ports of Call</option>
-        </select>
+    <div id="pirate-quotes" class="section">
+        <h2>Pirate Quotes</h2>
+        <p id="quote" style="font-style:italic;">"A smooth sea never made a skilled pirate."</p>
+        <button onclick="nextQuote()">Next Quote</button>
     </div>
 
     <!-- Social Links -->
@@ -401,75 +314,11 @@ html {
     </div>
 </div>
 
-<!-- Scroll to top -->
-<a href="#top" id="scrollTopAnchor">⚓</a>
+<a href="#" id="scrollTopAnchor">⚓</a>
 
 <footer>
     <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
 </footer>
 
-<script>
-// Toggle Sections
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    const isVisible = section.style.display === 'block';
-    section.style.display = isVisible ? 'none' : 'block';
-    section.setAttribute('aria-hidden', isVisible);
-}
-
-// Scroll to section from dropdown
-const pirateDropdown = document.getElementById('pirateDropdown');
-pirateDropdown.addEventListener('change', () => {
-    const selected = pirateDropdown.value;
-    if(selected){
-        const section = document.getElementById(selected);
-        if(section){
-            section.scrollIntoView({behavior:'smooth'});
-            if(section.style.display === 'none') section.style.display = 'block';
-        }
-    }
-});
-
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-});
-
-// Pirate Quotes
-const pirateQuotes = [
-    "A smooth sea never made a skilled pirate.",
-    "Dead men tell no tales, but live pirates do!",
-    "Yo ho ho and a bottle of rum!",
-    "The sea favors the bold.",
-    "A pirate’s life for me!",
-    "Shiver me timbers!",
-    "Drink up me hearties, yo ho!",
-    "Fortune favors the swashbuckler.",
-    "Raise the anchor and set sail!",
-    "No prey, no pay!",
-    "We sail to live, not live to sail.",
-    "Keep yer powder dry.",
-    "The sea be ours to conquer.",
-    "Steer clear of landlubbers.",
-    "A true pirate fears nothing.",
-    "Gold be me compass.",
-    "Storms make the strongest pirates.",
-    "A ship in harbor is safe, but that’s not what pirates are for.",
-    "Respect be earned, not given.",
-    "Curses be for the faint of heart."
-];
-
-function newPirateQuote(){
-    const randomIndex = Math.floor(Math.random() * pirateQuotes.length);
-    document.getElementById('pirateQuote').textContent = pirateQuotes[randomIndex];
-}
-
-// Set current year
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('year').textContent = new Date().getFullYear();
-});
-</script>
 </body>
 </html>
