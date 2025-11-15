@@ -19,7 +19,7 @@
 /* Base */
 body {
   font-family: 'Raleway', sans-serif;
-  background: linear-gradient(180deg, #001a29 0%, #001f33 100%);
+  background: radial-gradient(circle at 50% 20%, #002a44 0%, #001a29 70%) fixed;
   color: var(--text-color);
   margin: 0;
   padding: 0 0 60px 0;
@@ -27,30 +27,6 @@ body {
   transition: background .3s, color .3s;
   position: relative;
   overflow-x: hidden;
-}
-
-/* Animated ocean background */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 300%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 50% 120%, rgba(0, 40, 60, 0.8) 0%, transparent 70%),
-    repeating-linear-gradient(180deg, #002a44 0px, #001f33 40px, #002a44 80px);
-  background-size: 200% 100%;
-  z-index: -1;
-  animation: waves 30s linear infinite;
-  opacity: 0.4;
-}
-
-/* Gentle wave animation */
-@keyframes waves {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-30%); }
-  100% { transform: translateX(0); }
 }
 
 /* Header */
@@ -68,18 +44,15 @@ header h1 {
   text-shadow: 0 0 15px #ffb70088;
   animation: glowPulse 3s infinite;
 }
-header p {
-  margin: 10px 0 0;
-  font-size: 20px;
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px #ffb70088; }
+  50% { text-shadow: 0 0 25px #ffb700cc; }
 }
+header p { margin: 10px 0 0; font-size: 20px; }
 
 /* Navigation */
-nav {
-  background-color: var(--nav-bg);
-  padding: 15px 0;
-}
-nav a,
-.dropbtn {
+nav { background-color: var(--nav-bg); padding: 15px 0; }
+nav a, .dropbtn {
   color: var(--gold-color);
   margin: 0 15px;
   text-decoration: none;
@@ -92,18 +65,14 @@ nav a,
   border: none;
   cursor: pointer;
 }
-nav a:hover,
-.dropbtn:hover {
+nav a:hover, .dropbtn:hover {
   color: var(--gold-hover);
   text-shadow: 0 0 8px var(--gold-hover);
   transform: scale(1.1);
 }
 
 /* Dropdown */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+.dropdown { position: relative; display: inline-block; }
 .dropdown-content {
   display: none;
   position: absolute;
@@ -115,8 +84,7 @@ nav a:hover,
   z-index: 1000;
   text-align: center;
 }
-.dropdown-content a,
-.dropdown-content button {
+.dropdown-content a, .dropdown-content button {
   display: block;
   width: 100%;
   padding: 10px 0;
@@ -128,38 +96,47 @@ nav a:hover,
   cursor: pointer;
   transition: color 0.3s, transform 0.2s;
 }
-.dropdown-content a:hover,
-.dropdown-content button:hover {
+.dropdown-content a:hover, .dropdown-content button:hover {
   color: var(--gold-hover);
   transform: scale(1.05);
 }
-.dropdown.active .dropdown-content {
-  display: block;
-}
+.dropdown.active .dropdown-content { display: block; }
 
 /* Layout */
-.container {
-  padding: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+.container { padding: 20px; max-width: 1000px; margin: 0 auto; }
 
-/* Section headers */
+/* Collapsible sections */
+.section {
+  margin: 20px auto;
+  border: 2px solid var(--gold-color);
+  border-radius: 12px;
+  background-color: rgba(1, 22, 34, 0.6);
+  overflow: hidden;
+  transition: max-height 0.7s ease, padding 0.5s ease;
+  max-height: 0;
+  padding: 0 20px;
+}
+.section.open {
+  max-height: 1500px;
+  padding: 20px;
+}
 .section h2 {
-  border-bottom: 2px solid var(--gold-color);
-  padding-bottom: 10px;
+  margin: 0;
+  padding: 15px;
+  cursor: pointer;
+  background-color: var(--nav-bg);
+  color: var(--gold-color);
   font-family: 'Pirata One', cursive;
-  font-size: 40px;
+  font-size: 36px;
+  border-bottom: 2px solid var(--gold-color);
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--gold-color);
   text-shadow: 0 0 10px #ffb70066;
 }
+.section h2:hover { background-color: #01293f; }
 
 /* Buttons */
-.button-container {
-  margin: 30px 0;
-}
+.button-container { margin: 30px 0; }
 .button-container button {
   background-color: var(--gold-color);
   color: var(--bg-color);
@@ -179,109 +156,20 @@ nav a:hover,
   transform: scale(1.1);
 }
 
-/* Photo container */
-.photo-container {
-  text-align: center;
-  margin: 30px 0;
-}
-.photo-container img {
-  width: 280px;
-  height: 380px;
-  object-fit: cover;
-  object-position: top center;
-  border: 5px solid var(--gold-color);
-  border-radius: 15px;
-  animation: float 4s ease-in-out infinite;
-}
-
-/* Crew section */
+/* Crew */
 .crew-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
   justify-items: center;
-  margin-top: 30px;
-}
-.crew-member {
-  text-align: center;
-  font-size: 20px;
+  margin-top: 20px;
 }
 .crew-member img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 3px solid var(--gold-color);
-  margin-bottom: 10px;
+  width: 180px; height: 180px;
+  border-radius: 50%; border: 3px solid var(--gold-color);
   animation: float 6s ease-in-out infinite;
 }
-.crew-member a {
-  color: var(--gold-color);
-  text-decoration: none;
-  font-weight: bold;
-  display: block;
-  transition: color .3s, transform .2s;
-}
-.crew-member a:hover {
-  color: var(--gold-hover);
-  transform: scale(1.1);
-}
-
-/* Social links */
-.social-links a {
-  display: inline-block;
-  margin: 0 15px;
-  color: var(--gold-color);
-  font-weight: bold;
-  text-decoration: none;
-  transition: color .3s, transform .3s;
-}
-.social-links a:hover {
-  color: var(--gold-hover);
-  transform: scale(1.2);
-}
-
-/* Media section */
-.media-embed iframe,
-.media-embed video {
-  width: 100%;
-  max-width: 900px;
-  height: 500px;
-  border: 3px solid var(--gold-color);
-  border-radius: 10px;
-}
-
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* Glowing title animation */
-@keyframes glowPulse {
-  0%, 100% { text-shadow: 0 0 10px #ffb70088; }
-  50% { text-shadow: 0 0 25px #ffb700cc; }
-}
-
-/* Scroll to top */
-#scrollTopAnchor {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 32px;
-  color: var(--gold-color);
-  background-color: var(--nav-bg);
-  padding: 10px 12px;
-  border-radius: 50%;
-  text-decoration: none;
-  border: 2px solid var(--gold-color);
-  z-index: 1000;
-  transition: all .3s;
-}
-#scrollTopAnchor:hover {
-  background-color: var(--gold-hover);
-  color: var(--bg-color);
-  transform: scale(1.15);
-}
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
 
 /* Footer */
 footer {
@@ -292,102 +180,87 @@ footer {
   font-family: 'Pirata One', cursive;
   letter-spacing: 1px;
 }
+#scrollTopAnchor {
+  position: fixed; bottom: 20px; right: 20px; font-size: 32px;
+  color: var(--gold-color); background-color: var(--nav-bg);
+  padding: 10px 12px; border-radius: 50%;
+  border: 2px solid var(--gold-color); text-decoration:none;
+  transition: all .3s;
+}
+#scrollTopAnchor:hover { background-color: var(--gold-hover); color: var(--bg-color); transform: scale(1.15); }
 
 /* Mobile */
 @media (max-width: 768px) {
   header h1 { font-size: 42px; }
   .crew-member img { width: 130px; height: 130px; }
-  .photo-container img { width: 200px; height: 280px; }
-  nav a, .dropbtn { display: block; margin: 10px 0; }
 }
 </style>
 
 <script>
-function toggleSection(sectionId){
-  const el = document.getElementById(sectionId);
-  const show = el.style.display !== 'block';
-  el.style.display = show ? 'block' : 'none';
-  el.setAttribute('aria-hidden', !show);
+function toggleSection(id){
+  const section=document.getElementById(id);
+  section.classList.toggle('open');
 }
 function toggleDropdown(){
   document.querySelector('.dropdown').classList.toggle('active');
 }
-document.addEventListener('click', (e)=>{
-  const dd = document.querySelector('.dropdown');
-  if (dd && !dd.contains(e.target)) dd.classList.remove('active');
+document.addEventListener('click', e=>{
+  const dd=document.querySelector('.dropdown');
+  if(dd && !dd.contains(e.target)) dd.classList.remove('active');
 });
-document.addEventListener('DOMContentLoaded', ()=>{
-  const y = document.getElementById('year'); 
-  if (y) y.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded',()=>{
+  const y=document.getElementById('year');
+  if(y) y.textContent=new Date().getFullYear();
 });
 </script>
 </head>
 
 <body>
-
 <header>
   <h1>United Seas</h1>
   <p>Flagship of Captain Siege</p>
 </header>
 
 <nav>
-  <a href="#about">The Captain</a>
+  <a href="javascript:void(0)" onclick="toggleSection('welcome')">Welcome</a>
+  <a href="javascript:void(0)" onclick="toggleSection('about')">The Captain</a>
   <a href="javascript:void(0)" onclick="toggleSection('inner-circle')">Inner Circle</a>
   <a href="javascript:void(0)" onclick="toggleSection('media-section')">Ship Logs</a>
   <span class="dropdown">
     <button class="dropbtn" onclick="toggleDropdown()">☠️ More</button>
     <div class="dropdown-content" role="menu">
-      <button onclick="toggleSection('discord-section'); document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Discord</button>
-      <a href="#social" onclick="document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Ports of Call</a>
+      <button onclick="toggleSection('discord-section');document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Discord</button>
+      <a href="javascript:void(0)" onclick="toggleSection('social');document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Ports of Call</a>
     </div>
   </span>
 </nav>
 
 <div class="container">
   <section id="welcome" class="section">
-    <h2>Welcome Aboard!</h2>
+    <h2 onclick="toggleSection('welcome')">Welcome Aboard!</h2>
     <p>You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain Siege and Vice Captain Squid</em>. Grab your gear and join the voyage!</p>
   </section>
 
   <section id="about" class="section">
-    <h2>The Captain</h2>
+    <h2 onclick="toggleSection('about')">The Captain</h2>
     <p>I am Capt'n Siege, the Captain of the United Seas. Welcome aboard — this is just the start of our voyage!</p>
-  </section>
-
-  <div class="photo-container">
-    <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy" />
-  </div>
-
-  <div class="button-container">
-    <button onclick="toggleSection('inner-circle')">Inner Circle</button>
-    <button onclick="toggleSection('media-section')">Ship Logs</button>
-    <button onclick="toggleSection('discord-section')">Discord</button>
-  </div>
-
-  <section id="inner-circle" class="crew-section section" aria-hidden="true">
-    <h2>Inner Circle</h2>
-    <div class="crew-grid">
-      <div class="crew-member">
-        <img src="Squid1.jpg" alt="Squidnuggette Portrait" />
-        <a href="https://twitch.tv/squidnuggette_xo" target="_blank">Squidnuggette</a>
-      </div>
-      <div class="crew-member">
-        <img src="Flowerchu.jpg" alt="Flowerchu Portrait" />
-        <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
-      </div>
-      <div class="crew-member">
-        <img src="Mo.jpg" alt="Mo Portrait" />
-        <a href="https://www.twitch.tv/mo_la_luz" target="_blank">Mo</a>
-      </div>
-      <div class="crew-member">
-        <img src="Pixxel.jpg" alt="Pixxelair Portrait" />
-        <a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
-      </div>
+    <div class="photo-container">
+      <img src="Modern Siege by Ellow Mello.PNG" alt="Captain Siege Portrait" />
     </div>
   </section>
 
-  <section id="media-section" class="section" aria-hidden="true">
-    <h2>Ship Logs</h2>
+  <section id="inner-circle" class="section">
+    <h2 onclick="toggleSection('inner-circle')">Inner Circle</h2>
+    <div class="crew-grid">
+      <div class="crew-member"><img src="Squid1.jpg" alt="Squidnuggette" /><a href="https://twitch.tv/squidnuggette_xo" target="_blank">Squidnuggette</a></div>
+      <div class="crew-member"><img src="Flowerchu.jpg" alt="Flowerchu" /><a href="https://www.twitch.tv/flowerachu" target="_blank">Momma Flowerchu</a></div>
+      <div class="crew-member"><img src="Mo.jpg" alt="Mo" /><a href="https://www.twitch.tv/mo_la_luz" target="_blank">Mo</a></div>
+      <div class="crew-member"><img src="Pixxel.jpg" alt="Pixxelair" /><a href="https://www.twitch.tv/pixxelair" target="_blank">Pixxelair</a></div>
+    </div>
+  </section>
+
+  <section id="media-section" class="section">
+    <h2 onclick="toggleSection('media-section')">Ship Logs</h2>
     <div class="media-embed">
       <h3>Captain's Log - Video Entry</h3>
       <video controls>
@@ -402,8 +275,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     </div>
   </section>
 
-  <section id="discord-section" class="section" aria-hidden="true">
-    <h2>United Seas Discord</h2>
+  <section id="discord-section" class="section">
+    <h2 onclick="toggleSection('discord-section')">United Seas Discord</h2>
     <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark"
       width="350" height="500" allowtransparency="true" frameborder="0"
       sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
@@ -413,7 +286,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   </section>
 
   <section id="social" class="section">
-    <h2>Ports of Call</h2>
+    <h2 onclick="toggleSection('social')">Ports of Call</h2>
     <div class="social-links">
       <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
       <a href="https://twitch.tv/CaptnSiege" target="_blank">Twitch</a>
@@ -425,10 +298,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 </div>
 
 <a href="#top" id="scrollTopAnchor" aria-label="Back to top">⚓</a>
-
 <footer>
   <p>&copy; <span id="year"></span> United Seas | Captained by Siege. All rights reserved.</p>
 </footer>
-
 </body>
 </html>
