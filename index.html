@@ -25,6 +25,32 @@ body {
   padding: 0 0 60px 0;
   text-align: center;
   transition: background .3s, color .3s;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated ocean background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 50% 120%, rgba(0, 40, 60, 0.8) 0%, transparent 70%),
+    repeating-linear-gradient(180deg, #002a44 0px, #001f33 40px, #002a44 80px);
+  background-size: 200% 100%;
+  z-index: -1;
+  animation: waves 30s linear infinite;
+  opacity: 0.4;
+}
+
+/* Gentle wave animation */
+@keyframes waves {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-30%); }
+  100% { transform: translateX(0); }
 }
 
 /* Header */
@@ -371,8 +397,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     </div>
     <div class="media-embed">
       <h3>Live from the Deck - Twitch Stream</h3>
-      <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=www.theunitedseas.com&autoplay=false" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=www.theunitedseas.com" frameborder="0"></iframe>
+      <iframe src="https://player.twitch.tv/?channel=CaptnSiege&parent=www.theunitedseas.com&autoplay=false" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.twitch.tv/embed/CaptnSiege/chat?parent=www.theunitedseas.com" frameborder="0"></iframe>
     </div>
   </section>
 
@@ -406,4 +432,3 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 </body>
 </html>
-
