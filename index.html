@@ -105,23 +105,17 @@ nav a:hover, .dropbtn:hover {
 /* Layout */
 .container { padding: 20px; max-width: 1000px; margin: 0 auto; }
 
-/* Collapsible sections */
+/* Sections */
 .section {
   margin: 20px auto;
   border: 2px solid var(--gold-color);
   border-radius: 12px;
   background-color: rgba(1, 22, 34, 0.6);
-  overflow: hidden;
-  transition: max-height 0.7s ease, padding 0.5s ease;
-  max-height: 0;
-  padding: 0 20px;
-}
-.section.open {
-  max-height: 1500px;
   padding: 20px;
+  transition: all 0.5s ease;
 }
 .section h2 {
-  margin: 0;
+  margin: 0 0 15px;
   padding: 15px;
   cursor: pointer;
   background-color: var(--nav-bg);
@@ -199,7 +193,7 @@ footer {
 <script>
 function toggleSection(id){
   const section=document.getElementById(id);
-  section.classList.toggle('open');
+  section.classList.toggle('collapsed');
 }
 function toggleDropdown(){
   document.querySelector('.dropdown').classList.toggle('active');
@@ -222,27 +216,27 @@ document.addEventListener('DOMContentLoaded',()=>{
 </header>
 
 <nav>
-  <a href="javascript:void(0)" onclick="toggleSection('welcome')">Welcome</a>
-  <a href="javascript:void(0)" onclick="toggleSection('about')">The Captain</a>
-  <a href="javascript:void(0)" onclick="toggleSection('inner-circle')">Inner Circle</a>
-  <a href="javascript:void(0)" onclick="toggleSection('media-section')">Ship Logs</a>
+  <a href="#welcome">Welcome</a>
+  <a href="#about">The Captain</a>
+  <a href="#inner-circle">Inner Circle</a>
+  <a href="#media-section">Ship Logs</a>
   <span class="dropdown">
     <button class="dropbtn" onclick="toggleDropdown()">☠️ More</button>
     <div class="dropdown-content" role="menu">
-      <button onclick="toggleSection('discord-section');document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Discord</button>
-      <a href="javascript:void(0)" onclick="toggleSection('social');document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Ports of Call</a>
+      <a href="#discord-section" role="menuitem">Discord</a>
+      <a href="#social" role="menuitem">Ports of Call</a>
     </div>
   </span>
 </nav>
 
 <div class="container">
   <section id="welcome" class="section">
-    <h2 onclick="toggleSection('welcome')">Welcome Aboard!</h2>
+    <h2>Welcome Aboard!</h2>
     <p>You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain Siege and Vice Captain Squid</em>. Grab your gear and join the voyage!</p>
   </section>
 
   <section id="about" class="section">
-    <h2 onclick="toggleSection('about')">The Captain</h2>
+    <h2>The Captain</h2>
     <p>I am Capt'n Siege, the Captain of the United Seas. Welcome aboard — this is just the start of our voyage!</p>
     <div class="photo-container">
       <img src="Modern Siege by Ellow Mello.PNG" alt="Captain Siege Portrait" />
@@ -250,17 +244,17 @@ document.addEventListener('DOMContentLoaded',()=>{
   </section>
 
   <section id="inner-circle" class="section">
-    <h2 onclick="toggleSection('inner-circle')">Inner Circle</h2>
+    <h2>Inner Circle</h2>
     <div class="crew-grid">
       <div class="crew-member"><img src="Squid1.jpg" alt="Squidnuggette" /><a href="https://twitch.tv/squidnuggette_xo" target="_blank">Squidnuggette</a></div>
-      <div class="crew-member"><img src="Flowerchu.jpg" alt="Flowerchu" /><a href="https://www.twitch.tv/flowerachu" target="_blank">Momma Flowerchu</a></div>
+      <div class="crew-member"><img src="Flowerchu.jpg" alt="Flowerchu" /><a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a></div>
       <div class="crew-member"><img src="Mo.jpg" alt="Mo" /><a href="https://www.twitch.tv/mo_la_luz" target="_blank">Mo</a></div>
-      <div class="crew-member"><img src="Pixxel.jpg" alt="Pixxelair" /><a href="https://www.twitch.tv/pixxelair" target="_blank">Pixxelair</a></div>
+      <div class="crew-member"><img src="Pixxel.jpg" alt="Pixxelair" /><a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a></div>
     </div>
   </section>
 
   <section id="media-section" class="section">
-    <h2 onclick="toggleSection('media-section')">Ship Logs</h2>
+    <h2>Ship Logs</h2>
     <div class="media-embed">
       <h3>Captain's Log - Video Entry</h3>
       <video controls>
@@ -276,7 +270,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   </section>
 
   <section id="discord-section" class="section">
-    <h2 onclick="toggleSection('discord-section')">United Seas Discord</h2>
+    <h2>United Seas Discord</h2>
     <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark"
       width="350" height="500" allowtransparency="true" frameborder="0"
       sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
@@ -286,7 +280,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   </section>
 
   <section id="social" class="section">
-    <h2 onclick="toggleSection('social')">Ports of Call</h2>
+    <h2>Ports of Call</h2>
     <div class="social-links">
       <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
       <a href="https://twitch.tv/CaptnSiege" target="_blank">Twitch</a>
