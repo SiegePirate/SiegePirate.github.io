@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official website of the United Seas. Join the crew, explore, and meet the Inner Circle!" />
+  <meta name="description" content="The United Seas — a growing community led by Captain Siege. Join a purpose-driven crew united by respect, strength, and shared adventure." />
   <title>The United Seas</title>
 
-  <!-- Classy, readable pirate font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Noble pirate font + readable body font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg-top: #001726;
+      --bg-top: #001623;
       --bg-bottom: #00324a;
-      --nav-bg: #041c2c;
-      --header-bg: #002639;
-      --gold-color: #ffcb52;
+      --nav-bg: #042033;
+      --header-bg: #002d44;
+      --gold-color: #ffd66b;
       --gold-hover: #ffb700;
       --text-color: #f4f4f4;
     }
@@ -26,9 +26,10 @@
       background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) fixed;
       color: var(--text-color);
       margin: 0;
-      padding: 0 0 60px 0;
+      padding: 0;
       text-align: center;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
     /* Header */
@@ -38,28 +39,29 @@
       border-bottom: 2px solid var(--gold-color);
     }
     header h1 {
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel Decorative', serif;
       color: var(--gold-color);
       font-size: 64px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      text-shadow: 0 0 15px rgba(255, 203, 82, 0.7);
+      text-shadow: 0 0 20px rgba(255, 214, 107, 0.8);
     }
     header p {
       margin: 10px 0 0;
       font-size: 20px;
       letter-spacing: 1px;
+      color: #e6e6e6;
     }
 
     /* Navigation */
     nav {
       background-color: var(--nav-bg);
       padding: 15px 0;
-      border-top: 1px solid rgba(255, 203, 82, 0.4);
-      border-bottom: 1px solid rgba(255, 203, 82, 0.4);
+      border-top: 1px solid rgba(255, 214, 107, 0.4);
+      border-bottom: 1px solid rgba(255, 214, 107, 0.4);
     }
     nav a, .dropbtn {
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel Decorative', serif;
       color: var(--gold-color);
       margin: 0 15px;
       text-decoration: none;
@@ -92,12 +94,11 @@
       text-align: center;
     }
     .dropdown.active .dropdown-content { display: block; }
-
     .dropdown-content a, .dropdown-content button {
       display: block;
       width: 100%;
       padding: 10px 0;
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel Decorative', serif;
       font-size: 18px;
       background: none;
       border: none;
@@ -113,61 +114,59 @@
     /* Layout */
     .container {
       padding: 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    /* Section headers */
+    /* Sections */
     .section h2 {
       border-bottom: 2px solid var(--gold-color);
       padding-bottom: 10px;
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel Decorative', serif;
       font-size: 36px;
       text-transform: uppercase;
-      letter-spacing: 2px;
       color: var(--gold-color);
-      text-shadow: 0 0 10px rgba(255, 203, 82, 0.5);
+      text-shadow: 0 0 10px rgba(255, 214, 107, 0.6);
       margin-bottom: 20px;
+    }
+    .section p {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
     }
 
     /* Buttons */
     .button-container {
       margin: 30px 0;
     }
-    .button-container button, .show-btn {
+    .button-container button {
       background-color: var(--gold-color);
       color: var(--bg-top);
       border: none;
-      padding: 14px 20px;
+      padding: 14px 24px;
       font-size: 18px;
       cursor: pointer;
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel Decorative', serif;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 5px;
+      margin: 8px;
       border-radius: 8px;
       transition: all .3s ease;
     }
-    .button-container button:hover, .show-btn:hover {
+    .button-container button:hover {
       background-color: var(--gold-hover);
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     /* Photo container */
-    .photo-container {
-      text-align: center;
-      margin: 30px 0;
-    }
     .photo-container img {
       width: 280px;
       height: 380px;
-      object-fit: cover;
-      border: 5px solid var(--gold-color);
+      border: 4px solid var(--gold-color);
       border-radius: 15px;
+      margin-top: 20px;
       animation: float 4s ease-in-out infinite;
     }
 
-    /* Crew section */
+    /* Crew grid */
     .crew-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -175,13 +174,9 @@
       justify-items: center;
       margin-top: 30px;
     }
-    .crew-member {
-      text-align: center;
-      font-size: 20px;
-    }
     .crew-member img {
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       border: 3px solid var(--gold-color);
       margin-bottom: 10px;
@@ -191,18 +186,12 @@
       color: var(--gold-color);
       text-decoration: none;
       font-weight: bold;
-      display: block;
       transition: color .3s, transform .2s;
     }
-    .crew-member a:hover {
-      color: var(--gold-hover);
-      transform: scale(1.1);
-    }
+    .crew-member a:hover { color: var(--gold-hover); transform: scale(1.05); }
 
-    /* Hidden sections (Discord + Twitch) */
-    #discord-section, #media-section {
-      display: none;
-    }
+    /* Hidden sections */
+    #discord-section, #media-section { display: none; }
 
     /* Floating animation */
     @keyframes float {
@@ -237,14 +226,14 @@
       color: var(--gold-color);
       text-align: center;
       padding: 20px;
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel Decorative', serif;
       letter-spacing: 1px;
     }
 
     /* Mobile */
     @media (max-width: 768px) {
       header h1 { font-size: 42px; }
-      .crew-member img { width: 130px; height: 130px; }
+      .crew-member img { width: 120px; height: 120px; }
       .photo-container img { width: 200px; height: 280px; }
       nav a, .dropbtn { display: block; margin: 10px 0; }
     }
@@ -256,18 +245,15 @@
       const show = el.style.display !== 'block';
       el.style.display = show ? 'block' : 'none';
     }
-
     function toggleDropdown(){
       document.querySelector('.dropdown').classList.toggle('active');
     }
-
     document.addEventListener('click', (e)=>{
       const dd = document.querySelector('.dropdown');
       if (dd && !dd.contains(e.target)) dd.classList.remove('active');
     });
-
     document.addEventListener('DOMContentLoaded', ()=>{
-      const y = document.getElementById('year');
+      const y = document.getElementById('year'); 
       if (y) y.textContent = new Date().getFullYear();
     });
   </script>
@@ -275,83 +261,81 @@
 
 <body>
   <header>
-    <h1>United Seas</h1>
-    <p>Flagship of Captain Siege</p>
+    <h1>The United Seas</h1>
+    <p>For Purpose. For Unity. For Each Other.</p>
   </header>
 
   <nav>
-    <a href="#about">The Captain</a>
-    <a href="javascript:void(0)" onclick="toggleSection('inner-circle')">Inner Circle</a>
+    <a href="#mission">Our Mission</a>
+    <a href="#inner-circle">The Crew</a>
     <span class="dropdown">
       <button class="dropbtn" onclick="toggleDropdown()">☠️ More</button>
-      <div class="dropdown-content" role="menu">
-        <button onclick="toggleSection('media-section'); document.querySelector('.dropdown').classList.remove('active');">Ship Logs</button>
-        <button onclick="toggleSection('discord-section'); document.querySelector('.dropdown').classList.remove('active');">Discord</button>
+      <div class="dropdown-content">
+        <button onclick="toggleSection('media-section'); document.querySelector('.dropdown').classList.remove('active');">Captain’s Updates</button>
+        <button onclick="toggleSection('discord-section'); document.querySelector('.dropdown').classList.remove('active');">Join the Crew</button>
         <a href="#social" onclick="document.querySelector('.dropdown').classList.remove('active');">Ports of Call</a>
       </div>
     </span>
   </nav>
 
   <div class="container">
-    <section id="welcome" class="section">
-      <h2>Welcome Aboard!</h2>
-      <p>You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain Siege and Vice Captain Squid</em>. Grab your gear and join the voyage!</p>
+
+    <section id="mission" class="section">
+      <h2>Our Mission</h2>
+      <p>The United Seas is more than a fleet — it’s a family bound by purpose. We stand for unity, loyalty, and honor. 
+      Whether you sail as a creator, supporter, or guardian, your purpose here matters. Together we build, protect, and inspire — not just on the waves, but in every harbor we touch.</p>
     </section>
 
     <section id="about" class="section">
       <h2>The Captain</h2>
-      <p>I am Capt'n Siege, the Captain of the United Seas. Welcome aboard — this is just the start of our voyage!</p>
+      <p>I am Capt’n Siege, founder of The United Seas. This voyage began as a stream, but it became something greater — a call for those who seek belonging and meaning. You are not just joining a crew, you are becoming part of a purpose.</p>
     </section>
 
     <div class="photo-container">
-      <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy" />
+      <img src="Modern Siege by Ellow Mello.PNG" alt="Captain Siege Portrait" loading="lazy" />
     </div>
 
-    <section id="inner-circle" class="crew-section section">
-      <h2>Inner Circle</h2>
+    <section id="inner-circle" class="section">
+      <h2>The Inner Circle</h2>
       <div class="crew-grid">
         <div class="crew-member">
           <img src="Squid1.jpg" alt="Squidnuggette Portrait" />
-          <a href="https://twitch.tv/squidnuggette_xo" target="_blank">Squidnuggette</a>
+          <a href="https://twitch.tv/squidnuggette_xo" target="_blank">Vice Captain Squidnuggette</a>
         </div>
         <div class="crew-member">
           <img src="Flowerchu.jpg" alt="Flowerchu Portrait" />
-          <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
+          <a href="https://twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
         </div>
         <div class="crew-member">
           <img src="Mo.jpg" alt="Mo Portrait" />
-          <a href="https://www.twitch.tv/mo_la_luz" target="_blank">Mo</a>
+          <a href="https://twitch.tv/mo_la_luz" target="_blank">Mo</a>
         </div>
         <div class="crew-member">
           <img src="Pixxel.jpg" alt="Pixxelair Portrait" />
-          <a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
+          <a href="https://twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
         </div>
       </div>
     </section>
 
-    <!-- Hidden Twitch section -->
     <section id="media-section" class="section">
-      <h2>Ship Logs</h2>
-      <div class="media-embed">
-        <h3>Live from the Deck - Twitch Stream</h3>
-        <iframe src="https://player.twitch.tv/?channel=CaptnSiege&parent=www.theunitedseas.com&autoplay=false" frameborder="0" allowfullscreen></iframe>
-        <iframe src="https://www.twitch.tv/embed/CaptnSiege/chat?parent=www.theunitedseas.com" frameborder="0"></iframe>
-      </div>
+      <h2>Captain’s Updates</h2>
+      <p>Watch live missions, messages, and updates from the deck as our journey unfolds.</p>
+      <iframe src="https://player.twitch.tv/?channel=CaptnSiege&parent=www.theunitedseas.com&autoplay=false" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.twitch.tv/embed/CaptnSiege/chat?parent=www.theunitedseas.com" frameborder="0"></iframe>
     </section>
 
-    <!-- Hidden Discord section -->
     <section id="discord-section" class="section">
-      <h2>United Seas Discord</h2>
-      <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark"
-        width="350" height="500" allowtransparency="true" frameborder="0"
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      <h2>Join the Crew</h2>
+      <p>Every great cause begins with those brave enough to believe. Join our Discord to stand with a purpose — not as followers, but as equals.</p>
+      <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
       <div class="social-links" style="margin-top:20px;">
-        <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
+        <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew on Discord</a>
       </div>
     </section>
 
     <section id="social" class="section">
       <h2>Ports of Call</h2>
+      <p>Explore our official harbors and connect with our crew across the seas.</p>
       <div class="social-links">
         <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
         <a href="https://twitch.tv/CaptnSiege" target="_blank">Twitch</a>
@@ -360,12 +344,13 @@
         <a href="https://patreon.com/SiegePirate" target="_blank">Patreon</a>
       </div>
     </section>
+
   </div>
 
   <a href="#top" id="scrollTopAnchor" aria-label="Back to top">⚓</a>
 
   <footer>
-    <p>&copy; <span id="year"></span> United Seas | Captained by Siege. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> The United Seas | For Purpose and Unity.</p>
   </footer>
 </body>
 </html>
