@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Official website of the United Seas. Join the crew, explore streams, and meet the Inner Circle!" />
-<title>United Seas</title>
+<title>The United Seas</title>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
 <style>
 :root{
@@ -25,10 +25,6 @@ body{
   padding:0 0 60px 0;
   transition:background .3s,color .3s;
 }
-body.light-mode{
-  background:#f4f4f4;
-  color:#001a29;
-}
 
 /* Header */
 header{
@@ -46,15 +42,6 @@ header h1{
   letter-spacing:3px;
 }
 header p{ margin:5px 0 0; font-size:20px; }
-
-/* Dark mode toggle (TOP RIGHT) */
-#darkModeBtn{
-  position:absolute;
-  top:10px;
-  right:20px;
-  font-size:28px;
-  cursor:pointer;
-}
 
 /* Nav */
 nav{
@@ -254,9 +241,6 @@ function toggleSection(sectionId){
   el.setAttribute('aria-hidden', !show);
 }
 
-/* Dark mode */
-function toggleTheme(){ document.body.classList.toggle('light-mode'); }
-
 /* Dropdown controls (click to open/close, click outside to close) */
 function toggleDropdown(){
   document.querySelector('.dropdown').classList.toggle('active');
@@ -276,7 +260,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 <body>
 
 <header>
-  <span id="darkModeBtn" onclick="toggleTheme()" aria-label="Toggle theme">🌙</span>
   <h1>United Seas</h1>
   <p>Flagship of Captain SiegePirate</p>
 </header>
@@ -405,8 +388,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     <h2>Ports of Call</h2>
     <div class="social-links">
       <a href="https://linktr.ee/SiegePirate" target="_blank" rel="noopener">Linktree</a>
-      <a href="https://twitch.tv/SiegePirate" target="_blank" rel="noopener">Twitch</a>
-      <a href="https://youtube.com/@SiegePirate" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://twitch.tv/CaptnSiege" target="_blank" rel="noopener">Twitch</a>
+      <a href="https://youtube.com/@CaptnSiege" target="_blank" rel="noopener">YouTube</a>
       <a href="https://tiktok.com/@SiegePirate" target="_blank" rel="noopener">TikTok</a>
       <a href="https://patreon.com/SiegePirate" target="_blank" rel="noopener">Patreon</a>
     </div>
@@ -417,10 +400,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 <a href="#top" id="scrollTopAnchor" aria-label="Back to top">⚓</a>
 
 <footer>
-  <p>&copy; <span id="year"></span> United Seas | Captained by SiegePirate. All rights reserved.</p>
+  <p>&copy; <span id="year"></span> United Seas | Captained by Siege. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
-
-
