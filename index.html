@@ -168,22 +168,19 @@ nav a:hover,
   animation: float 4s ease-in-out infinite;
 }
 
-/* Crew & Unity sections */
-.crew-grid,
-.unity-grid {
+/* Crew section */
+.crew-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
   justify-items: center;
   margin-top: 30px;
 }
-.crew-member,
-.unity-member {
+.crew-member {
   text-align: center;
   font-size: 20px;
 }
-.crew-member img,
-.unity-member img {
+.crew-member img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -191,16 +188,14 @@ nav a:hover,
   margin-bottom: 10px;
   animation: float 6s ease-in-out infinite;
 }
-.crew-member a,
-.unity-member a {
+.crew-member a {
   color: var(--gold-color);
   text-decoration: none;
   font-weight: bold;
   display: block;
   transition: color .3s, transform .2s;
 }
-.crew-member a:hover,
-.unity-member a:hover {
+.crew-member a:hover {
   color: var(--gold-hover);
   transform: scale(1.1);
 }
@@ -275,7 +270,7 @@ footer {
 /* Mobile */
 @media (max-width: 768px) {
   header h1 { font-size: 42px; }
-  .crew-member img, .unity-member img { width: 130px; height: 130px; }
+  .crew-member img { width: 130px; height: 130px; }
   .photo-container img { width: 200px; height: 280px; }
   nav a, .dropbtn { display: block; margin: 10px 0; }
 }
@@ -288,154 +283,4 @@ function toggleSection(sectionId){
   el.style.display = show ? 'block' : 'none';
   el.setAttribute('aria-hidden', !show);
 }
-function toggleDropdown(){
-  document.querySelector('.dropdown').classList.toggle('active');
-}
-document.addEventListener('click', (e)=>{
-  const dd = document.querySelector('.dropdown');
-  if (dd && !dd.contains(e.target)) dd.classList.remove('active');
-});
-document.addEventListener('DOMContentLoaded', ()=>{
-  const y = document.getElementById('year'); 
-  if (y) y.textContent = new Date().getFullYear();
-});
-</script>
-</head>
-
-<body>
-
-<header>
-  <h1>United Seas</h1>
-  <p>Flagship of Captain Siege</p>
-</header>
-
-<nav>
-  <a href="#about">The Captain</a>
-  <a href="javascript:void(0)" onclick="toggleSection('inner-circle')">Inner Circle</a>
-  <a href="javascript:void(0)" onclick="toggleSection('unity-project')">Unity Project</a>
-  <a href="javascript:void(0)" onclick="toggleSection('media-section')">Ship Logs</a>
-  <span class="dropdown">
-    <button class="dropbtn" onclick="toggleDropdown()">☠️ More</button>
-    <div class="dropdown-content" role="menu">
-      <button onclick="toggleSection('discord-section'); document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Discord</button>
-      <a href="#social" onclick="document.querySelector('.dropdown').classList.remove('active');" role="menuitem">Ports of Call</a>
-    </div>
-  </span>
-</nav>
-
-<div class="container">
-  <section id="welcome" class="section">
-    <h2>Welcome Aboard!</h2>
-    <p>You've docked at the official waters of the <strong>United Seas</strong> – a thriving port commanded by <em>Captain Siege and Vice Captain Squid</em>. Grab your gear and join the voyage!</p>
-  </section>
-
-  <section id="about" class="section">
-    <h2>The Captain</h2>
-    <p>I am Capt'n Siege, the Captain of the United Seas. Welcome aboard — this is just the start of our voyage!</p>
-  </section>
-
-  <div class="photo-container">
-    <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" loading="lazy" />
-  </div>
-
-  <div class="button-container">
-    <button onclick="toggleSection('inner-circle')">Inner Circle</button>
-    <button onclick="toggleSection('unity-project')">Unity Project</button>
-    <button onclick="toggleSection('media-section')">Ship Logs</button>
-    <button onclick="toggleSection('discord-section')">Discord</button>
-  </div>
-
-  <section id="inner-circle" class="crew-section section" aria-hidden="true">
-    <h2>Inner Circle</h2>
-    <div class="crew-grid">
-      <div class="crew-member">
-        <img src="Squid1.jpg" alt="Squidnuggette Portrait" />
-        <a href="https://twitch.tv/squidnuggette_xo" target="_blank">Squidnuggette</a>
-      </div>
-      <div class="crew-member">
-        <img src="Flowerchu.jpg" alt="Flowerchu Portrait" />
-        <a href="https://www.twitch.tv/flowerachu_xl" target="_blank">Momma Flowerchu</a>
-      </div>
-      <div class="crew-member">
-        <img src="Mo.jpg" alt="Mo Portrait" />
-        <a href="https://www.twitch.tv/mo_la_luz" target="_blank">Mo</a>
-      </div>
-      <div class="crew-member">
-        <img src="Pixxel.jpg" alt="Pixxelair Portrait" />
-        <a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="unity-project" class="unity-section section" aria-hidden="true">
-    <h2>The Unity Project</h2>
-    <div class="unity-grid">
-      <div class="unity-member">
-        <img src="Modern Siege by Ellow Mello.PNG" alt="Captain SiegePirate Portrait" />
-        <a href="https://twitch.tv/SiegePirate" target="_blank">Captain SiegePirate</a>
-      </div>
-      <div class="unity-member">
-        <img src="Pixxel.jpg" alt="Pixxelair Portrait" />
-        <a href="https://www.twitch.tv/pixxelair_xl" target="_blank">Pixxelair</a>
-      </div>
-      <div class="unity-member">
-        <img src="Squid1.jpg" alt="Squidnuggette Portrait" />
-        <a href="https://twitch.tv/squidnuggette_xl" target="_blank">Squidnuggette</a>
-      </div>
-      <div class="unity-member">
-        <img src="Mo.jpg" alt="Mo Portrait" />
-        <a href="https://www.twitch.tv/mo_xl" target="_blank">Mo</a>
-      </div>
-      <div class="unity-member">
-        <img src="Flowerchu.jpg" alt="Flowerchu Portrait" />
-        <a href="https://www.twitch.tv/flowerachu" target="_blank">Momma Flowerchu</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="media-section" class="section" aria-hidden="true">
-    <h2>Ship Logs</h2>
-    <div class="media-embed">
-      <h3>Captain's Log - Video Entry</h3>
-      <video controls>
-        <source src="video-entry.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div class="media-embed">
-      <h3>Live from the Deck - Twitch Stream</h3>
-      <iframe src="https://player.twitch.tv/?channel=SiegePirate&parent=siegepirate.github.io&autoplay=false" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.twitch.tv/embed/SiegePirate/chat?parent=siegepirate.github.io" frameborder="0"></iframe>
-    </div>
-  </section>
-
-  <section id="discord-section" class="section" aria-hidden="true">
-    <h2>United Seas Discord</h2>
-    <iframe src="https://discord.com/widget?id=1213490244922511451&theme=dark"
-      width="350" height="500" allowtransparency="true" frameborder="0"
-      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    <div class="social-links" style="margin-top:20px;">
-      <a href="https://discord.gg/TJGPwEtc9b" target="_blank">Join the Crew</a>
-    </div>
-  </section>
-
-  <section id="social" class="section">
-    <h2>Ports of Call</h2>
-    <div class="social-links">
-      <a href="https://linktr.ee/SiegePirate" target="_blank">Linktree</a>
-      <a href="https://twitch.tv/CaptnSiege" target="_blank">Twitch</a>
-      <a href="https://youtube.com/@CaptnSiege" target="_blank">YouTube</a>
-      <a href="https://tiktok.com/@SiegePirate" target="_blank">TikTok</a>
-      <a href="https://patreon.com/SiegePirate" target="_blank">Patreon</a>
-    </div>
-  </section>
-</div>
-
-<a href="#top" id="scrollTopAnchor" aria-label="Back to top">⚓</a>
-
-<footer>
-  <p>&copy; <span id="year"></span> United Seas | Captained by Siege. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+f
