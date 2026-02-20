@@ -96,19 +96,23 @@ body {
 /* MEMBER CARD */
 /* ========================= */
 
-.member-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  padding: 30px;
-  border-radius: 20px;
+/* IMAGE FRAME IMPROVED CONTROL */
+.member-card img {
+  width: 100%;
+  max-width: 320px;       /* Controls max size */
+  height: 420px;          /* Fixed elegant portrait height */
+  object-fit: cover;      /* Crops properly */
+  object-position: center top; /* Focuses slightly upward (good for portraits) */
+  border-radius: 15px;
+  border: 4px solid gold;
+  margin: 0 auto 20px auto;
+  display: block;
   transition: 0.4s ease;
 }
 
-.member-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+.member-card:hover img {
+  transform: scale(1.03);
 }
-
 /* IMAGE FRAME FIX */
 .member-card img {
   width: 100%;
