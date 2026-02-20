@@ -1,3 +1,47 @@
+/* ===== Global Header ===== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 15, 25, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid gold;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.brand a {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8rem;
+  color: gold;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.brand a:hover {
+  text-shadow: 0 0 10px gold;
+}
+
+.main-nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  transition: 0.3s;
+}
+
+.main-nav a:hover {
+  color: gold;
+}
+
+/* Prevent content hiding under fixed header */
+body {
+  padding-top: 100px;
+}
 /* ===== GLOBAL RESET ===== */
 * {
   margin: 0;
