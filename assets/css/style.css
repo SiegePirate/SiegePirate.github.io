@@ -123,6 +123,11 @@ body {
   margin-bottom: 20px;
 }
 
+.captain-photo {
+  max-width: 260px;
+  height: 380px;
+}
+
 /* ========================= */
 /* BUTTON */
 /* ========================= */
