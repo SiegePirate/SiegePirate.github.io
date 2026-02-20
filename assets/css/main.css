@@ -19,24 +19,32 @@ body {
   min-height: 100vh;
 }
 
+/* Header */
+
 header {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
   background: radial-gradient(circle at center, #0a1f33 0%, #03080f 80%);
 }
 
 header h1 {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 56px;
+  font-size: 60px;
   color: var(--gold);
   letter-spacing: 3px;
-  text-shadow: 0 0 20px #ffb70080;
+  text-shadow: 0 0 25px #ffb70080;
 }
+
+header p {
+  margin-top: 15px;
+}
+
+/* Navigation */
 
 nav {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   padding: 20px;
   background: #081625;
 }
@@ -45,7 +53,7 @@ nav a {
   text-decoration: none;
   color: var(--gold);
   font-family: 'Cinzel Decorative', serif;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 nav a:hover {
@@ -53,23 +61,92 @@ nav a:hover {
   transform: scale(1.1);
 }
 
+/* Sections */
+
 .section {
   max-width: 1100px;
-  margin: 80px auto;
+  margin: 100px auto;
   padding: 0 20px;
+  text-align: center;
 }
 
 .section h2 {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 25px;
   border-bottom: 2px solid var(--gold);
   display: inline-block;
 }
 
+/* Portrait Frame */
+
+.portrait-frame {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.portrait-frame img {
+  max-width: 320px;
+  border: 4px solid var(--gold);
+  border-radius: 16px;
+  box-shadow: 0 0 35px rgba(255,183,0,0.4);
+  padding: 8px;
+  background: #081625;
+}
+
+/* Crew */
+
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.crew-card {
+  text-align: center;
+  background: #081625;
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid rgba(255,183,0,0.2);
+  transition: 0.3s ease;
+}
+
+.crew-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-8px);
+}
+
+.crew-card img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  margin-bottom: 15px;
+}
+
+.crew-card h3 {
+  font-family: 'Cinzel Decorative', serif;
+  margin-bottom: 10px;
+}
+
+.crew-card a {
+  text-decoration: none;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.crew-card a:hover {
+  color: var(--gold-soft);
+}
+
+/* Footer */
+
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 40px;
   background: #081625;
   color: var(--gold);
+  margin-top: 100px;
 }
