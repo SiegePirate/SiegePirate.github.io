@@ -1,1 +1,128 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(180deg, #001a29 0%, #000f1a 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* ===== FONTS ===== */
+h1, h2, h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: #ffb700;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: sticky;
+  top: 0;
+  background: #011622;
+  padding: 15px;
+  text-align: center;
+  z-index: 999;
+  border-bottom: 2px solid #ffb700;
+}
+
+nav a {
+  color: #ffb700;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #ffb700;
+}
+
+/* ===== PAGE SECTION ===== */
+.page-section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ===== IMAGE FRAMES ===== */
+.portrait-frame {
+  border: 6px solid #ffb700;
+  padding: 10px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 0 25px rgba(255, 183, 0, 0.4);
+  margin: 20px 0;
+}
+
+.portrait-frame img {
+  width: 260px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ===== CREW GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.member-card {
+  padding: 20px;
+  border: 2px solid #ffb700;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #ffb700;
+}
+
+.member-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffb700;
+  margin-bottom: 15px;
+}
+
+/* ===== BUTTON ===== */
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ffb700;
+  color: #001a29;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #fff;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 80px;
+  padding: 30px;
+  background: #011622;
+  border-top: 2px solid #ffb700;
+  text-align: center;
+}
