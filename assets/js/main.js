@@ -1,3 +1,3 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("The United Seas is live.");
+  console.log("The United Seas sails strong.");
 });
