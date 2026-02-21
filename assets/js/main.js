@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // Auto copyright year
+  // Auto year
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // Secret click logic
+  // Secret logic
   const captainLink = document.getElementById("captain-link");
   const secretSection = document.getElementById("secret-section");
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (clickCount >= 5) {
         e.preventDefault();
-        secretSection.style.display = "block";
+        secretSection.hidden = false;
         secretSection.scrollIntoView({ behavior: "smooth" });
       }
     });
