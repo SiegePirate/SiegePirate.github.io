@@ -160,6 +160,24 @@ footer {
 }
 
 /* ========================= */
+/* SECRET AREA */
+/* ========================= */
+
+.secret-section {
+  border-top: 2px solid gold;
+  margin-top: 100px;
+  padding-top: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.secret-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================= */
 /* OCEAN + SHIP */
 /* ========================= */
 
@@ -187,19 +205,4 @@ footer {
 @keyframes sail {
   from { left: -350px; }
   to { left: 110%; }
-}
-/* ========================= */
-/* SECRET AREA */
-/* ========================= */
-
-.secret-section {
-  display: none;
-  border-top: 2px solid gold;
-  margin-top: 100px;
-  animation: fadeIn 1.2s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
